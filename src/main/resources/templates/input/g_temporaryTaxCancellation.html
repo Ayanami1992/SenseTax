@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/g_temporaryTaxCancellation.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/g_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[G]　仮払税金消却</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">
+							</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<label for="g_i162">◇　仮払税金を消却する仕訳を入れた場合、消却額を入力してください。</label>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="g_i162">仕訳：　未払法人税等　／　仮払税金</label>
+									<div class="col-sm-3">
+										<input type="number" id="g_i162" class="form-control form-control-sm text-right" name="g_i162" v-model.number="form.g_i162">
+									</div>
+								</div>
+								<label for="g_i165">◇　租税公課で仮払税金を消却する場合、消却額を入力してください。</label>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="g_i165">仕訳：　租税公課　／　仮払税金</label>
+									<div class="col-sm-3">
+										<input type="number" id="g_i165" class="form-control form-control-sm text-right" name="g_i165" v-model.number="form.g_i165">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="g_i167">結果：　消却できなかった仮払税金</label>
+									<label class="col-sm-3 label-control text-right" >{{form.g_i167}}</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

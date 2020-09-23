@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/n_donation.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/n_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[N]　寄付金</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《指定寄附金等に関する明細》→国又は地方公共団体や財務大臣の指定したもの<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th><label class="label-control">№</label></th>
+							        <th><label class="label-control">寄付した日</label></th>
+							        <th><label class="label-control">寄付先</label></th>
+							        <th><label class="label-control">告示番号</label></th>
+							        <th><label class="label-control">寄附金の使途</label></th>
+							        <th><label class="label-control">寄附金額</label></th>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">1</label></th>
+							        <td><input type="date" id="n_c282" class="form-control form-control-sm" name="n_c282" v-model="form.n_c282"></td>
+							        <td><input type="text" id="n_e282" class="form-control form-control-sm" name="n_e282" v-model="form.n_e282"></td>
+							        <td><input type="text" id="n_i282" class="form-control form-control-sm" name="n_i282" v-model="form.n_i282"></td>
+							        <td><input type="text" id="n_k282" class="form-control form-control-sm" name="n_k282" v-model="form.n_k282"></td>
+							        <td><input type="number" id="n_p282" class="form-control form-control-sm text-right" name="n_p282" v-model.number="form.n_p282"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">2</label></th>
+							        <td><input type="date" id="n_c283" class="form-control form-control-sm" name="n_c283" v-model="form.n_c283"></td>
+							        <td><input type="text" id="n_e283" class="form-control form-control-sm" name="n_e283" v-model="form.n_e283"></td>
+							        <td><input type="text" id="n_i283" class="form-control form-control-sm" name="n_i283" v-model="form.n_i283"></td>
+							        <td><input type="text" id="n_k283" class="form-control form-control-sm" name="n_k283" v-model="form.n_k283"></td>
+							        <td><input type="number" id="n_p283" class="form-control form-control-sm text-right" name="n_p283" v-model.number="form.n_p283"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">3</label></th>
+							        <td><input type="date" id="n_c284" class="form-control form-control-sm" name="n_c284" v-model="form.n_c284"></td>
+							        <td><input type="text" id="n_e284" class="form-control form-control-sm" name="n_e284" v-model="form.n_e284"></td>
+							        <td><input type="text" id="n_i284" class="form-control form-control-sm" name="n_i284" v-model="form.n_i284"></td>
+							        <td><input type="text" id="n_k284" class="form-control form-control-sm" name="n_k284" v-model="form.n_k284"></td>
+							        <td><input type="number" id="n_p284" class="form-control form-control-sm text-right" name="n_p284" v-model.number="form.n_p284"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《特定公益増進法人に対する寄附金又は認定特定公益信託に対する支出金の明細》　例：日本育英会や宇宙開発事業団など<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th><label class="label-control">№</label></th>
+							        <th><label class="label-control">寄附した日又は支出した日</label></th>
+							        <th><label class="label-control">寄附先又は受託者</label></th>
+							        <th><label class="label-control">所在地</label></th>
+							        <th><label class="label-control">寄附金の使途又は認定特定公益信託の名称</label></th>
+							        <th><label class="label-control">寄附金額又は支出金額</label></th>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">1</label></th>
+							        <td><input type="date" id="n_c289" class="form-control form-control-sm" name="n_c289" v-model="form.n_c289"></td>
+							        <td><input type="text" id="n_e289" class="form-control form-control-sm" name="n_e289" v-model="form.n_e289"></td>
+							        <td><input type="text" id="n_g289" class="form-control form-control-sm" name="n_g289" v-model="form.n_g289"></td>
+							        <td><input type="text" id="n_k289" class="form-control form-control-sm" name="n_k289" v-model="form.n_k289"></td>
+							        <td><input type="number" id="n_p289" class="form-control form-control-sm text-right" name="n_p289" v-model.number="form.n_p289"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">2</label></th>
+							        <td><input type="date" id="n_c290" class="form-control form-control-sm" name="n_c290" v-model="form.n_c290"></td>
+							        <td><input type="text" id="n_e290" class="form-control form-control-sm" name="n_e290" v-model="form.n_e290"></td>
+							        <td><input type="text" id="n_g290" class="form-control form-control-sm" name="n_g290" v-model="form.n_g290"></td>
+							        <td><input type="text" id="n_k290" class="form-control form-control-sm" name="n_k290" v-model="form.n_k290"></td>
+							        <td><input type="number" id="n_p290" class="form-control form-control-sm text-right" name="n_p290" v-model.number="form.n_p290"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">3</label></th>
+							        <td><input type="date" id="n_c291" class="form-control form-control-sm" name="n_c291" v-model="form.n_c291"></td>
+							        <td><input type="text" id="n_e291" class="form-control form-control-sm" name="n_e291" v-model="form.n_e291"></td>
+							        <td><input type="text" id="n_g291" class="form-control form-control-sm" name="n_g291" v-model="form.n_g291"></td>
+							        <td><input type="text" id="n_k291" class="form-control form-control-sm" name="n_k291" v-model="form.n_k291"></td>
+							        <td><input type="number" id="n_p291" class="form-control form-control-sm text-right" name="n_p291" v-model.number="form.n_p291"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《その他の寄附金のうち特定公益信託（認定特定公益信託を除く。）に対する支出金の明細》<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th><label class="label-control">№</label></th>
+							        <th><label class="label-control">支出した日</label></th>
+							        <th><label class="label-control">受託者</label></th>
+							        <th><label class="label-control">所在地</label></th>
+							        <th><label class="label-control">特定公益信託の名称</label></th>
+							        <th><label class="label-control">支出金額</label></th>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">1</label></th>
+							        <td><input type="date" id="n_c296" class="form-control form-control-sm" name="n_c296" v-model="form.n_c296"></td>
+							        <td><input type="text" id="n_e296" class="form-control form-control-sm" name="n_e296" v-model="form.n_e296"></td>
+							        <td><input type="text" id="n_h296" class="form-control form-control-sm" name="n_h296" v-model="form.n_h296"></td>
+							        <td><input type="text" id="n_m296" class="form-control form-control-sm" name="n_m296" v-model="form.n_m296"></td>
+							        <td><input type="number" id="n_p296" class="form-control form-control-sm text-right" name="n_p296" v-model.number="form.n_p296"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">2</label></th>
+							        <td><input type="date" id="n_c297" class="form-control form-control-sm" name="n_c297" v-model="form.n_c297"></td>
+							        <td><input type="text" id="n_e297" class="form-control form-control-sm" name="n_e297" v-model="form.n_e297"></td>
+							        <td><input type="text" id="n_h297" class="form-control form-control-sm" name="n_h297" v-model="form.n_h297"></td>
+							        <td><input type="text" id="n_m297" class="form-control form-control-sm" name="n_m297" v-model="form.n_m297"></td>
+							        <td><input type="number" id="n_p297" class="form-control form-control-sm text-right" name="n_p297" v-model.number="form.n_p297"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">3</label></th>
+							        <td><input type="date" id="n_c298" class="form-control form-control-sm" name="n_c298" v-model="form.n_c298"></td>
+							        <td><input type="text" id="n_e298" class="form-control form-control-sm" name="n_e298" v-model="form.n_e298"></td>
+							        <td><input type="text" id="n_h298" class="form-control form-control-sm" name="n_h298" v-model="form.n_h298"></td>
+							        <td><input type="text" id="n_m298" class="form-control form-control-sm" name="n_m298" v-model="form.n_m298"></td>
+							        <td><input type="number" id="n_p298" class="form-control form-control-sm text-right" name="n_p298" v-model.number="form.n_p298"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title">
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">上記以外の寄附金（一般）</label>
+									<div class="col-sm-3">
+										<input type="number" id="n_h301" class="form-control form-control-sm" name="n_h301" v-model.number="form.n_h301">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h302">完全支配関係法人への寄付金額</label>
+									<div class="col-sm-3">
+										<input type="number" id="n_h302" class="form-control form-control-sm" name="n_h302" v-model.number="form.n_h302">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h303">国外関連者への寄附金額</label>
+									<div class="col-sm-3">
+										<input type="number" id="n_h303" class="form-control form-control-sm" name="n_h303" v-model.number="form.n_h303">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

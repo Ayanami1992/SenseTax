@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/o_loanAllowance.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/o_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[O]　貸倒引当金</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">個別に貸倒引当金を設定する場合（別表11（1）への記載）</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">
+							</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+								<table class="table text-center">
+									<tbody>
+										<tr>
+											<th rowspan="6" class="vertical"><label class="label-control">債務者等</label></th>
+											<th><label class="label-control">（1）</label></th>
+											<th ><label class="label-control">住所</label></th>
+											<td><input type="text" id="o_g308" class="form-control form-control-sm" name="o_g308" v-model="form.o_g308"></td>
+											<td><input type="text" id="o_k308" class="form-control form-control-sm" name="o_k308" v-model="form.o_k308"></td>
+											<td><input type="text" id="o_o308" class="form-control form-control-sm" name="o_o308" v-model="form.o_o308"></td>
+											<td><input type="text" id="o_s308" class="form-control form-control-sm" name="o_s308" v-model="form.o_s308"></td>
+										</tr>
+										<tr>
+											<th rowspan="2" style="vertical-align: middle;"><label class="label-control">（2）</label></th>
+											<th><label class="label-control">氏名</label></th>
+											<td><input type="text" id="o_g310" class="form-control form-control-sm" name="o_g310" v-model="form.o_g310"></td>
+											<td><input type="text" id="o_k310" class="form-control form-control-sm" name="o_k310" v-model="form.o_k310"></td>
+											<td><input type="text" id="o_o310" class="form-control form-control-sm" name="o_o310" v-model="form.o_o310"></td>
+											<td><input type="text" id="o_s310" class="form-control form-control-sm" name="o_s310" v-model="form.o_s310"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">外国政府等</label></th>
+											<td><input type="text" id="o_g312" class="form-control form-control-sm" name="o_g312" v-model="form.o_g312"></td>
+											<td><input type="text" id="o_k312" class="form-control form-control-sm" name="o_k312" v-model="form.o_k312"></td>
+											<td><input type="text" id="o_o312" class="form-control form-control-sm" name="o_o312" v-model="form.o_o312"></td>
+											<td><input type="text" id="o_s312" class="form-control form-control-sm" name="o_s312" v-model="form.o_s312"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（3）</label></th>
+											<th><label class="label-control">個別評価事由</label></th>
+											<td>
+												<div class="input-group input-group-sm">
+													<input type="text" id="o_g313" class="form-control" name="o_g313" v-model="form.o_g313">
+													<span class="input-group-text">号</span>
+													<input type="text" id="o_i313" class="form-control" name="o_i313" v-model="form.o_i313">
+													<div class="input-group-append">
+														<span class="input-group-text">該当</span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" id="o_k313" class="form-control form-control-sm" name="o_k313" v-model="form.o_k313">
+													<span class="input-group-text">号</span>
+													<input type="text" id="o_m313" class="form-control form-control-sm" name="o_m313" v-model="form.o_m313">
+													<div class="input-group-append">
+														<span class="input-group-text">該当</span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" id="o_o313" class="form-control form-control-sm" name="o_o313" v-model="form.o_o313">
+													<span class="input-group-text">号</span>
+													<input type="text" id="o_q313" class="form-control form-control-sm" name="o_q313" v-model="form.o_q313">
+													<div class="input-group-append">
+														<span class="input-group-text">該当</span>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="input-group">
+													<input type="text" id="o_s313" class="form-control form-control-sm" name="o_s313" v-model="form.o_s313">
+													<span class="input-group-text">号</span>
+													<input type="text" id="o_u313" class="form-control form-control-sm" name="o_u313" v-model="form.o_u313">
+													<div class="input-group-append">
+														<span class="input-group-text">該当</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（4）</label></th>
+											<th><label class="label-control">発生時期</label></th>
+											<td><input type="text" id="o_g314" class="form-control form-control-sm" name="o_g314" v-model="form.o_g314"></td>
+											<td><input type="text" id="o_k314" class="form-control form-control-sm" name="o_k314" v-model="form.o_k314"></td>
+											<td><input type="text" id="o_o314" class="form-control form-control-sm" name="o_o314" v-model="form.o_o314"></td>
+											<td><input type="text" id="o_s314" class="form-control form-control-sm" name="o_s314" v-model="form.o_s314"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（5）</label></th>
+											<th><label class="label-control">当期繰入額</label></th>
+											<td><input type="text" id="o_g315" class="form-control form-control-sm" name="o_g315" v-model="form.o_g315"></td>
+											<td><input type="text" id="o_k315" class="form-control form-control-sm" name="o_k315" v-model="form.o_k315"></td>
+											<td><input type="text" id="o_o315" class="form-control form-control-sm" name="o_o315" v-model="form.o_o315"></td>
+											<td><input type="text" id="o_s315" class="form-control form-control-sm" name="o_s315" v-model="form.o_s315"></td>
+										</tr>
+										<tr>
+											<th rowspan="6" class="vertical"><label class="label-control">繰入限度額の計算</label></th>
+											<th><label class="label-control">（6）</label></th>
+											<th><label class="label-control">個別金銭債権額</label></th>
+											<td><input type="text" id="o_g316" class="form-control form-control-sm" name="o_g316" v-model="form.o_g316"></td>
+											<td><input type="text" id="o_k316" class="form-control form-control-sm" name="o_k316" v-model="form.o_k316"></td>
+											<td><input type="text" id="o_o316" class="form-control form-control-sm" name="o_o316" v-model="form.o_o316"></td>
+											<td><input type="text" id="o_s316" class="form-control form-control-sm" name="o_s316" v-model="form.o_s316"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（7）</label></th>
+											<th><label class="label-control">5年以内弁済額</label></th>
+											<td><input type="text" id="o_g317" class="form-control form-control-sm" name="o_g317" v-model="form.o_g317"></td>
+											<td><input type="text" id="o_k317" class="form-control form-control-sm" name="o_k317" v-model="form.o_k317"></td>
+											<td><input type="text" id="o_o317" class="form-control form-control-sm" name="o_o317" v-model="form.o_o317"></td>
+											<td><input type="text" id="o_s317" class="form-control form-control-sm" name="o_s317" v-model="form.o_s317"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（8）</label></th>
+											<th><label class="label-control">担保権による取立</label></th>
+											<td><input type="text" id="o_g318" class="form-control form-control-sm" name="o_g318" v-model="form.o_g318"></td>
+											<td><input type="text" id="o_k318" class="form-control form-control-sm" name="o_k318" v-model="form.o_k318"></td>
+											<td><input type="text" id="o_o318" class="form-control form-control-sm" name="o_o318" v-model="form.o_o318"></td>
+											<td><input type="text" id="o_s318" class="form-control form-control-sm" name="o_s318" v-model="form.o_s318"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（9）</label></th>
+											<th><label class="label-control">他の者の保証取立</label></th>
+											<td><input type="text" id="o_g319" class="form-control form-control-sm" name="o_g319" v-model="form.o_g319"></td>
+											<td><input type="text" id="o_k319" class="form-control form-control-sm" name="o_k319" v-model="form.o_k319"></td>
+											<td><input type="text" id="o_o319" class="form-control form-control-sm" name="o_o319" v-model="form.o_o319"></td>
+											<td><input type="text" id="o_s319" class="form-control form-control-sm" name="o_s319" v-model="form.o_s319"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（10）</label></th>
+											<th><label class="label-control">その他の取立</label></th>
+											<td><input type="text" id="o_g320" class="form-control form-control-sm" name="o_g320" v-model="form.o_g320"></td>
+											<td><input type="text" id="o_k320" class="form-control form-control-sm" name="o_k320" v-model="form.o_k320"></td>
+											<td><input type="text" id="o_o320" class="form-control form-control-sm" name="o_o320" v-model="form.o_o320"></td>
+											<td><input type="text" id="o_s320" class="form-control form-control-sm" name="o_s320" v-model="form.o_s320"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（12）</label></th>
+											<th><label class="label-control">実質債権否認</label></th>
+											<td><input type="text" id="o_g321" class="form-control form-control-sm" name="o_g321" v-model="form.o_g321"></td>
+											<td><input type="text" id="o_k321" class="form-control form-control-sm" name="o_k321" v-model="form.o_k321"></td>
+											<td><input type="text" id="o_o321" class="form-control form-control-sm" name="o_o321" v-model="form.o_o321"></td>
+											<td><input type="text" id="o_s321" class="form-control form-control-sm" name="o_s321" v-model="form.o_s321"></td>
+										</tr>
+
+										<tr>
+											<th rowspan="5" class="vertical"><label class="label-control">貸倒実績率の計算</label></th>
+											<th><label class="label-control">（20）</label></th>
+											<th><label class="label-control">貸倒損失加算額</label></th>
+											<td><input type="text" id="o_g322" class="form-control form-control-sm" name="o_g322" v-model="form.o_g322"></td>
+											<td><input type="text" id="o_k322" class="form-control form-control-sm" name="o_k322" v-model="form.o_k322"></td>
+											<td><input type="text" id="o_o322" class="form-control form-control-sm" name="o_o322" v-model="form.o_o322"></td>
+											<td><input type="text" id="o_s322" class="form-control form-control-sm" name="o_s322" v-model="form.o_s322"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（21）</label></th>
+											<th><label class="label-control">前期個別債権の額</label></th>
+											<td><input type="text" id="o_g323" class="form-control form-control-sm" name="o_g323" v-model="form.o_g323"></td>
+											<td><input type="text" id="o_k323" class="form-control form-control-sm" name="o_k323" v-model="form.o_k323"></td>
+											<td><input type="text" id="o_o323" class="form-control form-control-sm" name="o_o323" v-model="form.o_o323"></td>
+											<td><input type="text" id="o_s323" class="form-control form-control-sm" name="o_s323" v-model="form.o_s323"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（22）</label></th>
+											<th><label class="label-control">（21）が売掛債権額</label></th>
+											<td><input type="text" id="o_g324" class="form-control form-control-sm" name="o_g324" v-model="form.o_g324"></td>
+											<td><input type="text" id="o_k324" class="form-control form-control-sm" name="o_k324" v-model="form.o_k324"></td>
+											<td><input type="text" id="o_o324" class="form-control form-control-sm" name="o_o324" v-model="form.o_o324"></td>
+											<td><input type="text" id="o_s324" class="form-control form-control-sm" name="o_s324" v-model="form.o_s324"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（23）</label></th>
+											<th><label class="label-control">（22）が貸倒れ</label></th>
+											<td><input type="text" id="o_g325" class="form-control form-control-sm" name="o_g325" v-model="form.o_g325"></td>
+											<td><input type="text" id="o_k325" class="form-control form-control-sm" name="o_k325" v-model="form.o_k325"></td>
+											<td><input type="text" id="o_o325" class="form-control form-control-sm" name="o_o325" v-model="form.o_o325"></td>
+											<td><input type="text" id="o_s325" class="form-control form-control-sm" name="o_s325" v-model="form.o_s325"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">（24）</label></th>
+											<th><label class="label-control">（22）個別評価対象</label></th>
+											<td><input type="text" id="o_g326" class="form-control form-control-sm" name="o_g326" v-model="form.o_g326"></td>
+											<td><input type="text" id="o_k326" class="form-control form-control-sm" name="o_k326" v-model="form.o_k326"></td>
+											<td><input type="text" id="o_o326" class="form-control form-control-sm" name="o_o326" v-model="form.o_o326"></td>
+											<td><input type="text" id="o_s326" class="form-control form-control-sm" name="o_s326" v-model="form.o_s326"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+
+				</div>
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">一括で貸倒引当金を設定する場合（別表11(1の2)への記載）</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="o_h331">当期繰入額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_h331" class="form-control form-control-sm" name="o_h331" v-model.number="form.o_h331">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="o_q331">法定繰入率決定の業種選択</label>
+									<div class="col-sm-3">
+										<select id="o_q331" class="form-control form-control-sm" v-model="form.o_q331">
+											<option v-for="option in options.A63_A67" v-bind:value="option.value">{{option.text}}</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>《一括評価金銭債権の明細》<div></div>
+							</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+								<table class="table text-center">
+									<tbody>
+										<tr>
+											<th><label class="label-control">№</label></th>
+											<th><label class="label-control">勘定科目</label></th>
+											<th><label class="label-control">期末残高</label></th>
+											<th><label class="label-control">貸倒否認額</label></th>
+											<th><label class="label-control">貸倒認容額</label></th>
+											<th><label class="label-control">個別債権額</label></th>
+											<th><label class="label-control">連結債権額</label></th>
+											<th><label class="label-control">実質否認額</label></th>
+										</tr>
+										<tr>
+											<th><label class="label-control">1</label></th>
+											<td><input type="text" id="o_c334" class="form-control form-control-sm" name="o_c334" v-model="form.o_c334"></td>
+											<td><input type="number" id="o_f334" class="form-control form-control-sm text-right" name="o_f334" v-model.number="form.o_f334"></td>
+											<td><input type="number" id="o_h334" class="form-control form-control-sm text-right" name="o_h334" v-model.number="form.o_h334"></td>
+											<td><input type="number" id="o_j334" class="form-control form-control-sm text-right" name="o_j334" v-model.number="form.o_j334"></td>
+											<td><input type="number" id="o_l334" class="form-control form-control-sm text-right" name="o_l334" v-model.number="form.o_l334"></td>
+											<td><input type="number" id="o_n334" class="form-control form-control-sm text-right" name="o_n334" v-model.number="form.o_n334"></td>
+											<td><input type="number" id="o_p334" class="form-control form-control-sm text-right" name="o_p334" v-model.number="form.o_p334"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">2</label></th>
+											<td><input type="text" id="o_c335" class="form-control form-control-sm" name="o_c335" v-model="form.o_c335"></td>
+											<td><input type="number" id="o_f335" class="form-control form-control-sm text-right" name="o_f335" v-model.number="form.o_f335"></td>
+											<td><input type="number" id="o_h335" class="form-control form-control-sm text-right" name="o_h335" v-model.number="form.o_h335"></td>
+											<td><input type="number" id="o_j335" class="form-control form-control-sm text-right" name="o_j335" v-model.number="form.o_j335"></td>
+											<td><input type="number" id="o_l335" class="form-control form-control-sm text-right" name="o_l335" v-model.number="form.o_l335"></td>
+											<td><input type="number" id="o_n335" class="form-control form-control-sm text-right" name="o_n335" v-model.number="form.o_n335"></td>
+											<td><input type="number" id="o_p335" class="form-control form-control-sm text-right" name="o_p335" v-model.number="form.o_p335"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">3</label></th>
+											<td><input type="text" id="o_c336" class="form-control form-control-sm" name="o_c336" v-model="form.o_c336"></td>
+											<td><input type="number" id="o_f336" class="form-control form-control-sm text-right" name="o_f336" v-model.number="form.o_f336"></td>
+											<td><input type="number" id="o_h336" class="form-control form-control-sm text-right" name="o_h336" v-model.number="form.o_h336"></td>
+											<td><input type="number" id="o_j336" class="form-control form-control-sm text-right" name="o_j336" v-model.number="form.o_j336"></td>
+											<td><input type="number" id="o_l336" class="form-control form-control-sm text-right" name="o_l336" v-model.number="form.o_l336"></td>
+											<td><input type="number" id="o_n336" class="form-control form-control-sm text-right" name="o_n336" v-model.number="form.o_n336"></td>
+											<td><input type="number" id="o_p336" class="form-control form-control-sm text-right" name="o_p336" v-model.number="form.o_p336"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">4</label></th>
+											<td><input type="text" id="o_c337" class="form-control form-control-sm" name="o_c337" v-model="form.o_c337"></td>
+											<td><input type="number" id="o_f337" class="form-control form-control-sm text-right" name="o_f337" v-model.number="form.o_f337"></td>
+											<td><input type="number" id="o_h337" class="form-control form-control-sm text-right" name="o_h337" v-model.number="form.o_h337"></td>
+											<td><input type="number" id="o_j337" class="form-control form-control-sm text-right" name="o_j337" v-model.number="form.o_j337"></td>
+											<td><input type="number" id="o_l337" class="form-control form-control-sm text-right" name="o_l337" v-model.number="form.o_l337"></td>
+											<td><input type="number" id="o_n337" class="form-control form-control-sm text-right" name="o_n337" v-model.number="form.o_n337"></td>
+											<td><input type="number" id="o_p337" class="form-control form-control-sm text-right" name="o_p337" v-model.number="form.o_p337"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">5</label></th>
+											<td><input type="text" id="o_c338" class="form-control form-control-sm" name="o_c338" v-model="form.o_c338"></td>
+											<td><input type="number" id="o_f338" class="form-control form-control-sm text-right" name="o_f338" v-model.number="form.o_f338"></td>
+											<td><input type="number" id="o_h338" class="form-control form-control-sm text-right" name="o_h338" v-model.number="form.o_h338"></td>
+											<td><input type="number" id="o_j338" class="form-control form-control-sm text-right" name="o_j338" v-model.number="form.o_j338"></td>
+											<td><input type="number" id="o_l338" class="form-control form-control-sm text-right" name="o_l338" v-model.number="form.o_l338"></td>
+											<td><input type="number" id="o_n338" class="form-control form-control-sm text-right" name="o_n338" v-model.number="form.o_n338"></td>
+											<td><input type="number" id="o_p338" class="form-control form-control-sm text-right" name="o_p338" v-model.number="form.o_p338"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">6</label></th>
+											<td><input type="text" id="o_c339" class="form-control form-control-sm" name="o_c339" v-model="form.o_c339"></td>
+											<td><input type="number" id="o_f339" class="form-control form-control-sm text-right" name="o_f339" v-model.number="form.o_f339"></td>
+											<td><input type="number" id="o_h339" class="form-control form-control-sm text-right" name="o_h339" v-model.number="form.o_h339"></td>
+											<td><input type="number" id="o_j339" class="form-control form-control-sm text-right" name="o_j339" v-model.number="form.o_j339"></td>
+											<td><input type="number" id="o_l339" class="form-control form-control-sm text-right" name="o_l339" v-model.number="form.o_l339"></td>
+											<td><input type="number" id="o_n339" class="form-control form-control-sm text-right" name="o_n339" v-model.number="form.o_n339"></td>
+											<td><input type="number" id="o_p339" class="form-control form-control-sm text-right" name="o_p339" v-model.number="form.o_p339"></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">7</label></th>
+											<td><input type="text" id="o_c340" class="form-control form-control-sm" name="o_c340" v-model="form.o_c340"></td>
+											<td><input type="number" id="o_f340" class="form-control form-control-sm text-right" name="o_f340" v-model.number="form.o_f340"></td>
+											<td><input type="number" id="o_h340" class="form-control form-control-sm text-right" name="o_h340" v-model.number="form.o_h340"></td>
+											<td><input type="number" id="o_j340" class="form-control form-control-sm text-right" name="o_j340" v-model.number="form.o_j340"></td>
+											<td><input type="number" id="o_l340" class="form-control form-control-sm text-right" name="o_l340" v-model.number="form.o_l340"></td>
+											<td><input type="number" id="o_n340" class="form-control form-control-sm text-right" name="o_n340" v-model.number="form.o_n340"></td>
+											<td><input type="number" id="o_p340" class="form-control form-control-sm text-right" name="o_p340" v-model.number="form.o_p340"></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>《貸倒実績率の計算の入力》<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="o_i342">当期前３年以内の売掛債権、貸倒損失等</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i342" class="form-control form-control-sm text-right" name="o_i342" v-model.number="form.o_i342">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">96条2ノ2 イ 貸倒損失額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i343" class="form-control form-control-sm text-right" name="o_i343" v-model.number="form.o_i343">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ロ 損金算入額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i344" class="form-control form-control-sm text-right" name="o_i344" v-model.number="form.o_i344">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ハ 損金算入額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i345" class="form-control form-control-sm text-right" name="o_i345" v-model.number="form.o_i345">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ニ 益金算入額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i346" class="form-control form-control-sm text-right" name="o_i346" v-model.number="form.o_i346">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ホ 益金算入額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i347" class="form-control form-control-sm text-right" name="o_i347" v-model.number="form.o_i347">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ヘ 益金算入額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i348" class="form-control form-control-sm text-right" name="o_i348" v-model.number="form.o_i348">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ト 益金算入額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i349" class="form-control form-control-sm text-right" name="o_i349" v-model.number="form.o_i349">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">基準年度における売掛金等合計額</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i351" class="form-control form-control-sm text-right" name="o_i351" v-model.number="form.o_i351">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">上記の基準年度に実質的に債権と見られないもの</label>
+									<div class="col-sm-3">
+										<input type="number" id="o_i352" class="form-control form-control-sm text-right" name="o_i352" v-model.number="form.o_i352">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="n_h301">当期末の実質的に債権とみられない額</label>
+									<label class="col-md-3 label-control text-right">{{form.o_i353}}</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

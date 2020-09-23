@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/c_establishmentInfo.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+	<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/c_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[C]　事業所情報・税率</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="button" class="btn btn-success mr-1" v-on:click="copy">
+								 <i class="fa fa-check-square-o"></i> 前年度情報コピー
+								</button>
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">事業所の情報、税率を送られてきた申告書などを確認して入力してください。</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-header">
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_01">地区</label>
+											<div class="col-md-6">
+												<select id="c_01" name="c_01" class="form-control form-control-sm" v-model="form.c_01">
+													<option value="">クリックして、▼から選択</option>
+													<option v-for="(option, i) in options.localTaxRate" v-bind:value="option.city_area">{{option.city_area}}</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_02">都道府県</label>
+											<label class="col-md-6 label-control">{{form.c_02}}</label>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_03">{{form.c_c67}}</label>
+											<label class="col-md-6 label-control">{{form.c_03}}</label>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_05">期間末日人数</label>
+											<div class="col-md-6">
+												<input type="number" id="c_05" class="form-control form-control-sm text-right" name="c_05" v-model.number="form.c_05">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_06">切捨月数</label>
+											<div class="col-md-6">
+												<input type="number" id="c_06" class="form-control form-control-sm text-right" name="c_06" v-model.number="form.c_06"
+												 value="12">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_g71">(県　均等割　円)</label>
+											<label class="col-md-6 label-control text-right">{{form.c_g71}}</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_g72">(県　森林環境税　円)</label>
+											<label class="col-md-6 label-control text-right">{{form.c_g72}}</label>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_07">県　合計　円</label>
+											<label class="col-md-6 label-control text-right">{{form.c_07}}</label>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_g74">{{form.c_c74}}</label>
+											<label class="col-md-6 label-control text-right">{{form.c_g74}}</label>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_g75">{{form.c_c75}}</label>
+											<label class="col-md-6 label-control text-right">{{form.c_g75}}</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_08">{{form.c_c76}}</label>
+											<label class="col-md-6 label-control text-right" v-if="form.c_08_enabled" >{{form.c_08}}</label>
+											<div class="col-md-6" v-else>
+												<input type="number" id="c_08" class="form-control form-control-sm text-right" name="c_08" v-model.number="form.c_08"  >
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">
+									</h4>
+									<p>※資本金が1億円以上の大企業や、所得が高額な場合の税率は自動で設定されません。直接入力ください。</p>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_10">廃止前月末人数</label>
+											<div class="col-md-6">
+												<input type="number" id="c_10" class="form-control form-control-sm text-right" name="c_10" v-model.number="form.c_10">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_11">切上月数</label>
+											<div class="col-md-6">
+												<input type="number" id="c_11" class="form-control form-control-sm text-right" name="c_11" v-model.number="form.c_11"
+												 value="12">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_12">事0～400　%</label>
+											<label class="col-md-6 label-control text-right">{{form.c_12}}%</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_13">事400～800　%</label>
+											<label class="col-md-6 label-control text-right">{{form.c_13}}%</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_14">事業税800～　%</label>
+											<label class="col-md-6 label-control text-right">{{form.c_14}}%</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_15">県　法人税割　%</label>
+											<label class="col-md-6 label-control text-right">{{form.c_15}}%</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_g84">県　地方法人特別税　%</label>
+											<label class="col-md-6 label-control text-right">{{form.c_g84}}%</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_16">{{form.c_c85}}</label>
+											<label class="col-md-6 label-control text-right" v-if="!form.c_c85_enabled">{{form.c_16}}%</label>
+											<div class="input-group col-md-6" v-else>
+                                                <input type="text" id="c_16" class="form-control form-control-sm text-right" name="c_16" v-model="form.c_16">
+                                                <div class="input-group-append"><span class="input-group-text font-small-1">%</span></div>
+                                            </div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_19">事業所名</label>
+											<div class="col-md-6">
+												<input type="text" id="c_19" class="form-control form-control-sm" name="c_19" v-model="form.c_19">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_20">所在地</label>
+											<div class="col-md-6">
+												<input type="text" id="c_20" class="form-control form-control-sm" name="c_20" v-model="form.c_20">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_22">第6号様式宛先</label>
+											<div class="col-md-6">
+												<input type="text" id="c_22" class="form-control form-control-sm" name="c_22" v-model="form.c_22">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_23">第20号様式宛先</label>
+											<div class="col-md-6">
+												<input type="text" id="c_23" class="form-control form-control-sm" name="c_23" v-model="form.c_23">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i> 6号様式※処理事項欄<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_24">整理番号</label>
+											<div class="col-md-6">
+												<input type="text" id="c_24" class="form-control form-control-sm" name="c_24" v-model="form.c_24">
+
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_25">事務所</label>
+											<div class="col-md-6">
+												<input type="text" id="c_25" class="form-control form-control-sm" name="c_25" v-model="form.c_25">
+
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_26">管理番号</label>
+											<div class="col-md-6">
+												<input type="text" id="c_26" class="form-control form-control-sm" name="c_26" v-model="form.c_26">
+
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_27">申告区分</label>
+											<div class="col-md-6">
+												<input type="text" id="c_27" class="form-control form-control-sm" name="c_27" v-model="form.c_27">
+
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_32">法人番号</label>
+											<label class="col-md-6 label-control">{{form.c_32}}</label>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_n72">欄外番号</label>
+											<div class="col-md-6">
+												<input type="text" id="c_n72" class="form-control form-control-sm" name="c_n72" v-model="form.c_n72">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i> 20号様式※処理事項欄<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_28">整理番号</label>
+											<div class="col-md-6">
+												<input type="text" id="c_28" class="form-control form-control-sm" name="c_28" v-model="form.c_28">
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_29">事務所</label>
+											<div class="col-md-6">
+												<input type="text" id="c_29" class="form-control form-control-sm" name="c_29" v-model="form.c_29">
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_30">管理番号</label>
+											<div class="col-md-6">
+												<input type="text" id="c_30" class="form-control form-control-sm" name="c_30" v-model="form.c_30"
+												 placeholder="（旧）法人番号">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_31">申告区分</label>
+											<div class="col-md-6">
+												<input type="text" id="c_31" class="form-control form-control-sm" name="c_31" v-model="form.c_31">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_32">法人番号</label>
+											<label class="col-md-6 label-control">{{form.c_32}}</label>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i> 東京都6号様式※欄外項目<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_n83">封 一連番号</label>
+											<div class="col-md-6">
+												<input type="text" id="c_n83" class="form-control form-control-sm" name="c_n83" v-model="form.c_n83">
+
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-6 label-control" for="c_n84">組織</label>
+											<div class="col-md-6">
+												<input type="text" id="c_n84" class="form-control form-control-sm" name="c_n84" v-model="form.c_n84">
+
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_n85">法人名</label>
+											<div class="col-md-6">
+												<input type="text" id="c_n85" class="form-control form-control-sm" name="c_n85" v-model="form.c_n85">
+
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-6 label-control" for="c_n86">資本金</label>
+											<div class="col-md-6">
+												<input type="number" id="c_n86" class="form-control form-control-sm text-right" name="c_n86" v-model.number="form.c_n86">
+
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-2 label-control" for="c_m87">利</label>
+											<div class="col-md-4">
+												<input type="text" id="c_m87" class="form-control form-control-sm" name="c_m87" v-model="form.c_m87">
+											</div>
+											<label class="col-md-2 label-control" for="c_o87">事延</label>
+											<div class="col-md-4">
+												<input type="text" id="c_o87" class="form-control form-control-sm" name="c_o87" v-model="form.c_o87">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-2 label-control" for="c_m88">分非</label>
+											<div class="col-md-4">
+												<input type="text" id="c_m88" class="form-control form-control-sm" name="c_m88" v-model="form.c_m88">
+											</div>
+											<label class="col-md-2 label-control" for="c_o88">都延</label>
+											<div class="col-md-4">
+												<input type="text" id="c_o88" class="form-control form-control-sm" name="c_o88" v-model="form.c_o88">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-2 label-control" for="c_m89">自主</label>
+											<div class="col-md-4">
+												<input type="text" id="c_m89" class="form-control form-control-sm" name="c_m89" v-model="form.c_m89">
+											</div>
+											<label class="col-md-2 label-control" for="c_o89">繰</label>
+											<div class="col-md-4">
+												<input type="text" id="c_o89" class="form-control form-control-sm" name="c_o89" v-model="form.c_o89">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

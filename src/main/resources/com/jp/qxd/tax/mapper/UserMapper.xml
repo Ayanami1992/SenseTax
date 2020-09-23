@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.UserMapper">
+	<resultMap id="UserMap"
+		type="com.jp.qxd.tax.model.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="auth_key" property="auth_key"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="User"
+		type="com.jp.qxd.tax.model.User">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="avatar" property="avatar" jdbcType="VARCHAR" />
+		<result column="create_time" property="create_time" jdbcType="DATE" />
+		<result column="last_login_time" property="last_login_time" jdbcType="DATE" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="Authority"
+		type="com.jp.qxd.tax.model.Authority">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<select id="findByEmail" resultMap="User"
+		parameterType="String">
+		SELECT id, username, password, name, email, avatar, create_time, last_login_time, status
+		from user
+		<where>
+			email = #{email,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<select id="getAuthorityByEmail" resultMap="Authority"
+		parameterType="String">
+		SELECT authority.id, authority.name
+		from user
+		left join user_authority
+		on user.id = user_authority.user_id
+		left join authority
+		on authority.id = user_authority.authority_id
+		<where>
+			user.email = #{email,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<select id="getUsers" resultMap="UserMap"
+		parameterType="com.jp.qxd.tax.model.User">
+		select id, name, email, status, auth_key
+		from user
+		<where>
+			1=1
+			<if test="name != null">
+				AND name = #{name,jdbcType=VARCHAR}
+			</if>
+			<if test="email != null">
+				AND email = #{email,jdbcType=VARCHAR}
+			</if>
+			<if test="status != null">
+				AND status = #{status,jdbcType=INTEGER}
+			</if>
+			<if test="auth_key != null">
+				AND auth_key = #{auth_key,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+
+	<insert id="createUsers"
+		parameterType="com.jp.qxd.tax.model.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="username != null">
+				username,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="auth_key != null">
+				auth_key,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=INTEGER},
+			</if>
+			<if test="auth_key != null">
+				#{auth_key,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateUserAuthKey" parameterType="com.jp.qxd.tax.model.User">
+		update user
+		<set>
+			auth_key=#{auth_key,jdbcType=VARCHAR}
+		</set>
+		<where>
+			email = #{email,jdbcType=VARCHAR}
+		</where>
+	</update>
+
+	<update id="activeUser" parameterType="com.jp.qxd.tax.model.User">
+		update user
+		<set>
+			status = 1
+		</set>
+		<where>
+			auth_key = #{auth_key,jdbcType=VARCHAR}
+		</where>
+	</update>
+
+	<insert id="createUserAuthority"
+		parameterType="com.jp.qxd.tax.model.User">
+		insert into user_authority (user_id, authority_id)
+		values(#{id,jdbcType=INTEGER},'2')
+	</insert>
+</mapper>

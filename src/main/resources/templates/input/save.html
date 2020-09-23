@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="jp">
+	<body>
+		<div th:fragment="save">
+		  <b-navbar toggleable="lg" variant="white" fixed="top" style="margin-top: 50px">
+
+		    <b-collapse id="nav-collapse" is-nav>
+				<template>
+		      <b-navbar-nav class="ml-auto">
+					<b-link v-if="page.pre != null" v-bind:href="page.pre.url" right><i class="fa fa-arrow-circle-o-left fa-fw fa-lg text-primary" aria-hidden="true"></i>{{page.pre.name}}</b-link>
+					</b-navbar-nav>
+				</template>
+		    </b-collapse>
+		    <b-collapse id="nav-collapse" is-nav>
+		    </b-collapse>
+
+		    <b-collapse id="nav-collapse" is-nav>
+
+				<template>
+		      <b-navbar-nav>
+					<b-link v-bind:href="page.next.url"><i class="fa fa-arrow-circle-o-right fa-fw fa-lg text-primary" aria-hidden="true"></i>{{page.next.name}}</b-link>
+					</b-navbar-nav>
+				</template>
+		      <!-- Right aligned nav items -->
+		      <b-navbar-nav class="ml-auto">
+          		<b-button type="reset" pill variant="outline-primary">クリア</b-button>
+          		<b-button type="submit" pill variant="outline-success">登録</b-button>
+		      </b-navbar-nav>
+		    </b-collapse>
+		  </b-navbar>
+		</div>
+	</body>
+</html>

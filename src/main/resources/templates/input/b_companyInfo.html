@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/b_companyInfo.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+	<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/b_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[B]　会社基本情報</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="button" class="btn btn-success mr-1" v-on:click="copy">
+								 <i class="fa fa-check-square-o"></i> 前年度情報コピー
+								</button>
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">前回申告した別表一(控)などを参考に会社基本情報を入力してください。</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-header">
+									<p class="mb-0">｢代表者氏名｣と｢経理責任者氏名｣を自署される場合は、何も入力せず、印刷後自署押印ください。</p>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="legalPersonName_k">法人名（フリガナ）<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="text" id="legalPersonName_k" class="form-control form-control-sm" v-model="form.legalPersonName_k" required>
+												<span class="text-muted">全角フリガナを入力してください。</span>
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="legalPersonName">法人名（漢字）<span class="text-danger">*</span></label>
+
+											<div class="col-md-6">
+												<input type="text" id="legalPersonName" class="form-control form-control-sm" v-model="form.legalPersonName">
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_03">管轄税務署<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="text" id="b_03" class="form-control form-control-sm" v-model="form.b_03">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_04">納税地<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="text" id="b_04" class="form-control form-control-sm" v-model="form.b_04">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_05">電話番号<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="text" id="b_05" class="form-control form-control-sm" v-model="form.b_05">
+												<span class="text-muted">半角数字を入力してください。</span>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="representativeName_k">代表者（フリガナ）<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="text" id="representativeName_k" class="form-control form-control-sm" v-model="form.representativeName_k">
+												<span class="text-muted">全角フリガナを入力してください。</span>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="representativeName">代表者氏名（漢字）<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="text" id="representativeName" class="form-control form-control-sm" v-model="form.representativeName">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_10">代表者住所<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="text" id="b_10" class="form-control form-control-sm" v-model="form.b_10">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="accountingName_h">経理責任者（フリガナ）</label>
+											<div class="col-md-6">
+												<input type="text" id="accountingName_h" class="form-control form-control-sm" v-model="form.accountingName_h">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="accountingName">経理責任者氏名（漢字）</label>
+											<div class="col-md-6">
+												<input type="text" id="accountingName" class="form-control form-control-sm" v-model="form.accountingName">
+												<span class="text-muted">全角フリガナを入力してください。</span>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_12">事業種目</label>
+											<div class="col-md-6">
+												<input type="text" id="b_12" class="form-control form-control-sm" v-model="form.b_12">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_13">整理番号</label>
+											<div class="col-md-6">
+												<input type="text" id="b_13" class="form-control form-control-sm" v-model="form.b_13">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_14">申告区分</label>
+											<div class="col-md-4">
+												<select id="b_14" class="form-control form-control-sm" v-model="form.b_14">
+													<option v-for="option in options.A7_A8" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_68">法人区分</label>
+											<div class="col-md-4">
+												<select id="b_68" class="form-control form-control-sm" v-model="form.b_68">
+													<option v-for="option in options.A11_A12" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_15">翌年別表等送付要否</label>
+											<div class="col-md-4">
+												<select id="b_15" class="form-control form-control-sm" v-model="form.b_15">
+													<option v-for="option in options.A15_A16" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_16">期首日/期末日<span class="text-danger">*</span></label>
+
+											<div class="input-group col-md-8">
+												<input type="date" id="b_16" class="form-control form-control-sm" v-model="form.b_16" data-toggle="tooltip"
+												 data-trigger="hover" data-placement="top" data-title="期首日/期末日" data-format="YYYYMMDD">
+												<input type="date" id="b_17" class="form-control form-control-sm" v-model="form.b_17" data-toggle="tooltip"
+												 data-trigger="hover" data-placement="top" data-title="期首日/期末日">
+											</div>
+
+										</div>
+										<div class="row text-muted">
+											<div class="col-md-4">
+											</div>
+											<div class="col-md-8">
+											事業年度の開始年月日～終了年月日を入力してください
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_18">中間申告</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<input type="text" class="form-control form-control-sm" id="b_18" v-model="form.b_18">
+													<input type="text" class="form-control form-control-sm" id="b_19" v-model="form.b_19">
+												</div>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_20">期末資本金<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+												<input type="number" id="b_20" class="form-control form-control-sm text-right" v-model.number="form.b_20">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_21">〃＋資本準備金</label>
+											<div class="col-md-6">
+												<input type="number" id="b_21" class="form-control form-control-sm text-right" v-model.number="form.b_21">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_22">申告書提出日</label>
+											<div class="col-md-6">
+												<input type="text" id="b_22" class="form-control form-control-sm" v-model="form.b_22">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_23">決算確定日</label>
+											<div class="col-md-6">
+												<input type="text" id="b_23" class="form-control form-control-sm" v-model="form.b_23">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_24">申告区分<span class="text-danger">*</span></label>
+											<div class="col-md-6">
+
+												<select id="b_15" class="form-control form-control-sm" v-model="form.b_24">
+													<option value="確定申告">確定申告</option>
+													<option value="修正申告">修正申告</option>
+												</select>
+												<input type="text" id="b_24" class="form-control form-control-sm" v-model="form.b_24" text="確定">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_25">中間配当効力日</label>
+											<div class="col-md-6">
+												<input type="text" id="b_25" class="form-control form-control-sm" v-model="form.b_25">
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i> 税務署処理欄<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="row text-muted">
+											所属する納税地により管轄している税務署が決められています
+										</div>
+										<div class="row text-muted">
+											（ご不明の場合には下記URLよりご確認下さい。）
+										</div>
+										<div class="row text-muted">
+											https://www.nta.go.jp/about/organization/access/map.htm
+										</div>
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="b_26">所轄</label>
+											<div class="col-md-6">
+												<input type="text" id="b_26" class="form-control form-control-sm" v-model="form.b_26">
+											</div>
+										</div>
+
+										<div class="row text-muted">
+											業種品目については下記URLよりご確認頂けます
+										</div>
+										<div class="row text-muted">
+											https://www.soumu.go.jp/toukei_toukatsu/index/seido/sangyo/02toukatsu01_03000044.html
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_27">業種目</label>
+											<div class="col-md-6">
+												<input type="text" id="b_27" class="form-control form-control-sm" v-model="form.b_27">
+											</div>
+
+										</div>
+										<div class="row text-muted">
+											法人事業概況説明書は、税務署が法人の業務・業況などを毎年把握するため、法人名、納税地、
+										</div>
+										<div class="row text-muted">
+											事業内容、期末従業員数の状況、主要科目などを記載し、確定申告書に添付して提出する書類です。
+										</div>
+										<div class="row text-muted">
+											詳細は、法人事業概況説明書の書き方 （国税庁） を参照してください。
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_28">概況書</label>
+											<div class="col-md-6">
+												<input type="text" id="b_28" class="form-control form-control-sm" v-model="form.b_28">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_29">中間申告の要否ですか？</label>
+											<div class="col-md-6">
+												<input type="text" id="b_29" class="form-control form-control-sm" v-model="form.b_29">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_30">別表等送付</label>
+											<div class="col-md-6">
+												<input type="text" id="b_30" class="form-control form-control-sm" v-model="form.b_30">
+												<span class="text-muted">別表送付の要否を記入して下さい。</span>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_71">法人番号</label>
+											<div class="col-md-6">
+												<input type="text" id="b_71" class="form-control form-control-sm" v-model="form.b_71">
+											</div>
+
+										</div>
+
+										<div class="row text-muted" style="font-weight: bolder;">
+											国税庁から通知を受けた13桁の法人番号を入力してください。
+										</div>
+										<div class="row text-muted">
+											国税庁法人番 号公表サイト（www.houjin-b angou.nta.go.jp）から検索 することができます。
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_67">税理士書面提出</label>
+											<div class="col-md-6">
+												<select id="b_67" v-model="form.b_67" class="form-control form-control-sm">
+													<option v-for="option in options.A19_A22" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_31">申告期限の延長の処分の有無 法人税</label>
+											<div class="col-md-4">
+												<select id="b_31" v-model="form.b_31" class="form-control form-control-sm">
+													<option v-for="option in options.A24_A25" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_32">申告期限の延長の処分の有無　事業税</label>
+											<div class="col-md-4">
+												<select id="b_32" v-model="form.b_32" class="form-control form-control-sm">
+													<option v-for="option in options.A24_A25" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_33">翌期の中間申告の要否</label>
+											<label class="col-md-4 label-control">{{form.b_33}}</label>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_13">国外関連者の有無</label>
+											<div class="col-md-4">
+												<select id="b_34" class="form-control form-control-sm" v-model="form.b_34">
+													<option v-for="option in options.A24_A25" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="q46">利子割還付額の均等割への充当</label>
+											<div class="col-md-4">
+												<select id="q46" class="form-control form-control-sm" v-model="form.q46">
+													<option v-for="option in options.A28_A30" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="b_35">銀行名</label>
+											<div class="input-group col-md-6">
+												<input type=" text" class="form-control form-control-sm" id="b_35" v-model="form.b_35">
+												<div class="input-group-append">
+													<select id="b_69" class="form-control" v-model="form.b_69" slot="append">
+														<option v-for="option in options.A32_A36" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</div>
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_36">支店名</label>
+											<div class="input-group col-md-6">
+												<input type="text" class="form-control form-control-sm" id="b_36" v-model="form.b_35">
+												<div class="input-group-append">
+													<select id="b_70" class="form-control" v-model="form.b_70" slot="append">
+														<option v-for="option in options.A39_A43" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="b_37">口座種類</label>
+											<div class="col-md-6">
+												<select id="b_37" class="form-control form-control-sm" v-model="form.b_37" slot="append">
+													<option v-for="option in options.A46_A47" v-bind:value="option.value">{{option.text}}</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_38">口座番号</label>
+											<div class="col-md-6">
+												<input type="text" id="b_38" class="form-control form-control-sm" v-model="form.b_38">
+											</div>
+
+										</div>
+
+										<div class="row text-muted">
+											お持ちの通帳・キャッシュカードに記載されている
+										</div>
+										<div class="row text-muted">
+											「口座番号（7桁）」を半角数字にて記入して下さい。
+										</div>
+
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_39">郵便局名</label>
+											<div class="col-md-6">
+												<input type="text" id="b_39" class="form-control form-control-sm" v-model="form.b_39">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_40">貯金記号</label>
+											<div class="col-md-6">
+												<input type="text" id="b_40" class="form-control form-control-sm" v-model="form.b_40">
+											</div>
+
+										</div>
+
+										<div class="row text-muted">
+											お持ちの通帳・キャッシュカードに記載されている
+										</div>
+										<div class="row text-muted">
+											「記号（5桁）」を半角数字にて記入して下さい。
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_41">貯金番号</label>
+											<div class="col-md-6">
+												<input type="text" id="b_41" class="form-control form-control-sm" v-model="form.b_41">
+											</div>
+
+										</div>
+										<div class="row text-muted">
+											お持ちの通帳・キャッシュカードに記載されている
+										</div>
+										<div class="row text-muted">
+											「口座番号（8桁）」を半角数字にて記入して下さい。
+										</div>
+
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_42">税理士名</label>
+											<div class="col-md-6">
+												<input type="text" id="b_42" class="form-control form-control-sm" v-model="form.b_42">
+											</div>
+
+										</div>
+										<div class="form-group row">
+
+											<label class="col-md-4 label-control" for="b_43">税理士電話</label>
+											<div class="input-group col-md-6">
+												<input type="text" class="form-control form-control-sm" id="b_43" v-model="form.b_43">
+												<input type="text" class="form-control form-control-sm" id="b_44" v-model="form.b_44">
+												<input type="text" class="form-control form-control-sm" id="b_44" v-model="form.b_45">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="display: none;">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i> 欄外項目
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="px-3">
+
+										<div class="row">
+											<div class="col-md-6">
+
+												<div class="form-group row">
+
+													<label class="col-md-4 label-control" for="b_46">上部左</label>
+													<div class="col-md-6">
+														<input type="text" id="b_46" class="form-control form-control-sm" v-model="form.b_46">
+													</div>
+
+												</div>
+
+												<div class="form-group row">
+
+													<label class="col-md-4 label-control" for="b_48">下部上段</label>
+
+													<div class="input-group col-md-6">
+														<input type="text" id="b_48" class="form-control form-control-sm" v-model="form.b_48">
+														<input type="text" id="b_49" class="form-control form-control-sm" v-model="form.b_49">
+														<input type="text" id="b_50" class="form-control form-control-sm" v-model="form.b_50">
+
+													</div>
+												</div>
+
+												<div class="form-group row">
+
+													<label class="col-md-4 label-control" for="b_56">下部下段</label>
+
+													<div class="input-group col-md-6">
+														<input type=" text" id="b_56" class="form-control form-control-sm" v-model="form.b_56">
+														<input type="text" id="b_57" class="form-control form-control-sm" v-model="form.b_57">
+														<input type="text" id="b_58" class="form-control form-control-sm" v-model="form.b_58">
+
+													</div>
+												</div>
+
+												<div class="form-group row">
+
+													<label class="col-md-4 label-control" for="billing_amount">売上金額</label>
+
+													<div class="input-group col-md-6">
+														<input type="number" id="billing_amount" class="form-control form-control-sm text-right" v-model.number="form.billing_amount">
+														<div class="input-group-append"><span class="input-group-text font-small-2">百万</span></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+
+												<div class="form-group row">
+
+													<label class="col-md-4 label-control" for="b_47">上部右</label>
+													<div class="col-md-6">
+														<input type="text" id="b_47" class="form-control form-control-sm" v-model="form.b_47">
+
+													</div>
+												</div>
+
+												<div class="form-group row">
+
+													<label class="col-md-4 label-control" for="b_51">下部上段</label>
+
+													<div class="input-group col-md-6">
+														<input type="text" id="b_51" class="form-control form-control-sm" v-model="form.b_51">
+														<input type="text" id="b_52" class="form-control form-control-sm" v-model="form.b_52">
+														<input type="text" id="b_53" class="form-control form-control-sm" v-model="form.b_53">
+
+													</div>
+												</div>
+
+												<div class="form-group row">
+
+													<label class="col-md-4 label-control" for="b_59">下部下段</label>
+
+													<div class="input-group col-md-6">
+														<input type="text" id="b_59" class="form-control form-control-sm" v-model="form.b_59">
+														<input type="text" id="b_60" class="form-control form-control-sm" v-model="form.b_60">
+														<input type="text" id="b_61" class="form-control form-control-sm" v-model="form.b_61">
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

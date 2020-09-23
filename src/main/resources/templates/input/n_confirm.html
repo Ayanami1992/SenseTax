@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《指定寄附金等に関する明細》→国又は地方公共団体や財務大臣の指定したもの<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th><label class="label-control">№</label></th>
+												        <th><label class="label-control">寄付した日</label></th>
+												        <th><label class="label-control">寄付先</label></th>
+												        <th><label class="label-control">告示番号</label></th>
+												        <th><label class="label-control">寄附金の使途</label></th>
+												        <th><label class="label-control">寄附金額</label></th>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">1</label></th>
+												        <td>{{form.n_c282}}</td>
+												        <td>{{form.n_e282}}</td>
+												        <td>{{form.n_i282}}</td>
+												        <td>{{form.n_k282}}</td>
+												        <td>{{form.n_p282}}</td>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">2</label></th>
+												        <td>{{form.n_c283}}</td>
+												        <td>{{form.n_e283}}</td>
+												        <td>{{form.n_i283}}</td>
+												        <td>{{form.n_k283}}</td>
+												        <td>{{form.n_p283}}</td>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">3</label></th>
+												        <td>{{form.n_c284}}</td>
+												        <td>{{form.n_e284}}</td>
+												        <td>{{form.n_i284}}</td>
+												        <td>{{form.n_k284}}</td>
+												        <td>{{form.n_p284}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《特定公益増進法人に対する寄附金又は認定特定公益信託に対する支出金の明細》　例：日本育英会や宇宙開発事業団など<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th><label class="label-control">№</label></th>
+												        <th><label class="label-control">寄附した日又は支出した日</label></th>
+												        <th><label class="label-control">寄附先又は受託者</label></th>
+												        <th><label class="label-control">所在地</label></th>
+												        <th><label class="label-control">寄附金の使途又は認定特定公益信託の名称</label></th>
+												        <th><label class="label-control">寄附金額又は支出金額</label></th>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">1</label></th>
+												        <td>{{form.n_c289}}</td>
+												        <td>{{form.n_e289}}</td>
+												        <td>{{form.n_g289}}</td>
+												        <td>{{form.n_k289}}</td>
+												        <td>{{form.n_p289}}</td>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">2</label></th>
+												        <td>{{form.n_c290}}</td>
+												        <td>{{form.n_e290}}</td>
+												        <td>{{form.n_g290}}</td>
+												        <td>{{form.n_k290}}</td>
+												        <td>{{form.n_p290}}</td>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">3</label></th>
+												        <td>{{form.n_c291}}</td>
+												        <td>{{form.n_e291}}</td>
+												        <td>{{form.n_g291}}</td>
+												        <td>{{form.n_k291}}</td>
+												        <td>{{form.n_p291}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《その他の寄附金のうち特定公益信託（認定特定公益信託を除く。）に対する支出金の明細》<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th><label class="label-control">№</label></th>
+												        <th><label class="label-control">支出した日</label></th>
+												        <th><label class="label-control">受託者</label></th>
+												        <th><label class="label-control">所在地</label></th>
+												        <th><label class="label-control">特定公益信託の名称</label></th>
+												        <th><label class="label-control">支出金額</label></th>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">1</label></th>
+												        <td>{{form.n_c296}}</td>
+												        <td>{{form.n_e296}}</td>
+												        <td>{{form.n_h296}}</td>
+												        <td>{{form.n_m296}}</td>
+												        <td>{{form.n_p296}}</td>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">2</label></th>
+												        <td>{{form.n_c297}}</td>
+												        <td>{{form.n_e297}}</td>
+												        <td>{{form.n_h297}}</td>
+												        <td>{{form.n_m297}}</td>
+												        <td>{{form.n_p297}}</td>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">3</label></th>
+												        <td>{{form.n_c298}}</td>
+												        <td>{{form.n_e298}}</td>
+												        <td>{{form.n_h298}}</td>
+												        <td>{{form.n_m298}}</td>
+												        <td>{{form.n_p298}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title">
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">上記以外の寄附金（一般）</label>
+														<label class="col-md-3 label-control">{{form.n_h301}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h302">完全支配関係法人への寄付金額</label>
+														<label class="col-md-3 label-control">{{form.n_h302}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h303">国外関連者への寄附金額</label>
+														<label class="col-md-3 label-control">{{form.n_h303}}</label>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

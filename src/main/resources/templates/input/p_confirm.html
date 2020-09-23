@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">
+												</h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="p_g357">当期に支払う負債利子</label>
+														<label class="col-md-3 label-control">{{form.p_g357}}</label>
+														<label class="col-md-4 label-control" for="p_o357">基準年度の負債利子等の合計</label>
+														<label class="col-md-3 label-control">{{form.p_o357}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="p_g358">連結法人に支払う負債利子</label>
+														<label class="col-md-3 label-control">{{form.p_g358}}</label>
+														<label class="col-md-4 label-control" for="p_o358">同上の関係法人等に係る負債利子</label>
+														<label class="col-md-3 label-control">{{form.p_o358}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="p_g359">基準年度実績を使う</label>
+														<label class="col-md-3 label-control">{{form.p_g359}}</label>
+													</div>
+
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《当年度実績による場合の総資産価額等の計算》<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th></th>
+												        <th><label class="label-control">総資産帳簿価額(34)</label></th>
+												        <th><label class="label-control">負債利子の元本の負債額(35)</label></th>
+												        <th><label class="label-control">期末関係法人株式等(37)</label></th>
+												        <th><label class="label-control">株式及び出資等(38)</label></th>
+												        <th><label class="label-control">受益権の帳簿価額(39)</label></th>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">前期末</label></th>
+												        <td>{{form.p_d363}}</td>
+												        <td>{{form.p_g363}}</td>
+												        <td>{{form.p_k363}}</td>
+												        <td>{{form.p_n363}}</td>
+												        <td>{{form.p_p363}}</td>
+												      </tr>
+													  <tr>
+												        <th><label class="label-control">当期末</label></th>
+												        <td>{{form.p_d364}}</td>
+												        <td>{{form.p_g364}}</td>
+												        <td>{{form.p_k364}}</td>
+												        <td>{{form.p_n364}}</td>
+												        <td>{{form.p_p364}}</td>
+												      </tr>
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《連結法人株式等又は完全子法人株式等》<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th><label class="label-control">法人名</label></th>
+												        <th><label class="label-control">本店の所在地</label></th>
+												        <th><label class="label-control">計算期間（自）</label></th>
+												        <th><label class="label-control">計算期間（至）</label></th>
+												        <th><label class="label-control">配当等の収入額(1)</label></th>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d368}}</td>
+												        <td>{{form.p_g368}}</td>
+												        <td>{{form.p_k368}}</td>
+												        <td>{{form.p_m368}}</td>
+												        <td>{{form.p_o368}}</td>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d369}}</td>
+												        <td>{{form.p_g369}}</td>
+												        <td>{{form.p_k369}}</td>
+												        <td>{{form.p_m369}}</td>
+												        <td>{{form.p_o369}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《関係法人株式等》<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th><label class="label-control">法人名</label></th>
+												        <th><label class="label-control">本店の所在地</label></th>
+												        <th><label class="label-control">計算期間（自）</label></th>
+												        <th><label class="label-control">計算期間（至）</label></th>
+												        <th><label class="label-control">保有割合</label></th>
+												        <th><label class="label-control">配当等の収入額(2)</label></th>
+												        <th><label class="label-control">益金算入額(3)</label></th>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d373}}</td>
+												        <td>{{form.p_g373}}</td>
+												        <td>{{form.p_k373}}</td>
+												        <td>{{form.p_m373}}</td>
+												        <td>{{form.p_o373}}</td>
+												        <td>{{form.p_q373}}</td>
+												        <td>{{form.p_t373}}</td>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d374}}</td>
+												        <td>{{form.p_g374}}</td>
+												        <td>{{form.p_k374}}</td>
+												        <td>{{form.p_m374}}</td>
+												        <td>{{form.p_o374}}</td>
+												        <td>{{form.p_q374}}</td>
+												        <td>{{form.p_t374}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《その他の株式等》<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th><label class="label-control">法人名又は銘柄名</label></th>
+												        <th><label class="label-control">本店の所在地(5)</label></th>
+												        <th><label class="label-control">配当等の収入金額(6)</label></th>
+												        <th><label class="label-control">益金算入額(7)</label></th>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d378}}</td>
+												        <td>{{form.p_g378}}</td>
+												        <td>{{form.p_k378}}</td>
+												        <td>{{form.p_n378}}</td>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d379}}</td>
+												        <td>{{form.p_g379}}</td>
+												        <td>{{form.p_k379}}</td>
+												        <td>{{form.p_n379}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>《非支配目的株式等》<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <tbody>
+												      <tr>
+												        <th><label class="label-control">法人名</label></th>
+												        <th><label class="label-control">本店の所在地(9)</label></th>
+												        <th><label class="label-control">基準日(10)</label></th>
+												        <th><label class="label-control">保有割合(11)</label></th>
+												        <th><label class="label-control">配当等の収入額(12)</label></th>
+												        <th><label class="label-control">益金算入額(13)</label></th>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d383}}</td>
+												        <td>{{form.p_g383}}</td>
+												        <td>{{form.p_k383}}</td>
+												        <td>{{form.p_m383}}</td>
+												        <td>{{form.p_o383}}</td>
+												        <td>{{form.p_r383}}</td>
+												      </tr>
+													  <tr>
+												        <td>{{form.p_d384}}</td>
+												        <td>{{form.p_g384}}</td>
+												        <td>{{form.p_k384}}</td>
+												        <td>{{form.p_m384}}</td>
+												        <td>{{form.p_o384}}</td>
+												        <td>{{form.p_r384}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+
+										</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>≪青色欠損・連結みなし欠損・災害損失≫<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <thead>
+												      <tr>
+												        <th></th>
+												        <th>期首</th>
+												        <th>期末</th>
+												        <th>翌期繰越額(3)</th>
+												      </tr>
+												    </thead>
+												    <tbody>
+												      <tr>
+												        <td>10期前</td>
+												        <td>{{form.f_d136}}</td>
+												        <td>{{form.f_f136}}</td>
+												        <td>{{form.f_h136}}</td>
+												      </tr>
+												      <tr>
+												        <td>9期前</td>
+												        <td>{{form.f_d137}}</td>
+												        <td>{{form.f_f137}}</td>
+												        <td>{{form.f_h137}}</td>
+												      </tr>
+												      <tr>
+												        <td>8期前</td>
+												        <td>{{form.f_d138}}</td>
+												        <td>{{form.f_f138}}</td>
+												        <td>{{form.f_h138}}</td>
+												      </tr>
+												      <tr>
+												        <td>7期前</td>
+												        <td>{{form.f_d139}}</td>
+												        <td>{{form.f_f139}}</td>
+												        <td>{{form.f_h139}}</td>
+												      </tr>
+												      <tr>
+												        <td>6期前</td>
+												        <td>{{form.f_d140}}</td>
+												        <td>{{form.f_f140}}</td>
+												        <td>{{form.f_h140}}</td>
+												      </tr>
+												      <tr>
+												        <td>5期前</td>
+												        <td>{{form.f_d141}}</td>
+												        <td>{{form.f_f141}}</td>
+												        <td>{{form.f_h141}}</td>
+												      </tr>
+												      <tr>
+												        <td>4期前</td>
+												        <td>{{form.f_d142}}</td>
+												        <td>{{form.f_f142}}</td>
+												        <td>{{form.f_h142}}</td>
+												      </tr>
+												      <tr>
+												        <td>3期前</td>
+												        <td>{{form.f_d143}}</td>
+												        <td>{{form.f_f143}}</td>
+												        <td>{{form.f_h143}}</td>
+												      </tr>
+												      <tr>
+												        <td>2期前</td>
+												        <td>{{form.f_d144}}</td>
+												        <td>{{form.f_f144}}</td>
+												        <td>{{form.f_h144}}</td>
+												      </tr>
+												      <tr>
+												        <td>前期</td>
+												        <td>{{form.f_d145}}</td>
+												        <td>{{form.f_f145}}</td>
+												        <td>{{form.f_h145}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+									<div class="col-sm-6">
+
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>≪地方税第六号様式別表九（事業税）≫<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+												  <table class="table text-center">
+												    <thead>
+												      <tr>
+												        <th></th>
+												        <th>期首</th>
+												        <th>期末</th>
+												        <th>欠損金額</th>
+												      </tr>
+												    </thead>
+												    <tbody>
+
+												      <tr>
+												        <td>9期前</td>
+												        <td>{{form.f_d149}}</td>
+												        <td>{{form.f_f149}}</td>
+												        <td>{{form.f_h149}}</td>
+												      </tr>
+												      <tr>
+												        <td>8期前</td>
+												        <td>{{form.f_d150}}</td>
+												        <td>{{form.f_f150}}</td>
+												        <td>{{form.f_h150}}</td>
+												      </tr>
+												      <tr>
+												        <td>7期前</td>
+												        <td>{{form.f_d151}}</td>
+												        <td>{{form.f_f151}}</td>
+												        <td>{{form.f_h151}}</td>
+												      </tr>
+												      <tr>
+												        <td>6期前</td>
+												        <td>{{form.f_d152}}</td>
+												        <td>{{form.f_f152}}</td>
+												        <td>{{form.f_h152}}</td>
+												      </tr>
+												      <tr>
+												        <td>5期前</td>
+												        <td>{{form.f_d153}}</td>
+												        <td>{{form.f_f153}}</td>
+												        <td>{{form.f_h153}}</td>
+												      </tr>
+												      <tr>
+												        <td>4期前</td>
+												        <td>{{form.f_d154}}</td>
+												        <td>{{form.f_f154}}</td>
+												        <td>{{form.f_h154}}</td>
+												      </tr>
+												      <tr>
+												        <td>3期前</td>
+												        <td>{{form.f_d155}}</td>
+												        <td>{{form.f_f155}}</td>
+												        <td>{{form.f_h155}}</td>
+												      </tr>
+												      <tr>
+												        <td>2期前</td>
+												        <td>{{form.f_d156}}</td>
+												        <td>{{form.f_f156}}</td>
+												        <td>{{form.f_h156}}</td>
+												      </tr>
+												      <tr>
+												        <td>前期</td>
+												        <td>{{form.f_d157}}</td>
+												        <td>{{form.f_f157}}</td>
+												        <td>{{form.f_h157}}</td>
+												      </tr>
+
+												    </tbody>
+												  </table>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>同族会社を判定するため、株主の構成を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+								<table class="table text-center table-striped">
+									<thead>
+										<tr>
+											<th colspan="2"><label class="label-control">順位</label></th>
+											<th colspan="3"><label class="label-control"></label></th>
+											<td colspan="2"><label class="label-control">被支配会社でない法人株主</label></td>
+											<td colspan="2"><label class="label-control">その他</label></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">株式</label></th>
+											<th><label class="label-control">議決</label></th>
+											<td><label class="label-control">住所又は所在地</label></td>
+											<td><label class="label-control">氏名又は法人名</label></td>
+											<td><label class="label-control">続柄</label></td>
+											<th><label class="label-control">株式</label></th>
+											<th><label class="label-control">議決</label></th>
+											<th><label class="label-control">株式*</label></th>
+											<th><label class="label-control">議決</label></th>
+											<td><label class="label-control"></label></td>
+											<td><label class="label-control"></label></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>{{form.t_b428}}</td>
+											<td>{{form.t_c428}}</td>
+											<td>{{form.t_d428}}</td>
+											<td>{{form.t_h428}}</td>
+											<td>本人</td>
+											<td>{{form.t_l428}}</td>
+											<td>{{form.t_m428}}</td>
+											<td>{{form.t_n428}}</td>
+											<td>{{form.t_o428}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b429}}</td>
+											<td>{{form.t_c429}}</td>
+											<td>{{form.t_d429}}</td>
+											<td>{{form.t_h429}}</td>
+											<td>{{form.t_k429}}</td>
+											<td>{{form.t_l429}}</td>
+											<td>{{form.t_m429}}</td>
+											<td>{{form.t_n429}}</td>
+											<td>{{form.t_o429}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b430}}</td>
+											<td>{{form.t_c430}}</td>
+											<td>{{form.t_d430}}</td>
+											<td>{{form.t_h430}}</td>
+											<td>{{form.t_k430}}</td>
+											<td>{{form.t_l430}}</td>
+											<td>{{form.t_m430}}</td>
+											<td>{{form.t_n430}}</td>
+											<td>{{form.t_o430}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b431}}</td>
+											<td>{{form.t_c431}}</td>
+											<td>{{form.t_d431}}</td>
+											<td>{{form.t_h431}}</td>
+											<td>{{form.t_k431}}</td>
+											<td>{{form.t_l431}}</td>
+											<td>{{form.t_m431}}</td>
+											<td>{{form.t_n431}}</td>
+											<td>{{form.t_o431}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b432}}</td>
+											<td>{{form.t_c432}}</td>
+											<td>{{form.t_d432}}</td>
+											<td>{{form.t_h432}}</td>
+											<td>{{form.t_k432}}</td>
+											<td>{{form.t_l432}}</td>
+											<td>{{form.t_m432}}</td>
+											<td>{{form.t_n432}}</td>
+											<td>{{form.t_o432}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b433}}</td>
+											<td>{{form.t_c433}}</td>
+											<td>{{form.t_d433}}</td>
+											<td>{{form.t_h433}}</td>
+											<td>{{form.t_k433}}</td>
+											<td>{{form.t_l433}}</td>
+											<td>{{form.t_m433}}</td>
+											<td>{{form.t_n433}}</td>
+											<td>{{form.t_o433}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b434}}</td>
+											<td>{{form.t_c434}}</td>
+											<td>{{form.t_d434}}</td>
+											<td>{{form.t_h434}}</td>
+											<td>{{form.t_k434}}</td>
+											<td>{{form.t_l434}}</td>
+											<td>{{form.t_m434}}</td>
+											<td>{{form.t_n434}}</td>
+											<td>{{form.t_o434}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b435}}</td>
+											<td>{{form.t_c435}}</td>
+											<td>{{form.t_d435}}</td>
+											<td>{{form.t_h435}}</td>
+											<td>{{form.t_k435}}</td>
+											<td>{{form.t_l435}}</td>
+											<td>{{form.t_m435}}</td>
+											<td>{{form.t_n435}}</td>
+											<td>{{form.t_o435}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b436}}</td>
+											<td>{{form.t_c436}}</td>
+											<td>{{form.t_d436}}</td>
+											<td>{{form.t_h436}}</td>
+											<td>{{form.t_k436}}</td>
+											<td>{{form.t_l436}}</td>
+											<td>{{form.t_m436}}</td>
+											<td>{{form.t_n436}}</td>
+											<td>{{form.t_o436}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b437}}</td>
+											<td>{{form.t_c437}}</td>
+											<td>{{form.t_d437}}</td>
+											<td>{{form.t_h437}}</td>
+											<td>{{form.t_k437}}</td>
+											<td>{{form.t_l437}}</td>
+											<td>{{form.t_m437}}</td>
+											<td>{{form.t_n437}}</td>
+											<td>{{form.t_o437}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b438}}</td>
+											<td>{{form.t_c438}}</td>
+											<td>{{form.t_d438}}</td>
+											<td>{{form.t_h438}}</td>
+											<td>{{form.t_k438}}</td>
+											<td>{{form.t_l438}}</td>
+											<td>{{form.t_m438}}</td>
+											<td>{{form.t_n438}}</td>
+											<td>{{form.t_o438}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b439}}</td>
+											<td>{{form.t_c439}}</td>
+											<td>{{form.t_d439}}</td>
+											<td>{{form.t_h439}}</td>
+											<td>{{form.t_k439}}</td>
+											<td>{{form.t_l439}}</td>
+											<td>{{form.t_m439}}</td>
+											<td>{{form.t_n439}}</td>
+											<td>{{form.t_o439}}</td>
+										</tr>
+										<tr>
+											<td>{{form.t_b440}}</td>
+											<td>{{form.t_c440}}</td>
+											<td>{{form.t_d440}}</td>
+											<td>{{form.t_h440}}</td>
+											<td>{{form.t_k440}}</td>
+											<td>{{form.t_l440}}</td>
+											<td>{{form.t_m440}}</td>
+											<td>{{form.t_n440}}</td>
+											<td>{{form.t_o440}}</td>
+										</tr>
+										<tr>
+											<td colspan="5" class="text-right"><label class="label-control" for="t_i442">期末現在の発行済株式数の総数又は出資金額の総額</label></td>
+											<td>{{form.t_i442}}</td>
+											<td colspan="2" class="text-right"><label class="label-control" for="t_n442">期末議決数総数</label></td>
+											<td>{{form.t_n442}}</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>持ち分会社(合名会社・合資会社・合同会社）の場合<div></div>
+						</h4>
+						<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-8 label-control" for="t_n446">期末現在の社員の総数(7)</label>
+									<label class="col-md-2 label-control">{{form.t_n446}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-8 label-control" for="t_n447">社員の3人以下およびこれら同族関係者の合計人数のうちもっとも多い数(8)</label>
+									<label class="col-md-2 label-control">{{form.t_n447}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-8 label-control" for="t_n448">上の表その他、株式*の社員の1人及びその同族関係者の合計人数のうちもっとも多い数(15)</label>
+									<label class="col-md-2 label-control">{{form.t_n448}}</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

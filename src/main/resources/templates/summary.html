@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+		<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/summary.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+<body>
+<div id="app">
+		<div th:include="navbar :: navbar"></div>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+			<!-- Main content -->
+			<div class="content-wrapper">
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item active"><i class="icon-home2 mr-2"></i>年度選択</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-xs">
+									<thead>
+										<tr>
+											<th>区分</th>
+											<th></th>
+											<th>年税額</th>
+											<th>中間納付額</th>
+											<th>納付額</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td rowspan="2">国</td>
+											<td>法人税</td>
+											<td>{{form.g13}}</td>
+											<td>{{form.i13}}</td>
+											<td>{{form.k13}}</td>
+										</tr>
+										<tr>
+											<td>地方法人税</td>
+											<td>{{form.g14}}</td>
+											<td>{{form.i14}}</td>
+											<td>{{form.k14}}</td>
+										</tr>
+										<tr v-if="false">
+											<td>源泉所得税</td>
+											<td>{{form.g15}}</td>
+											<td>{{form.i15}}</td>
+											<td>{{form.k15}}</td>
+										</tr>
+										<tr>
+											<td rowspan="3">県</td>
+											<td>事業税</td>
+											<td>{{form.g16}}</td>
+											<td>{{form.i16}}</td>
+											<td>{{form.k16}}</td>
+										</tr>
+										<tr>
+											<td>（事業税）</td>
+											<td>{{form.g17}}</td>
+											<td>{{form.i17}}</td>
+											<td>{{form.k17}}</td>
+										</tr>
+										<tr>
+											<td>(地方法人特別税)</td>
+											<td>{{form.g18}}</td>
+											<td>{{form.i18}}</td>
+											<td>{{form.k18}}</td>
+										</tr>
+										<tr>
+											<td rowspan="3">県</td>
+											<td>都道府県民税</td>
+											<td>{{form.g19}}</td>
+											<td>{{form.i19}}</td>
+											<td>{{form.k19}}</td>
+										</tr>
+										<tr>
+											<td>(法人税割)</td>
+											<td>{{form.g20}}</td>
+											<td>{{form.i20}}</td>
+											<td>{{form.k20}}</td>
+										</tr>
+										<tr>
+											<td>(均等割)</td>
+											<td>{{form.g21}}</td>
+											<td>{{form.i21}}</td>
+											<td>{{form.k21}}</td>
+										</tr>
+										<tr>
+											<td rowspan="3">市</td>
+											<td>市町村民税</td>
+											<td>{{form.g22}}</td>
+											<td>{{form.i22}}</td>
+											<td>{{form.k22}}</td>
+										</tr>
+										<tr>
+											<td>(法人税割)</td>
+											<td>{{form.g23}}</td>
+											<td>{{form.i23}}</td>
+											<td>{{form.k23}}</td>
+										</tr>
+										<tr>
+											<td>(均等割)</td>
+											<td>{{form.g24}}</td>
+											<td>{{form.i24}}</td>
+											<td>{{form.k24}}</td>
+										</tr>
+										<tr>
+											<td>合計</td>
+											<td></td>
+											<td>{{form.g25}}</td>
+											<td>{{form.i25}}</td>
+											<td>{{form.k25}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			</div>
+			<!-- END : End Main Content-->
+		</div>
+
+		<!-- END : Page content -->
+
+		<!-- BEGIN : Footer-->
+		<div th:replace="footer :: js"></div>
+		<!-- End : Footer-->
+
+		<!-- ////////////////////////////////////////////////////////////////////////////-->
+
+</div>
+	</body>
+	<!-- END : Body-->
+</html>

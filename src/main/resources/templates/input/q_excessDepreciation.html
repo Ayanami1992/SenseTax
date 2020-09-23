@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/q_excessDepreciation.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/q_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[Q]　減価償却超過額</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>減価償却超過額<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="q_h390">減価償却の償却超過額</label>
+									<div class="col-sm-3">
+										<input type="number" id="q_h390" class="form-control form-control-sm" name="q_h390" v-model.number="form.q_h390">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="q_h392">減価償却超過額の当期認容額</label>
+									<div class="col-sm-3">
+										<input type="number" id="q_h392" class="form-control form-control-sm" name="q_h392" v-model.number="form.q_h392">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

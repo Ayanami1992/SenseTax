@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/k_taxCourses.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/k_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[K]　租税公課</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>元帳を確認し、交通反則金などを租税公課で処理した額や更正があったときの額を入力ください。<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control text-right" for="k_c237">名称</label>
+									<div class="col-sm-2">
+										<input type="text" id="k_c237" class="form-control form-control-sm" name="k_c237" v-model="form.k_c237">
+									</div>
+									<label class="col-md-1 label-control text-right" for="k_e237">金額</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_e237" class="form-control form-control-sm text-right" name="k_e237" v-model.number="form.k_e237">
+									</div>
+									<label class="col-md-4 label-control text-right" for="k_h237">別表四「その他」・「※」・「賞与」の別</label>
+									<div class="col-sm-2">
+											<select id="k_h237" class="form-control form-control-sm" v-model="form.k_h237">
+												<option v-for="option in options.A53_A55" v-bind:value="option.value">{{option.text}}</option>
+											</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control">仕訳：</label>
+									<label class="col-md-3 label-control" for="k_l239">租税公課　／　現金・預金</label>
+									<label class="col-md-2 label-control" for="k_l239">（法人税・更正分）</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_l239" class="form-control form-control-sm text-right" name="k_l239" v-model.number="form.k_l239">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control"></label>
+									<label class="col-md-3 label-control" for="k_l240">租税公課　／　現金・預金</label>
+									<label class="col-md-2 label-control" for="k_l240">（道府県民税・更正分）</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_l240" class="form-control form-control-sm text-right" name="k_l240" v-model.number="form.k_l240">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control"></label>
+									<label class="col-md-3 label-control" for="k_l241">租税公課　／　現金・預金</label>
+									<label class="col-md-2 label-control" for="k_l241">（市町村民税・更正分）</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_l241" class="form-control form-control-sm text-right" name="k_l241" v-model.number="form.k_l241">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control"></label>
+									<label class="col-md-3 label-control" for="k_l242">租税公課　／　現金・預金</label>
+									<label class="col-md-2 label-control" for="k_l242">（県　事業税・更正分）</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_l242" class="form-control form-control-sm text-right" name="k_l242" v-model.number="form.k_l242">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control"></label>
+									<label class="col-md-3 label-control" for="k_l243">租税公課　／　現金・預金</label>
+									<label class="col-md-2 label-control" for="k_l243">（加算税）</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_l243" class="form-control form-control-sm text-right" name="k_l243" v-model.number="form.k_l243">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control"></label>
+									<label class="col-md-3 label-control" for="k_l244">租税公課　／　現金・預金</label>
+									<label class="col-md-2 label-control" for="k_l244">（延滞税）</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_l244" class="form-control form-control-sm text-right" name="k_l244" v-model.number="form.k_l244">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control"></label>
+									<label class="col-md-3 label-control" for="k_l245">租税公課　／　現金・預金</label>
+									<label class="col-md-2 label-control" for="k_l245">（過怠税）</label>
+									<div class="col-sm-2">
+										<input type="number" id="k_l245" class="form-control form-control-sm text-right" name="k_l245" v-model.number="form.k_l245">
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

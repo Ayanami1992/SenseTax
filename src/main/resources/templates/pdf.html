@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<body>
+		<div id="app">
+			<form class="form" target="_blank" th:action="@{/outputpdf/download}" method="post">
+				<div th:include="navbar :: navbar"></div>
+				<!-- Page content -->
+				<div class="page-content">
+
+					<head th:include="sidebar :: sidebar"></head>
+					<!-- Main content -->
+					<div class="content-wrapper">
+						<!-- Page header -->
+						<div class="page-header page-header-light">
+							<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+								<div class="d-flex">
+									<div class="breadcrumb">
+										<span class="breadcrumb-item active"><i class="icon-home2 mr-2"></i>別表印刷</span>
+									</div>
+								</div>
+								<div class="header-elements d-none">
+									<div class="breadcrumb justify-content-center">
+										<button type="submit" class="btn btn-success mr-1">
+									 		<i class="fa fa-check-square-o"></i> 一括作成
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /page header -->
+
+						<!-- Content area -->
+						<div class="content">
+							<div class="card">
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-bordered table-xs">
+											<tbody>
+												<tr v-for="(pdf, i) in pdfUrl">
+													<td>
+									                    <input name="pdfArray" type="checkbox" class="form-check-input-styled-success"
+									                           :value="pdf.url" checked>
+													</td>
+													<td>
+														<a v-bind:href="baseUrl + pdf.url" class="btn btn-success" target="_blank">プレビュー</a>
+													</td>
+													<td>{{pdf.text}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-bordered table-xs">
+											<tbody>
+												<tr v-for="(pdf, i) in localPdfUrl">
+													<td>
+									                    <input name="pdfArray" type="checkbox" class="form-check-input-styled-success"
+									                           v-bind:value="pdf.url" checked>
+													</td>
+													<td>
+														<a v-bind:href="baseUrl + pdf.url" class="btn btn-success" target="_blank" v-if="pdf.edited">プレビュー</a>
+													</td>
+													<td>{{pdf.text}} <span v-if="pdf.edited==false" style="color:red">(開発中)</span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- END : End Content area-->
+					<!-- BEGIN : Footer-->
+					<div th:replace="footer :: js"></div>
+					<!-- End : Footer-->
+				</div>
+				<!-- END : End Main Content-->
+
+				</div>
+			</form>
+		</div>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/pdf.js}"></script>
+	<!-- END PAGE LEVEL JS-->
+	</body>
+	<!-- END : Body-->
+</html>

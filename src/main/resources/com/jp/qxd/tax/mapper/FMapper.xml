@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.FMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.FModel"
+		parameterType="com.jp.qxd.tax.model.input.FModel">
+		SELECT
+		*
+		from f_carry_over_loss
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.FModel">
+		insert into f_carry_over_loss
+		(
+			company_id
+			,user_id
+			,year
+			,f_d136
+			,f_d137
+			,f_d138
+			,f_d139
+			,f_d140
+			,f_d141
+			,f_d142
+			,f_d143
+			,f_d144
+			,f_d145
+			,f_d149
+			,f_d150
+			,f_d151
+			,f_d152
+			,f_d153
+			,f_d154
+			,f_d155
+			,f_d156
+			,f_d157
+			,f_f136
+			,f_f137
+			,f_f138
+			,f_f139
+			,f_f140
+			,f_f141
+			,f_f142
+			,f_f143
+			,f_f144
+			,f_f145
+			,f_f149
+			,f_f150
+			,f_f151
+			,f_f152
+			,f_f153
+			,f_f154
+			,f_f155
+			,f_f156
+			,f_f157
+			,f_h136
+			,f_h137
+			,f_h138
+			,f_h139
+			,f_h140
+			,f_h141
+			,f_h142
+			,f_h143
+			,f_h144
+			,f_h145
+			,f_h149
+			,f_h150
+			,f_h151
+			,f_h152
+			,f_h153
+			,f_h154
+			,f_h155
+			,f_h156
+			,f_h157
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{f_d136,jdbcType=VARCHAR},
+			#{f_d137,jdbcType=VARCHAR},
+			#{f_d138,jdbcType=VARCHAR},
+			#{f_d139,jdbcType=VARCHAR},
+			#{f_d140,jdbcType=VARCHAR},
+			#{f_d141,jdbcType=VARCHAR},
+			#{f_d142,jdbcType=VARCHAR},
+			#{f_d143,jdbcType=VARCHAR},
+			#{f_d144,jdbcType=VARCHAR},
+			#{f_d145,jdbcType=VARCHAR},
+			#{f_d149,jdbcType=VARCHAR},
+			#{f_d150,jdbcType=VARCHAR},
+			#{f_d151,jdbcType=VARCHAR},
+			#{f_d152,jdbcType=VARCHAR},
+			#{f_d153,jdbcType=VARCHAR},
+			#{f_d154,jdbcType=VARCHAR},
+			#{f_d155,jdbcType=VARCHAR},
+			#{f_d156,jdbcType=VARCHAR},
+			#{f_d157,jdbcType=VARCHAR},
+			#{f_f136,jdbcType=VARCHAR},
+			#{f_f137,jdbcType=VARCHAR},
+			#{f_f138,jdbcType=VARCHAR},
+			#{f_f139,jdbcType=VARCHAR},
+			#{f_f140,jdbcType=VARCHAR},
+			#{f_f141,jdbcType=VARCHAR},
+			#{f_f142,jdbcType=VARCHAR},
+			#{f_f143,jdbcType=VARCHAR},
+			#{f_f144,jdbcType=VARCHAR},
+			#{f_f145,jdbcType=VARCHAR},
+			#{f_f149,jdbcType=VARCHAR},
+			#{f_f150,jdbcType=VARCHAR},
+			#{f_f151,jdbcType=VARCHAR},
+			#{f_f152,jdbcType=VARCHAR},
+			#{f_f153,jdbcType=VARCHAR},
+			#{f_f154,jdbcType=VARCHAR},
+			#{f_f155,jdbcType=VARCHAR},
+			#{f_f156,jdbcType=VARCHAR},
+			#{f_f157,jdbcType=VARCHAR},
+			#{f_h136,jdbcType=INTEGER},
+			#{f_h137,jdbcType=INTEGER},
+			#{f_h138,jdbcType=INTEGER},
+			#{f_h139,jdbcType=INTEGER},
+			#{f_h140,jdbcType=INTEGER},
+			#{f_h141,jdbcType=INTEGER},
+			#{f_h142,jdbcType=INTEGER},
+			#{f_h143,jdbcType=INTEGER},
+			#{f_h144,jdbcType=INTEGER},
+			#{f_h145,jdbcType=INTEGER},
+			#{f_h149,jdbcType=INTEGER},
+			#{f_h150,jdbcType=INTEGER},
+			#{f_h151,jdbcType=INTEGER},
+			#{f_h152,jdbcType=INTEGER},
+			#{f_h153,jdbcType=INTEGER},
+			#{f_h154,jdbcType=INTEGER},
+			#{f_h155,jdbcType=INTEGER},
+			#{f_h156,jdbcType=INTEGER},
+			#{f_h157,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.FModel">
+		delete
+		from f_carry_over_loss
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

@@ -1,0 +1,127 @@
+package com.jp.qxd.tax.model.pdf;
+
+import java.util.Collection;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Rpt004Provider extends RptBaseProvider {
+
+	private static Position legalPersonName = new Position(435, 810, 560, 790);
+	private static Position ymdFrom = new Position(349, 804, DATE, 10, 5, 0, 16);
+	private static Position ymdTo = new Position(349, 787, DATE, 10, 5, 0, 16);
+	private static Position f_1_1 = new Position(250, 720, 320, 710, 10);
+	private static Position f_1_2 = new Position(345, 720, 415, 710, 10);
+	private static Position f_1_3 = new Position(473, 728, 543, 718, 10);
+	private static Position f_1_4 = new Position(473, 713, 543, 703, 10);
+	private static Position f_2_1 = new Position(250, 698, 320, 688, 10);
+	private static Position f_2_2 = new Position(345, 698, 415, 688, 10);
+	private static Position f_3_1 = new Position(250, 683, 320, 673, 10);
+	private static Position f_3_2 = new Position(345, 683, 415, 673, 10);
+	private static Position f_4_1 = new Position(250, 668, 320, 658, 10);
+	private static Position f_4_2 = new Position(345, 668, 415, 658, 10);
+	private static Position f_5_1 = new Position(250, 653, 320, 643, 10);
+	private static Position f_5_4 = new Position(473, 653, 543, 643, 10);
+	private static Position f_6_1 = new Position(250, 639, 320, 629, 10);
+	private static Position f_6_2 = new Position(345, 639, 415, 629, 10);
+	private static Position f_7_1 = new Position(250, 623, 320, 613, 10);
+	private static Position f_7_4 = new Position(473, 623, 543, 613, 10);
+	private static Position f_8_1 = new Position(250, 608, 320, 598, 10);
+	private static Position f_8_4 = new Position(473, 608, 543, 598, 10);
+	private static Position f_9_1 = new Position(250, 594, 320, 584, 10);
+	private static Position f_9_2 = new Position(345, 594, 415, 584, 10);
+//	private static Position f_9_3 = new Position(433, 594, 458, 584, 8);
+	private static Position f_9_4 = new Position(473, 594, 543, 584, 10);
+	private static Position f_10_name = new Position(130, 579, 220, 569, 8);
+	private static Position f_10_1 = new Position(250, 579, 320, 569, 10);
+	private static Position f_10_2 = new Position(345, 579, 415, 569, 10);
+//	private static Position f_10_3 = new Position(433, 579, 458, 569, 8);
+	private static Position f_10_4 = new Position(473, 579, 543, 569, 10);
+	private static Position f_11_1 = new Position(250, 520, 320, 510, 10);
+	private static Position f_11_2 = new Position(345, 520, 415, 510, 10);
+	private static Position f_11_4 = new Position(473, 520, 543, 510, 10);
+	private static Position f_12_1 = new Position(250, 505, 320, 495, 10);
+	private static Position f_12_2 = new Position(345, 505, 415, 495, 10);
+	private static Position f_13_1 = new Position(250, 490, 320, 480, 10);
+	private static Position f_13_2 = new Position(345, 490, 415, 480, 10);
+	private static Position f_14_1 = new Position(250, 475, 320, 465, 10);
+	private static Position f_14_4 = new Position(473, 475, 543, 465, 10);
+	private static Position f_15_1 = new Position(250, 460, 320, 450, 10);
+	private static Position f_15_4 = new Position(473, 460, 543, 450, 10);
+	private static Position f_16_1 = new Position(250, 445, 320, 435, 10);
+	private static Position f_16_4 = new Position(473, 445, 543, 435, 10);
+	private static Position f_17_1 = new Position(250, 430, 320, 420, 10);
+	private static Position f_17_4 = new Position(473, 430, 543, 420, 10);
+	private static Position f_18_1 = new Position(250, 415, 320, 405, 10);
+	private static Position f_18_2 = new Position(345, 415, 415, 405, 10);
+	private static Position f_19_1 = new Position(250, 400, 320, 390, 10);
+	private static Position f_19_4 = new Position(473, 400, 543, 390, 10);
+	private static Position f_20_1 = new Position(250, 385, 320, 375, 10);
+	private static Position f_20_2 = new Position(345, 385, 415, 375, 10);
+//	private static Position f_20_3 = new Position(235, 719, 290, 709, 10);
+	private static Position f_20_4 = new Position(473, 385, 543, 375, 10);
+	private static Position f_21_1 = new Position(250, 325, 320, 315, 10);
+	private static Position f_21_2 = new Position(345, 325, 415, 315, 10);
+	private static Position f_21_4_u = new Position(473, 330, 543, 320, 8);
+	private static Position f_21_4_d = new Position(473, 323, 543, 313, 8);
+	private static Position f_22_1 = new Position(250, 310, 320, 300, 10);
+	private static Position f_22_2 = new Position(345, 310, 415, 300, 10);
+	private static Position f_22_4_u = new Position(473, 315, 543, 305, 8);
+	private static Position f_22_4_d = new Position(473, 308, 543, 298, 8);
+	private static Position f_23_1 = new Position(250, 296, 320, 286, 10);
+	private static Position f_23_4 = new Position(473, 296, 543, 286, 10);
+	private static Position f_24_1 = new Position(257, 281, 327, 271, 10);
+	private static Position f_24_4 = new Position(480, 281, 550, 271, 10);
+	private static Position f_25_1 = new Position(250, 266, 320, 256, 10);
+	private static Position f_25_2 = new Position(345, 266, 415, 256, 10);
+	private static Position f_25_4_u = new Position(473, 270, 543, 260, 8);
+	private static Position f_25_4_d = new Position(473, 263, 543, 253, 8);
+	private static Position f_26_1 = new Position(250, 251, 320, 241, 10);
+	private static Position f_26_4 = new Position(473, 251, 543, 241, 10);
+	private static Position f_29_1 = new Position(250, 236, 320, 226, 10);
+	private static Position f_29_4 = new Position(473, 236, 543, 226, 10);
+	private static Position f_30_1 = new Position(250, 221, 320, 211, 10);
+	private static Position f_30_4 = new Position(473, 221, 543, 211, 10);
+	private static Position f_31_1 = new Position(250, 206, 320, 196, 10);
+	private static Position f_31_4 = new Position(473, 206, 543, 196, 10);
+	private static Position f_34_1 = new Position(250, 192, 320, 182, 10);
+	private static Position f_34_2 = new Position(345, 192, 415, 182, 10);
+	private static Position f_34_4_u = new Position(473, 196, 543, 186, 8);
+	private static Position f_34_4_d = new Position(473, 189, 543, 179, 8);
+	private static Position f_35_1 = new Position(250, 177, 320, 167, 10);
+	private static Position f_35_2 = new Position(345, 177, 415, 167, 10);
+	private static Position f_37_1 = new Position(250, 162, 320, 152, 10);
+	private static Position f_37_4 = new Position(473, 162, 543, 152, 10);
+	private static Position f_38_1 = new Position(250, 147, 320, 137, 10);
+	private static Position f_38_4 = new Position(473, 147, 543, 137, 10);
+	private static Position f_39_1 = new Position(250, 132, 320, 122, 10);
+	private static Position f_39_2 = new Position(345, 132, 415, 122, 10);
+	private static Position f_39_4_u = new Position(473, 136, 543, 126, 8);
+	private static Position f_39_4_d = new Position(473, 129, 543, 119, 8);
+	private static Position f_40_1 = new Position(257, 117, 327, 107, 10);
+	private static Position f_40_4 = new Position(480, 117, 550, 107, 10);
+	private static Position f_41_1 = new Position(250, 102, 320, 92, 10);
+	private static Position f_41_2 = new Position(345, 102, 415, 92, 10);
+	private static Position f_41_4_u = new Position(473, 102, 543, 92, 8);
+	private static Position f_41_4_d = new Position(473, 102, 543, 92, 8);
+	private static Position f_42_1 = new Position(257, 87, 327, 77, 10);
+	private static Position f_42_4 = new Position(480, 87, 550, 77, 10);
+	private static Position f_48_1 = new Position(257, 72, 327, 62, 10);
+	private static Position f_48_2 = new Position(350, 72, 420, 62, 10);
+	private static Position f_49_1 = new Position(250, 57, 320, 47, 10);
+	private static Position f_49_2 = new Position(345, 57, 415, 47, 10);
+	private static Position f_49_4_u = new Position(473, 62, 543, 52, 8);
+	private static Position f_49_4_d = new Position(473, 56, 543, 46, 8);
+	private static Position f_50_name = new Position(130, 565, 220, 555, 8);
+	private static Position f_50_1 = new Position(250, 565, 320, 555, 10);
+	private static Position f_50_2 = new Position(345, 565, 415, 555, 10);
+	private static Position f_51_name = new Position(130, 550, 220, 540, 8);
+	private static Position f_51_1 = new Position(250, 550, 320, 540, 10);
+	private static Position f_51_3 = new Position(433, 550, 458, 540, 8);
+	private static Position f_51_4 = new Position(473, 550, 543, 540, 10);
+	@Override
+	public Collection<?> getReprotData() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+}

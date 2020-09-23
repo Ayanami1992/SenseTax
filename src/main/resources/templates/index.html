@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/index.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+<body>
+<div id="app">
+		<div th:include="navbar :: navbar"></div>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+			<!-- Main content -->
+			<div class="content-wrapper">
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item active"><i class="icon-home2 mr-2"></i>年度選択</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-xs">
+									<tbody>
+										<tr v-for="(year, i) in years">
+											<td>
+												<button class="btn btn-success" v-on:click="onSelect(year.year)">選択</button>
+											</td>
+											<td>{{year.text}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			</div>
+			<!-- END : End Main Content-->
+		</div>
+
+		<!-- END : Page content -->
+
+		<!-- BEGIN : Footer-->
+		<header th:replace="footer :: js"></header>
+		<!-- End : Footer-->
+
+		<!-- ////////////////////////////////////////////////////////////////////////////-->
+
+</div>
+	</body>
+	<!-- END : Body-->
+</html>

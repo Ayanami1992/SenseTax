@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.EMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.EModel"
+		parameterType="com.jp.qxd.tax.model.input.EModel">
+		SELECT
+		*
+		from e_table51
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.EModel">
+		insert into e_table51
+		(
+			company_id
+			,user_id
+			,year
+			,e_h108
+			,e_01
+			,e_h109
+			,e_h110
+			,e_h111
+			,e_h112
+			,e_h113
+			,e_c114
+			,e_h114
+			,e_c115
+			,e_h115
+			,e_c116
+			,e_h116
+			,e_c117
+			,e_h117
+			,e_c118
+			,e_h118
+			,e_c119
+			,e_h119
+			,e_h120
+			,e_h121
+			,e_h122
+			,e_h123
+			,e_h125
+			,e_h127
+			,e_h128
+			,e_h129
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{e_h108,jdbcType=INTEGER},
+			#{e_01,jdbcType=VARCHAR},
+			#{e_h109,jdbcType=INTEGER},
+			#{e_h110,jdbcType=INTEGER},
+			#{e_h111,jdbcType=INTEGER},
+			#{e_h112,jdbcType=INTEGER},
+			#{e_h113,jdbcType=INTEGER},
+			#{e_c114,jdbcType=VARCHAR},
+			#{e_h114,jdbcType=INTEGER},
+			#{e_c115,jdbcType=VARCHAR},
+			#{e_h115,jdbcType=INTEGER},
+			#{e_c116,jdbcType=VARCHAR},
+			#{e_h116,jdbcType=INTEGER},
+			#{e_c117,jdbcType=VARCHAR},
+			#{e_h117,jdbcType=INTEGER},
+			#{e_c118,jdbcType=VARCHAR},
+			#{e_h118,jdbcType=INTEGER},
+			#{e_c119,jdbcType=VARCHAR},
+			#{e_h119,jdbcType=INTEGER},
+			#{e_h120,jdbcType=INTEGER},
+			#{e_h121,jdbcType=INTEGER},
+			#{e_h122,jdbcType=INTEGER},
+			#{e_h123,jdbcType=INTEGER},
+			#{e_h125,jdbcType=INTEGER},
+			#{e_h127,jdbcType=INTEGER},
+			#{e_h128,jdbcType=INTEGER},
+			#{e_h129,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.EModel">
+		delete
+		from e_table51
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

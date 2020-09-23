@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/d_table52.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/d_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[D]　別表五(二)期首</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">前回申告した別表五（二）（控）を確認し、前期末の未納税金を入力してください。</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">前期末の未納税金
+							</h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="d_h97">法人税</label>
+									<div class="col-md-4">
+										<input type="number" id="d_h97" class="form-control form-control-sm text-right" name="d_h97" v-model.number="form.d_h97">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="d_h98">道府県民税</label>
+									<div class="col-md-4">
+										<input type="number" id="d_h98" class="form-control form-control-sm text-right" name="d_h98" v-model.number="form.d_h98">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="d_h99">市町村民税</label>
+									<div class="col-md-4">
+										<input type="number" id="d_h99" class="form-control form-control-sm text-right" name="d_h99" v-model.number="form.d_h99">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="d_h100">事業税</label>
+									<div class="col-md-4">
+										<input type="number" id="d_h100" class="form-control form-control-sm text-right" name="d_h100" v-model.number="form.d_h100">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="d_h102">納税充当金（未払法人税等+未払事業税）(42)</label>
+									<div class="col-md-4">
+										<input type="number" id="d_h102" class="form-control form-control-sm text-right" name="d_h102" v-model.number="form.d_h102"
+										 placeholder="（未払法人税等+未払事業税）">
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

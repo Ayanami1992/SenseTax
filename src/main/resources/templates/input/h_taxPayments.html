@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/h_taxPayments.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/h_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[H]　法人税等納付</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>事業税は確定分が、別表五(二）に記載がないため、納付書で確定額を確認してください。<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="h_k173">事業税確定納付額（前期の県への申告書、納付書確認）</label>
+
+									<div class="col-md-2">
+										<input type="number" id="h_k173" class="form-control form-control-sm" name="h_k173" v-model.number="form.h_k173">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>未払法人税での支払い処理（前期の決算書で未払法人税が計上してある場合）<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+										<label>仕訳:</label>
+									</div>
+									<label class="col-md-4 label-control" for="h_k177">未払法人税等　／　現金・預金　法人税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k177" class="form-control form-control-sm" name="h_k177" v-model.number="form.h_k177">
+									</div>
+									<div class="col-sm-4 border-left-0">
+										<label>※復興特別法人税、地方法人税は「法人税」へ含めて入力下さい</label>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+									</div>
+									<label class="col-md-4 label-control" for="h_k178">未払法人税等　／　現金・預金　道府県民税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k178" class="form-control form-control-sm" name="h_k178" v-model.number="form.h_k178">
+									</div>
+									<div class="col-sm-4 border-left-0">
+										<label>※東京都民税は、「道府県民税」に入力してください</label>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+									</div>
+									<label class="col-md-4 label-control" for="h_k179">未払法人税等　／　現金・預金　市町村民税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k179" class="form-control form-control-sm" name="h_k179" v-model.number="form.h_k179">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+									</div>
+									<label class="col-md-4 label-control" for="h_k180">未払法人税等　／　現金・預金　事業税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k180" class="form-control form-control-sm" name="h_k180" v-model.number="form.h_k180">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+										<label>結果:</label>
+									</div>
+									<label class="col-md-4 label-control" for="h_k182">未消却の納税充当金</label>
+									<label class="col-sm-2 label-control" >{{form.h_k182}}</label>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>租税公課での支払い処理（前期の決算書で未払法人税を計上していない場合）<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+										<label>仕訳:</label>
+									</div>
+									<label class="col-md-4 label-control" for="h_k186">租税公課　／　現金・預金　法人税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k186" class="form-control form-control-sm" name="h_k186" v-model.number="form.h_k186">
+									</div>
+									<div class="col-sm-4 border-left-0">
+										<label>※復興特別法人税、地方法人税は「法人税」へ含めて入力下さい</label>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+									</div>
+									<label class="col-md-4 label-control" for="h_k187">租税公課　／　現金・預金　道府県民税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k187" class="form-control form-control-sm" name="h_k187" v-model.number="form.h_k187">
+									</div>
+									<div class="col-sm-4 border-left-0">
+										<label>※東京都民税は、「道府県民税」に入力してください</label>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+									</div>
+									<label class="col-md-4 label-control" for="h_k188">租税公課　／　現金・預金　市町村民税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k188" class="form-control form-control-sm" name="h_k188" v-model.number="form.h_k188">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+									</div>
+									<label class="col-md-4 label-control" for="h_k189">租税公課　／　現金・預金　事業税</label>
+
+									<div class="col-sm-2">
+										<input type="number" id="h_k189" class="form-control form-control-sm" name="h_k189" v-model.number="form.h_k189">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+										<label>結果:</label>
+									</div>
+									<label class="col-md-4 label-control" for="h_k191">未納税金（法人税・住民税）</label>
+									<label class="col-sm-2 label-control">{{form.h_k191}}</label>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-1 border-left-0">
+									</div>
+									<label class="col-md-4 label-control" for="h_k192">未納税金（事業税）</label>
+									<label class="col-sm-2 label-control" >{{form.h_k192}}</label>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

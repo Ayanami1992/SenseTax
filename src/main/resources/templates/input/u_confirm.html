@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>【法人税割】<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-8 label-control" for="u_l455">試験研究費の増加の場合の法人税額の特別控除額</label>
+									<label class="col-md-2 label-control">{{form.u_l455}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-8 label-control" for="u_l456">みなし配当の25％相当額の控除額</label>
+									<label class="col-md-2 label-control">{{form.u_l456}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-8 label-control" for="u_l457">還付法人税額等の控除額</label>
+									<label class="col-md-2 label-control">{{form.u_l457}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-8 label-control" for="u_l458">退職年金等積立金に係る法人税額</label>
+									<label class="col-md-2 label-control">{{form.u_l458}}</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>【事業税】<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-8 label-control" for="u_n460">損金の額に算入した海外投資等損失準備金勘定への繰入額</label>
+									<label class="col-md-2 label-control">{{form.u_n460}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-8 label-control" for="u_n461">損金の額に算入した技術等海外取引に係る所得の特別控除額</label>
+									<label class="col-md-2 label-control">{{form.u_n461}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-8 label-control" for="u_n462">益金の額に算入した海外投資等損失準備金勘定からの戻入額 </label>
+									<label class="col-md-2 label-control">{{form.u_n462}}</label>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-8 label-control" for="u_n463">外国の事業に帰属する所得以外の所得に対して課された外国法人税額</label>
+									<label class="col-md-2 label-control">{{form.u_n463}}</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.DMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.DModel"
+		parameterType="com.jp.qxd.tax.model.input.DModel">
+		SELECT
+		*
+		from d_table52
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.DModel">
+		insert into d_table52
+		(
+		user_id
+		,year
+		,company_id
+		,d_h97
+		,d_h98
+		,d_h99
+		,d_h100
+		,d_h102
+		) values (
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{company_id,jdbcType=VARCHAR},
+			#{d_h97,jdbcType=INTEGER},
+			#{d_h98,jdbcType=INTEGER},
+			#{d_h99,jdbcType=INTEGER},
+			#{d_h100,jdbcType=INTEGER},
+			#{d_h102,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.DModel">
+		delete
+		from d_table52
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

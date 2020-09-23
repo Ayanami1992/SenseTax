@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.QMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.QModel"
+		parameterType="com.jp.qxd.tax.model.input.QModel">
+		SELECT
+		*
+		from q_excessdepreciation
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.QModel">
+		insert into q_excessdepreciation
+		(
+			company_id
+			,user_id
+			,year
+			,q_h390
+			,q_h392
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{q_h390,jdbcType=INTEGER},
+			#{q_h392,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.QModel">
+		delete
+		from q_excessdepreciation
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

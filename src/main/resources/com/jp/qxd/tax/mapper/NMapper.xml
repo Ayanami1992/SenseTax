@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.NMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.NModel"
+		parameterType="com.jp.qxd.tax.model.input.NModel">
+		SELECT
+		*
+		from n_donation
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.NModel">
+		insert into n_donation
+		(
+			company_id
+			,user_id
+			,year
+			,n_c282
+			,n_e282
+			,n_i282
+			,n_k282
+			,n_p282
+			,n_c283
+			,n_e283
+			,n_i283
+			,n_k283
+			,n_p283
+			,n_c284
+			,n_e284
+			,n_i284
+			,n_k284
+			,n_p284
+			,n_c289
+			,n_e289
+			,n_g289
+			,n_k289
+			,n_p289
+			,n_c290
+			,n_e290
+			,n_g290
+			,n_k290
+			,n_p290
+			,n_c291
+			,n_e291
+			,n_g291
+			,n_k291
+			,n_p291
+			,n_c296
+			,n_e296
+			,n_h296
+			,n_m296
+			,n_p296
+			,n_c297
+			,n_e297
+			,n_h297
+			,n_m297
+			,n_p297
+			,n_c298
+			,n_e298
+			,n_h298
+			,n_m298
+			,n_p298
+			,n_h301
+			,n_h302
+			,n_h303
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{n_c282,jdbcType=VARCHAR},
+			#{n_e282,jdbcType=VARCHAR},
+			#{n_i282,jdbcType=VARCHAR},
+			#{n_k282,jdbcType=VARCHAR},
+			#{n_p282,jdbcType=INTEGER},
+			#{n_c283,jdbcType=VARCHAR},
+			#{n_e283,jdbcType=VARCHAR},
+			#{n_i283,jdbcType=VARCHAR},
+			#{n_k283,jdbcType=VARCHAR},
+			#{n_p283,jdbcType=INTEGER},
+			#{n_c284,jdbcType=VARCHAR},
+			#{n_e284,jdbcType=VARCHAR},
+			#{n_i284,jdbcType=VARCHAR},
+			#{n_k284,jdbcType=VARCHAR},
+			#{n_p284,jdbcType=INTEGER},
+			#{n_c289,jdbcType=VARCHAR},
+			#{n_e289,jdbcType=VARCHAR},
+			#{n_g289,jdbcType=VARCHAR},
+			#{n_k289,jdbcType=VARCHAR},
+			#{n_p289,jdbcType=INTEGER},
+			#{n_c290,jdbcType=VARCHAR},
+			#{n_e290,jdbcType=VARCHAR},
+			#{n_g290,jdbcType=VARCHAR},
+			#{n_k290,jdbcType=VARCHAR},
+			#{n_p290,jdbcType=INTEGER},
+			#{n_c291,jdbcType=VARCHAR},
+			#{n_e291,jdbcType=VARCHAR},
+			#{n_g291,jdbcType=VARCHAR},
+			#{n_k291,jdbcType=VARCHAR},
+			#{n_p291,jdbcType=INTEGER},
+			#{n_c296,jdbcType=VARCHAR},
+			#{n_e296,jdbcType=VARCHAR},
+			#{n_h296,jdbcType=VARCHAR},
+			#{n_m296,jdbcType=VARCHAR},
+			#{n_p296,jdbcType=INTEGER},
+			#{n_c297,jdbcType=VARCHAR},
+			#{n_e297,jdbcType=VARCHAR},
+			#{n_h297,jdbcType=VARCHAR},
+			#{n_m297,jdbcType=VARCHAR},
+			#{n_p297,jdbcType=INTEGER},
+			#{n_c298,jdbcType=VARCHAR},
+			#{n_e298,jdbcType=VARCHAR},
+			#{n_h298,jdbcType=VARCHAR},
+			#{n_m298,jdbcType=VARCHAR},
+			#{n_p298,jdbcType=INTEGER},
+			#{n_h301,jdbcType=INTEGER},
+			#{n_h302,jdbcType=INTEGER},
+			#{n_h303,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.NModel">
+		delete
+		from n_donation
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">
+												</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+													<table class="table text-center">
+														<tbody>
+															<tr>
+																<th rowspan="6" class="vertical"><label class="label-control">債務者等</label></th>
+																<th><label class="label-control">（1）</label></th>
+																<th ><label class="label-control">住所</label></th>
+																<td>{{form.o_g308}}</td>
+																<td>{{form.o_k308}}</td>
+																<td>{{form.o_o308}}</td>
+																<td>{{form.o_s308}}</td>
+															</tr>
+															<tr>
+																<th rowspan="2" style="vertical-align: middle;"><label class="label-control">（2）</label></th>
+																<th><label class="label-control">氏名</label></th>
+																<td>{{form.o_g310}}</td>
+																<td>{{form.o_k310}}</td>
+																<td>{{form.o_o310}}</td>
+																<td>{{form.o_s310}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">外国政府等</label></th>
+																<td>{{form.o_g312}}</td>
+																<td>{{form.o_k312}}</td>
+																<td>{{form.o_o312}}</td>
+																<td>{{form.o_s312}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（3）</label></th>
+																<th><label class="label-control">個別評価事由</label></th>
+																<td>
+																	<div class="input-group input-group-sm">
+																		{{form.o_g313}}
+																		<span class="input-group-text">号</span>
+																		{{form.o_i313}}
+																		<div class="input-group-append">
+																			<span class="input-group-text">該当</span>
+																		</div>
+																	</div>
+																</td>
+																<td>
+																	<div class="input-group">
+																		{{form.o_k313}}
+																		<span class="input-group-text">号</span>
+																		{{form.o_m313}}
+																		<div class="input-group-append">
+																			<span class="input-group-text">該当</span>
+																		</div>
+																	</div>
+																</td>
+																<td>
+																	<div class="input-group">
+																		{{form.o_o313}}
+																		<span class="input-group-text">号</span>
+																		{{form.o_q313}}
+																		<div class="input-group-append">
+																			<span class="input-group-text">該当</span>
+																		</div>
+																	</div>
+																</td>
+																<td>
+																	<div class="input-group">
+																		{{form.o_s313}}
+																		<span class="input-group-text">号</span>
+																		{{form.o_u313}}
+																		<div class="input-group-append">
+																			<span class="input-group-text">該当</span>
+																		</div>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（4）</label></th>
+																<th><label class="label-control">発生時期</label></th>
+																<td>{{form.o_g314}}</td>
+																<td>{{form.o_k314}}</td>
+																<td>{{form.o_o314}}</td>
+																<td>{{form.o_s314}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（5）</label></th>
+																<th><label class="label-control">当期繰入額</label></th>
+																<td>{{form.o_g315}}</td>
+																<td>{{form.o_k315}}</td>
+																<td>{{form.o_o315}}</td>
+																<td>{{form.o_s315}}</td>
+															</tr>
+															<tr>
+																<th rowspan="6" class="vertical"><label class="label-control">繰入限度額の計算</label></th>
+																<th><label class="label-control">（6）</label></th>
+																<th><label class="label-control">個別金銭債権額</label></th>
+																<td>{{form.o_g316}}</td>
+																<td>{{form.o_k316}}</td>
+																<td>{{form.o_o316}}</td>
+																<td>{{form.o_s316}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（7）</label></th>
+																<th><label class="label-control">5年以内弁済額</label></th>
+																<td>{{form.o_g317}}</td>
+																<td>{{form.o_k317}}</td>
+																<td>{{form.o_o317}}</td>
+																<td>{{form.o_s317}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（8）</label></th>
+																<th><label class="label-control">担保権による取立</label></th>
+																<td>{{form.o_g318}}</td>
+																<td>{{form.o_k318}}</td>
+																<td>{{form.o_o318}}</td>
+																<td>{{form.o_s318}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（9）</label></th>
+																<th><label class="label-control">他の者の保証取立</label></th>
+																<td>{{form.o_g319}}</td>
+																<td>{{form.o_k319}}</td>
+																<td>{{form.o_o319}}</td>
+																<td>{{form.o_s319}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（10）</label></th>
+																<th><label class="label-control">その他の取立</label></th>
+																<td>{{form.o_g320}}</td>
+																<td>{{form.o_k320}}</td>
+																<td>{{form.o_o320}}</td>
+																<td>{{form.o_s320}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（12）</label></th>
+																<th><label class="label-control">実質債権否認</label></th>
+																<td>{{form.o_g321}}</td>
+																<td>{{form.o_k321}}</td>
+																<td>{{form.o_o321}}</td>
+																<td>{{form.o_s321}}</td>
+															</tr>
+
+															<tr>
+																<th rowspan="5" class="vertical"><label class="label-control">貸倒実績率の計算</label></th>
+																<th><label class="label-control">（20）</label></th>
+																<th><label class="label-control">貸倒損失加算額</label></th>
+																<td>{{form.o_g322}}</td>
+																<td>{{form.o_k322}}</td>
+																<td>{{form.o_o322}}</td>
+																<td>{{form.o_s322}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（21）</label></th>
+																<th><label class="label-control">前期個別債権の額</label></th>
+																<td>{{form.o_g323}}</td>
+																<td>{{form.o_k323}}</td>
+																<td>{{form.o_o323}}</td>
+																<td>{{form.o_s323}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（22）</label></th>
+																<th><label class="label-control">（21）が売掛債権額</label></th>
+																<td>{{form.o_g324}}</td>
+																<td>{{form.o_k324}}</td>
+																<td>{{form.o_o324}}</td>
+																<td>{{form.o_s324}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（23）</label></th>
+																<th><label class="label-control">（22）が貸倒れ</label></th>
+																<td>{{form.o_g325}}</td>
+																<td>{{form.o_k325}}</td>
+																<td>{{form.o_o325}}</td>
+																<td>{{form.o_s325}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">（24）</label></th>
+																<th><label class="label-control">（22）個別評価対象</label></th>
+																<td>{{form.o_g326}}</td>
+																<td>{{form.o_k326}}</td>
+																<td>{{form.o_o326}}</td>
+																<td>{{form.o_s326}}</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">
+												</h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="o_h331">当期繰入額</label>
+														<div class="col-sm-3">
+															{{form.o_h331}}
+														</div>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="o_q331">法定繰入率決定の業種選択</label>
+														<div class="col-sm-3">
+														{{form.o_q331}}
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>《一括評価金銭債権の明細》<div></div>
+												</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body table-responsive">
+													<table class="table text-center">
+														<tbody>
+															<tr>
+																<th><label class="label-control">№</label></th>
+																<th><label class="label-control">勘定科目</label></th>
+																<th><label class="label-control">期末残高</label></th>
+																<th><label class="label-control">貸倒否認額</label></th>
+																<th><label class="label-control">貸倒認容額</label></th>
+																<th><label class="label-control">個別債権額</label></th>
+																<th><label class="label-control">連結債権額</label></th>
+																<th><label class="label-control">実質否認額</label></th>
+															</tr>
+															<tr>
+																<th><label class="label-control">1</label></th>
+																<td>{{form.o_c334}}</td>
+																<td>{{form.o_f334}}</td>
+																<td>{{form.o_h334}}</td>
+																<td>{{form.o_j334}}</td>
+																<td>{{form.o_l334}}</td>
+																<td>{{form.o_n334}}</td>
+																<td>{{form.o_p334}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">2</label></th>
+																<td>{{form.o_c335}}</td>
+																<td>{{form.o_f335}}</td>
+																<td>{{form.o_h335}}</td>
+																<td>{{form.o_j335}}</td>
+																<td>{{form.o_l335}}</td>
+																<td>{{form.o_n335}}</td>
+																<td>{{form.o_p335}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">3</label></th>
+																<td>{{form.o_c336}}</td>
+																<td>{{form.o_f336}}</td>
+																<td>{{form.o_h336}}</td>
+																<td>{{form.o_j336}}</td>
+																<td>{{form.o_l336}}</td>
+																<td>{{form.o_n336}}</td>
+																<td>{{form.o_p336}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">4</label></th>
+																<td>{{form.o_c337}}</td>
+																<td>{{form.o_f337}}</td>
+																<td>{{form.o_h337}}</td>
+																<td>{{form.o_j337}}</td>
+																<td>{{form.o_l337}}</td>
+																<td>{{form.o_n337}}</td>
+																<td>{{form.o_p337}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">5</label></th>
+																<td>{{form.o_c338}}</td>
+																<td>{{form.o_f338}}</td>
+																<td>{{form.o_h338}}</td>
+																<td>{{form.o_j338}}</td>
+																<td>{{form.o_l338}}</td>
+																<td>{{form.o_n338}}</td>
+																<td>{{form.o_p338}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">6</label></th>
+																<td>{{form.o_c339}}</td>
+																<td>{{form.o_f339}}</td>
+																<td>{{form.o_h339}}</td>
+																<td>{{form.o_j339}}</td>
+																<td>{{form.o_l339}}</td>
+																<td>{{form.o_n339}}</td>
+																<td>{{form.o_p339}}</td>
+															</tr>
+															<tr>
+																<th><label class="label-control">7</label></th>
+																<td>{{form.o_c340}}</td>
+																<td>{{form.o_f340}}</td>
+																<td>{{form.o_h340}}</td>
+																<td>{{form.o_j340}}</td>
+																<td>{{form.o_l340}}</td>
+																<td>{{form.o_n340}}</td>
+																<td>{{form.o_p340}}</td>
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+
+											</div>
+
+										</div>
+
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>《貸倒実績率の計算の入力》<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="o_i342">当期前３年以内の売掛債権、貸倒損失等</label>
+														<div class="col-sm-3">
+															{{form.o_i342}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">96条2ノ2 イ 貸倒損失額</label>
+														<div class="col-sm-3">
+															{{form.o_i343}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ロ 損金算入額</label>
+														<div class="col-sm-3">
+															{{form.o_i344}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ハ 損金算入額</label>
+														<div class="col-sm-3">
+															{{form.o_i345}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ニ 益金算入額</label>
+														<div class="col-sm-3">
+															{{form.o_i346}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ホ 益金算入額</label>
+														<div class="col-sm-3">
+															{{form.o_i347}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ヘ 益金算入額</label>
+														<div class="col-sm-3">
+															{{form.o_i348}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">96条2ノ2 ト 益金算入額</label>
+														<div class="col-sm-3">
+															{{form.o_i349}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">基準年度における売掛金等合計額</label>
+														<div class="col-sm-3">
+															{{form.o_i351}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">上記の基準年度に実質的に債権と見られないもの</label>
+														<div class="col-sm-3">
+															{{form.o_i352}}
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="n_h301">当期末の実質的に債権とみられない額</label>
+														<div class="col-sm-3">
+															{{form.o_i353}}
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

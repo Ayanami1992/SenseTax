@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/s_transferLoss.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/s_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[S]　繰越損益金・配当・五(一)修正</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>当期の株主資本等変動計算書を確認し、「繰越利益剰余金」の当期末残高を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="s_e405">繰越損益金</label>
+									<div class="col-sm-3">
+										<input type="number" id="s_e405" class="form-control form-control-sm" name="s_e405" v-model.number="form.s_e405">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>当期中に効力発生した配当を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="s_e409">当期中配当</label>
+									<div class="col-sm-3">
+										<input type="number" id="s_e409" class="form-control form-control-sm" name="s_e409" v-model.number="form.s_e409">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>積立金や修正後申告翌期への仕訳を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center table-striped">
+							    <thead>
+							      <tr>
+							        <th><label class="label-control">区分名</label></th>
+							        <th><label class="label-control">五(一)②列</label></th>
+							        <th><label class="label-control">五(一)③列</label></th>
+							      </tr>
+							    </thead>
+							    <tbody>
+								  <tr>
+							        <th><label class="label-control">利益準備金</label></th>
+							        <td><input type="text" id="s_e413" class="form-control form-control-sm" name="s_e413" v-model="form.s_e413"></td>
+							        <td><input type="text" id="s_g413" class="form-control form-control-sm" name="s_g413" v-model="form.s_g413"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c414}}</label></th>
+							        <td><input type="text" id="s_e414" class="form-control form-control-sm" name="s_e414" v-model="form.s_e414"></td>
+							        <td><input type="text" id="s_g414" class="form-control form-control-sm" name="s_g414" v-model="form.s_g414"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c415}}</label></th>
+							        <td><input type="text" id="s_e415" class="form-control form-control-sm" name="s_e415" v-model="form.s_e415"></td>
+							        <td><input type="text" id="s_g415" class="form-control form-control-sm" name="s_g415" v-model="form.s_g415"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c416}}</label></th>
+							        <td><input type="text" id="s_e416" class="form-control form-control-sm" name="s_e416" v-model="form.s_e416"></td>
+							        <td><input type="text" id="s_g416" class="form-control form-control-sm" name="s_g416" v-model="form.s_g416"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c417}}</label></th>
+							        <td><input type="text" id="s_e417" class="form-control form-control-sm" name="s_e417" v-model="form.s_e417"></td>
+							        <td><input type="text" id="s_g417" class="form-control form-control-sm" name="s_g417" v-model="form.s_g417"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c418}}</label></th>
+							        <td><input type="text" id="s_e418" class="form-control form-control-sm" name="s_e418" v-model="form.s_e418"></td>
+							        <td><input type="text" id="s_g418" class="form-control form-control-sm" name="s_g418" v-model="form.s_g418"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c419}}</label></th>
+							        <td><input type="text" id="s_e419" class="form-control form-control-sm" name="s_e419" v-model="form.s_e419"></td>
+							        <td><input type="text" id="s_g419" class="form-control form-control-sm" name="s_g419" v-model="form.s_g419"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c420}}</label></th>
+							        <td><input type="text" id="s_e420" class="form-control form-control-sm" name="s_e420" v-model="form.s_e420"></td>
+							        <td><input type="text" id="s_g420" class="form-control form-control-sm" name="s_g420" v-model="form.s_g420"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/j_intermediatepayments.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/j_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[J]　中間納付</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>中間の申告額と納付額を入力してください。（※東京都民税は、県の「均等割額」・「法人税割額」に入力してください。）<div></div>
+							</h4>
+							<p>【ご注意】このソフトでは、中間納付を「法人税等」「租税公課」など損金で処理する事を前提としています。
+							<br>　　　　　期末で、法人税等／仮払税金とここで計上した仮払税金を消す仕訳を入力下さい。
+							<br>　　　　　（中間納付時に法人税等／現金・預金と仕訳するのが一番簡潔です。）
+							</p>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-5 label-control">申告額</label>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-5 label-control">仕訳</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g224">国　中間申告分の法人税</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g224" class="form-control form-control-sm text-right" name="j_g224" v-model.number="form.j_g224">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m224">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m224}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g225">国　中間申告分の地方法人税</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g225" class="form-control form-control-sm text-right" name="j_g225" v-model.number="form.j_g225">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m225">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m225}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g226">県　均等割額</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g226" class="form-control form-control-sm text-right" name="j_g226" v-model.number="form.j_g226">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m226">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m226}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g227">県　法人税割額</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g227" class="form-control form-control-sm text-right" name="j_g227" v-model.number="form.j_g227">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m227">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m227}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g228">市町村　均等割額</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g228" class="form-control form-control-sm text-right" name="j_g228" v-model.number="form.j_g228">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m228">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m228}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g229">市町村　法人税割額</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g229" class="form-control form-control-sm text-right" name="j_g229" v-model.number="form.j_g229">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m229">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m229}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g230">県　事業税額</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g230" class="form-control form-control-sm text-right" name="j_g230" v-model.number="form.j_g230">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m230">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m230}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="j_g231">県　地方法人特別税</label>
+									<div class="col-sm-2">
+										<input type="number" id="j_g231" class="form-control form-control-sm text-right" name="j_g231" v-model.number="form.j_g231">
+									</div>
+									<div class="col-sm-1">
+									</div>
+									<label class="col-md-3 label-control" for="j_m231">仮払税金/現金・預金</label>
+									<label class="col-md-2 label-control text-right">{{form.j_m231}}</label>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

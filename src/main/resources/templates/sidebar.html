@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<div th:fragment="sidebar">
+
+		<!-- Main sidebar -->
+		<div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+
+			<!-- Sidebar content -->
+			<div class="sidebar-content">
+
+				<!-- Main navigation -->
+				<div class="card card-sidebar-mobile">
+					<ul class="nav nav-sidebar" data-nav-type="accordion">
+
+						<li class="nav-item" v-bind:class="page.cur.menu_id == 'index' ? 'nav-item-open' : ''">
+							<a th:href="@{/}" class="nav-link"><i class="icon-calendar3"></i> <span>年度選択</span></a>
+						</li>
+						<li class="nav-item" v-bind:class="page.cur.menu_id == 'pdf' ? 'nav-item-open' : ''" v-if="inputForms.length > 0">
+							<a th:href="@{/outputpdf/}" class="nav-link"><i class="icon-printer2"></i> <span>プレビューと印刷</span></a>
+						</li>
+						<li class="nav-item" v-bind:class="page.cur.menu_id == 'summary' ? 'nav-item-open' : ''" v-if="inputForms.length > 0">
+							<a th:href="@{/summary/}" class="nav-link"><i class="icon-menu3"></i> <span>税額表示</span></a>
+						</li>
+						<li class="nav-item nav-item-submenu" v-bind:class="page.cur.menu_id == 'input' ? 'nav-item-open' : ''" v-if="inputForms.length > 0">
+							<a href="#" class="nav-link"><i class="icon-pencil3"></i> <span>入力画面</span></a>
+
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts" v-bind:style="page.cur.menu_id == 'input' ? 'display: block;' : ''">
+
+								<li class="nav-item" v-for="(form, i) in inputForms">
+								<a v-bind:href="form.url" class="nav-link" v-bind:class="page.cur.id == form.id ? 'active' : ''">
+									<span>{{form.text}}</span>
+									<span class="text-danger" v-if="form.required" >(必須)</span>
+								</a>
+								</li>
+							</ul>
+						</li>
+						<!-- /page kits -->
+
+					</ul>
+				</div>
+				<!-- /main navigation -->
+
+			</div>
+			<!-- /sidebar content -->
+
+</div>
+</div>
+</body>
+</html>

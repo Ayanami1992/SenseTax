@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="card">
+									<div class="card-header">
+										<h4 class="card-title"><i class="ft-edit"></i>元帳を確認し、利子や配当金の収入金額、源泉された額を入力してください。<div></div>
+										</h4>
+										<p>預貯金の利子及び合同運用信託の収益の分配</p>
+										<h4 class="form-section"></h4>
+									</div>
+									<div class="card-content">
+										<div class="px-3">
+
+											<div class="form-group row">
+												<label class="col-md-4 label-control" for="l_f252">収入金額 {{form.l_f252}}</label>
+												<label class="col-md-4 label-control" for="l_h252">源泉税額{{form.l_h252}}</label>
+												<label class="col-md-4 label-control" for="l_j252">控除税額{{form.l_j252}}</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h4 class="card-title"><i class="ft-edit"></i>計算方法の選択<div></div>
+										</h4>
+										<p>≪個別法による場合≫</p>
+										<h4 class="form-section"></h4>
+									</div>
+									<div class="card-content">
+										<div class="card-body table-responsive">
+										  <table class="table text-center">
+										    <tbody>
+										      <tr>
+										        <td class="text-right"><label class="label-control">銘柄</label></td>
+										        <td>{{form.l_f256}}</td>
+										        <td>{{form.l_h256}}</td>
+										        <td>{{form.l_j256}}</td>
+										        <td>{{form.l_l256}}</td>
+										        <td>{{form.l_n256}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">社債・配当・投資の別</label></td>
+										        <td>{{form.l_f257}}</td>
+										        <td>{{form.l_h257}}</td>
+										        <td>{{form.l_j257}}</td>
+										        <td>{{form.l_l257}}</td>
+										        <td>{{form.l_n257}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">収入金額</label></td>
+										        <td>{{form.l_f258}}</td>
+										        <td>{{form.l_h258}}</td>
+										        <td>{{form.l_j258}}</td>
+										        <td>{{form.l_l258}}</td>
+										        <td>{{form.l_n258}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">所得税額</label></td>
+										        <td>{{form.l_f259}}</td>
+										        <td>{{form.l_h259}}</td>
+										        <td>{{form.l_j259}}</td>
+										        <td>{{form.l_l259}}</td>
+										        <td>{{form.l_n259}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">地方税額</label></td>
+										        <td>{{form.l_f260}}</td>
+										        <td>{{form.l_h260}}</td>
+										        <td>{{form.l_j260}}</td>
+										        <td>{{form.l_l260}}</td>
+										        <td>{{form.l_n260}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">計算基礎期間</label></td>
+										        <td>{{form.l_f261}}</td>
+										        <td>{{form.l_h261}}</td>
+										        <td>{{form.l_j261}}</td>
+										        <td>{{form.l_l261}}</td>
+										        <td>{{form.l_n261}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">元本所有期間</label></td>
+										        <td>{{form.l_f262}}</td>
+										        <td>{{form.l_h262}}</td>
+										        <td>{{form.l_j262}}</td>
+										        <td>{{form.l_l262}}</td>
+										        <td>{{form.l_n262}}</td>
+										      </tr>
+										    </tbody>
+										  </table>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h4 class="card-title"><i class="ft-edit"></i>計算方法の選択<div></div>
+										</h4>
+										<p>≪銘柄別簡便法による場合≫</p>
+										<h4 class="form-section"></h4>
+									</div>
+									<div class="card-content">
+										<div class="card-body table-responsive">
+										  <table class="table text-center">
+										    <tbody>
+										      <tr>
+										        <td class="text-right"><label class="label-control">銘柄</label></td>
+										        <td>{{form.l_f264}}</td>
+										        <td>{{form.l_h264}}</td>
+										        <td>{{form.l_j264}}</td>
+										        <td>{{form.l_l264}}</td>
+										        <td>{{form.l_n264}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">社債・配当・投資の別</label></td>
+										        <td>{{form.l_f265}}</td>
+										        <td>{{form.l_h265}}</td>
+										        <td>{{form.l_j265}}</td>
+										        <td>{{form.l_l265}}</td>
+										        <td>{{form.l_n265}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">収入金額</label></td>
+										        <td>{{form.l_f266}}</td>
+										        <td>{{form.l_h266}}</td>
+										        <td>{{form.l_j266}}</td>
+										        <td>{{form.l_l266}}</td>
+										        <td>{{form.l_n266}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">所得税額</label></td>
+										        <td>{{form.l_f267}}</td>
+										        <td>{{form.l_h267}}</td>
+										        <td>{{form.l_j267}}</td>
+										        <td>{{form.l_l267}}</td>
+										        <td>{{form.l_n267}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">地方税額</label></td>
+										        <td>{{form.l_f268}}</td>
+										        <td>{{form.l_h268}}</td>
+										        <td>{{form.l_j268}}</td>
+										        <td>{{form.l_l268}}</td>
+										        <td>{{form.l_n268}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">期末所有元本</label></td>
+										        <td>{{form.l_f269}}</td>
+										        <td>{{form.l_h269}}</td>
+										        <td>{{form.l_j269}}</td>
+										        <td>{{form.l_l269}}</td>
+										        <td>{{form.l_n269}}</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">期首所有元本</label></td>
+										        <td>{{form.l_f270}}</td>
+										        <td>{{form.l_h270}}</td>
+										        <td>{{form.l_j270}}</td>
+										        <td>{{form.l_l270}}</td>
+										        <td>{{form.l_n270}}</td>
+										      </tr>
+										    </tbody>
+										  </table>
+										</div>
+
+									</div>
+								</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

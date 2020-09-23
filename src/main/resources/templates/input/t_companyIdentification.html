@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/t_companyIdentification.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/t_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[T]　同族会社判定</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="button" class="btn btn-success mr-1" v-on:click="copy">
+								 <i class="fa fa-check-square-o"></i> 前年度情報コピー
+								</button>
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>同族会社を判定するため、株主の構成を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+								<table class="table text-center table-striped">
+									<thead>
+										<tr>
+											<th colspan="2"><label class="label-control">順位</label></th>
+											<th colspan="3"><label class="label-control"></label></th>
+											<td colspan="2"><label class="label-control">被支配会社でない法人株主</label></td>
+											<td colspan="2"><label class="label-control">その他</label></td>
+										</tr>
+										<tr>
+											<th><label class="label-control">株式</label></th>
+											<th><label class="label-control">議決</label></th>
+											<td><label class="label-control">住所又は所在地</label></td>
+											<td><label class="label-control">氏名又は法人名</label></td>
+											<td><label class="label-control">続柄</label></td>
+											<th><label class="label-control">株式</label></th>
+											<th><label class="label-control">議決</label></th>
+											<th><label class="label-control">株式*</label></th>
+											<th><label class="label-control">議決</label></th>
+											<td><label class="label-control"></label></td>
+											<td><label class="label-control"></label></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><input type="text" id="t_b428" class="form-control form-control-sm" name="t_b428" v-model="form.t_b428"></td>
+											<td><input type="text" id="t_c428" class="form-control form-control-sm" name="t_c428" v-model="form.t_c428"></td>
+											<td><input type="text" id="t_d428" class="form-control form-control-sm" name="t_d428" v-model="form.t_d428"></td>
+											<td><input type="text" id="t_h428" class="form-control form-control-sm" name="t_h428" v-model="form.t_h428"></td>
+											<td><input type="text" id="t_k428" class="form-control form-control-sm" name="t_k428" value="本人" readonly="readonly"></td>
+											<td><input type="text" id="t_l428" class="form-control form-control-sm" name="t_l428" v-model="form.t_l428"></td>
+											<td><input type="text" id="t_m428" class="form-control form-control-sm" name="t_m428" v-model="form.t_m428"></td>
+											<td><input type="text" id="t_n428" class="form-control form-control-sm" name="t_n428" v-model="form.t_n428"></td>
+											<td><input type="text" id="t_o428" class="form-control form-control-sm" name="t_o428" v-model="form.t_o428"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b429" class="form-control form-control-sm" name="t_b429" v-model="form.t_b429"></td>
+											<td><input type="text" id="t_c429" class="form-control form-control-sm" name="t_c429" v-model="form.t_c429"></td>
+											<td><input type="text" id="t_d429" class="form-control form-control-sm" name="t_d429" v-model="form.t_d429"></td>
+											<td><input type="text" id="t_h429" class="form-control form-control-sm" name="t_h429" v-model="form.t_h429"></td>
+											<td><input type="text" id="t_k429" class="form-control form-control-sm" name="t_k429" v-model="form.t_k429"></td>
+											<td><input type="text" id="t_l429" class="form-control form-control-sm" name="t_l429" v-model="form.t_l429"></td>
+											<td><input type="text" id="t_m429" class="form-control form-control-sm" name="t_m429" v-model="form.t_m429"></td>
+											<td><input type="text" id="t_n429" class="form-control form-control-sm" name="t_n429" v-model="form.t_n429"></td>
+											<td><input type="text" id="t_o429" class="form-control form-control-sm" name="t_o429" v-model="form.t_o429"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b430" class="form-control form-control-sm" name="t_b430" v-model="form.t_b430"></td>
+											<td><input type="text" id="t_c430" class="form-control form-control-sm" name="t_c430" v-model="form.t_c430"></td>
+											<td><input type="text" id="t_d430" class="form-control form-control-sm" name="t_d430" v-model="form.t_d430"></td>
+											<td><input type="text" id="t_h430" class="form-control form-control-sm" name="t_h430" v-model="form.t_h430"></td>
+											<td><input type="text" id="t_k430" class="form-control form-control-sm" name="t_k430" v-model="form.t_k430"></td>
+											<td><input type="text" id="t_l430" class="form-control form-control-sm" name="t_l430" v-model="form.t_l430"></td>
+											<td><input type="text" id="t_m430" class="form-control form-control-sm" name="t_m430" v-model="form.t_m430"></td>
+											<td><input type="text" id="t_n430" class="form-control form-control-sm" name="t_n430" v-model="form.t_n430"></td>
+											<td><input type="text" id="t_o430" class="form-control form-control-sm" name="t_o430" v-model="form.t_o430"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b431" class="form-control form-control-sm" name="t_b431" v-model="form.t_b431"></td>
+											<td><input type="text" id="t_c431" class="form-control form-control-sm" name="t_c431" v-model="form.t_c431"></td>
+											<td><input type="text" id="t_d431" class="form-control form-control-sm" name="t_d431" v-model="form.t_d431"></td>
+											<td><input type="text" id="t_h431" class="form-control form-control-sm" name="t_h431" v-model="form.t_h431"></td>
+											<td><input type="text" id="t_k431" class="form-control form-control-sm" name="t_k431" v-model="form.t_k431"></td>
+											<td><input type="text" id="t_l431" class="form-control form-control-sm" name="t_l431" v-model="form.t_l431"></td>
+											<td><input type="text" id="t_m431" class="form-control form-control-sm" name="t_m431" v-model="form.t_m431"></td>
+											<td><input type="text" id="t_n431" class="form-control form-control-sm" name="t_n431" v-model="form.t_n431"></td>
+											<td><input type="text" id="t_o431" class="form-control form-control-sm" name="t_o431" v-model="form.t_o431"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b432" class="form-control form-control-sm" name="t_b432" v-model="form.t_b432"></td>
+											<td><input type="text" id="t_c432" class="form-control form-control-sm" name="t_c432" v-model="form.t_c432"></td>
+											<td><input type="text" id="t_d432" class="form-control form-control-sm" name="t_d432" v-model="form.t_d432"></td>
+											<td><input type="text" id="t_h432" class="form-control form-control-sm" name="t_h432" v-model="form.t_h432"></td>
+											<td><input type="text" id="t_k432" class="form-control form-control-sm" name="t_k432" v-model="form.t_k432"></td>
+											<td><input type="text" id="t_l432" class="form-control form-control-sm" name="t_l432" v-model="form.t_l432"></td>
+											<td><input type="text" id="t_m432" class="form-control form-control-sm" name="t_m432" v-model="form.t_m432"></td>
+											<td><input type="text" id="t_n432" class="form-control form-control-sm" name="t_n432" v-model="form.t_n432"></td>
+											<td><input type="text" id="t_o432" class="form-control form-control-sm" name="t_o432" v-model="form.t_o432"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b433" class="form-control form-control-sm" name="t_b433" v-model="form.t_b433"></td>
+											<td><input type="text" id="t_c433" class="form-control form-control-sm" name="t_c433" v-model="form.t_c433"></td>
+											<td><input type="text" id="t_d433" class="form-control form-control-sm" name="t_d433" v-model="form.t_d433"></td>
+											<td><input type="text" id="t_h433" class="form-control form-control-sm" name="t_h433" v-model="form.t_h433"></td>
+											<td><input type="text" id="t_k433" class="form-control form-control-sm" name="t_k433" v-model="form.t_k433"></td>
+											<td><input type="text" id="t_l433" class="form-control form-control-sm" name="t_l433" v-model="form.t_l433"></td>
+											<td><input type="text" id="t_m433" class="form-control form-control-sm" name="t_m433" v-model="form.t_m433"></td>
+											<td><input type="text" id="t_n433" class="form-control form-control-sm" name="t_n433" v-model="form.t_n433"></td>
+											<td><input type="text" id="t_o433" class="form-control form-control-sm" name="t_o433" v-model="form.t_o433"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b434" class="form-control form-control-sm" name="t_b434" v-model="form.t_b434"></td>
+											<td><input type="text" id="t_c434" class="form-control form-control-sm" name="t_c434" v-model="form.t_c434"></td>
+											<td><input type="text" id="t_d434" class="form-control form-control-sm" name="t_d434" v-model="form.t_d434"></td>
+											<td><input type="text" id="t_h434" class="form-control form-control-sm" name="t_h434" v-model="form.t_h434"></td>
+											<td><input type="text" id="t_k434" class="form-control form-control-sm" name="t_k434" v-model="form.t_k434"></td>
+											<td><input type="text" id="t_l434" class="form-control form-control-sm" name="t_l434" v-model="form.t_l434"></td>
+											<td><input type="text" id="t_m434" class="form-control form-control-sm" name="t_m434" v-model="form.t_m434"></td>
+											<td><input type="text" id="t_n434" class="form-control form-control-sm" name="t_n434" v-model="form.t_n434"></td>
+											<td><input type="text" id="t_o434" class="form-control form-control-sm" name="t_o434" v-model="form.t_o434"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b435" class="form-control form-control-sm" name="t_b435" v-model="form.t_b435"></td>
+											<td><input type="text" id="t_c435" class="form-control form-control-sm" name="t_c435" v-model="form.t_c435"></td>
+											<td><input type="text" id="t_d435" class="form-control form-control-sm" name="t_d435" v-model="form.t_d435"></td>
+											<td><input type="text" id="t_h435" class="form-control form-control-sm" name="t_h435" v-model="form.t_h435"></td>
+											<td><input type="text" id="t_k435" class="form-control form-control-sm" name="t_k435" v-model="form.t_k435"></td>
+											<td><input type="text" id="t_l435" class="form-control form-control-sm" name="t_l435" v-model="form.t_l435"></td>
+											<td><input type="text" id="t_m435" class="form-control form-control-sm" name="t_m435" v-model="form.t_m435"></td>
+											<td><input type="text" id="t_n435" class="form-control form-control-sm" name="t_n435" v-model="form.t_n435"></td>
+											<td><input type="text" id="t_o435" class="form-control form-control-sm" name="t_o435" v-model="form.t_o435"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b436" class="form-control form-control-sm" name="t_b436" v-model="form.t_b436"></td>
+											<td><input type="text" id="t_c436" class="form-control form-control-sm" name="t_c436" v-model="form.t_c436"></td>
+											<td><input type="text" id="t_d436" class="form-control form-control-sm" name="t_d436" v-model="form.t_d436"></td>
+											<td><input type="text" id="t_h436" class="form-control form-control-sm" name="t_h436" v-model="form.t_h436"></td>
+											<td><input type="text" id="t_k436" class="form-control form-control-sm" name="t_k436" v-model="form.t_k436"></td>
+											<td><input type="text" id="t_l436" class="form-control form-control-sm" name="t_l436" v-model="form.t_l436"></td>
+											<td><input type="text" id="t_m436" class="form-control form-control-sm" name="t_m436" v-model="form.t_m436"></td>
+											<td><input type="text" id="t_n436" class="form-control form-control-sm" name="t_n436" v-model="form.t_n436"></td>
+											<td><input type="text" id="t_o436" class="form-control form-control-sm" name="t_o436" v-model="form.t_o436"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b437" class="form-control form-control-sm" name="t_b437" v-model="form.t_b437"></td>
+											<td><input type="text" id="t_c437" class="form-control form-control-sm" name="t_c437" v-model="form.t_c437"></td>
+											<td><input type="text" id="t_d437" class="form-control form-control-sm" name="t_d437" v-model="form.t_d437"></td>
+											<td><input type="text" id="t_h437" class="form-control form-control-sm" name="t_h437" v-model="form.t_h437"></td>
+											<td><input type="text" id="t_k437" class="form-control form-control-sm" name="t_k437" v-model="form.t_k437"></td>
+											<td><input type="text" id="t_l437" class="form-control form-control-sm" name="t_l437" v-model="form.t_l437"></td>
+											<td><input type="text" id="t_m437" class="form-control form-control-sm" name="t_m437" v-model="form.t_m437"></td>
+											<td><input type="text" id="t_n437" class="form-control form-control-sm" name="t_n437" v-model="form.t_n437"></td>
+											<td><input type="text" id="t_o437" class="form-control form-control-sm" name="t_o437" v-model="form.t_o437"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b438" class="form-control form-control-sm" name="t_b438" v-model="form.t_b438"></td>
+											<td><input type="text" id="t_c438" class="form-control form-control-sm" name="t_c438" v-model="form.t_c438"></td>
+											<td><input type="text" id="t_d438" class="form-control form-control-sm" name="t_d438" v-model="form.t_d438"></td>
+											<td><input type="text" id="t_h438" class="form-control form-control-sm" name="t_h438" v-model="form.t_h438"></td>
+											<td><input type="text" id="t_k438" class="form-control form-control-sm" name="t_k438" v-model="form.t_k438"></td>
+											<td><input type="text" id="t_l438" class="form-control form-control-sm" name="t_l438" v-model="form.t_l438"></td>
+											<td><input type="text" id="t_m438" class="form-control form-control-sm" name="t_m438" v-model="form.t_m438"></td>
+											<td><input type="text" id="t_n438" class="form-control form-control-sm" name="t_n438" v-model="form.t_n438"></td>
+											<td><input type="text" id="t_o438" class="form-control form-control-sm" name="t_o438" v-model="form.t_o438"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b439" class="form-control form-control-sm" name="t_b439" v-model="form.t_b439"></td>
+											<td><input type="text" id="t_c439" class="form-control form-control-sm" name="t_c439" v-model="form.t_c439"></td>
+											<td><input type="text" id="t_d439" class="form-control form-control-sm" name="t_d439" v-model="form.t_d439"></td>
+											<td><input type="text" id="t_h439" class="form-control form-control-sm" name="t_h439" v-model="form.t_h439"></td>
+											<td><input type="text" id="t_k439" class="form-control form-control-sm" name="t_k439" v-model="form.t_k439"></td>
+											<td><input type="text" id="t_l439" class="form-control form-control-sm" name="t_l439" v-model="form.t_l439"></td>
+											<td><input type="text" id="t_m439" class="form-control form-control-sm" name="t_m439" v-model="form.t_m439"></td>
+											<td><input type="text" id="t_n439" class="form-control form-control-sm" name="t_n439" v-model="form.t_n439"></td>
+											<td><input type="text" id="t_o439" class="form-control form-control-sm" name="t_o439" v-model="form.t_o439"></td>
+										</tr>
+										<tr>
+											<td><input type="text" id="t_b440" class="form-control form-control-sm" name="t_b440" v-model="form.t_b440"></td>
+											<td><input type="text" id="t_c440" class="form-control form-control-sm" name="t_c440" v-model="form.t_c440"></td>
+											<td><input type="text" id="t_d440" class="form-control form-control-sm" name="t_d440" v-model="form.t_d440"></td>
+											<td><input type="text" id="t_h440" class="form-control form-control-sm" name="t_h440" v-model="form.t_h440"></td>
+											<td><input type="text" id="t_k440" class="form-control form-control-sm" name="t_k440" v-model="form.t_k440"></td>
+											<td><input type="text" id="t_l440" class="form-control form-control-sm" name="t_l440" v-model="form.t_l440"></td>
+											<td><input type="text" id="t_m440" class="form-control form-control-sm" name="t_m440" v-model="form.t_m440"></td>
+											<td><input type="text" id="t_n440" class="form-control form-control-sm" name="t_n440" v-model="form.t_n440"></td>
+											<td><input type="text" id="t_o440" class="form-control form-control-sm" name="t_o440" v-model="form.t_o440"></td>
+										</tr>
+										<tr>
+											<td colspan="5" class="text-right"><label class="label-control" for="t_i442">期末現在の発行済株式数の総数又は出資金額の総額</label></td>
+											<td><input type="number" id="t_i442" class="form-control form-control-sm" name="t_i442" v-model.number="form.t_i442"></td>
+											<td colspan="2" class="text-right"><label class="label-control" for="t_n442">期末議決数総数</label></td>
+											<td><input type="number" id="t_n442" class="form-control form-control-sm" name="t_n442" v-model.number="form.t_n442"></td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>持ち分会社(合名会社・合資会社・合同会社）の場合<div></div>
+						</h4>
+						<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-8 label-control" for="t_n446">期末現在の社員の総数(7)</label>
+									<div class="col-sm-2">
+										<input type="number" id="t_n446" class="form-control form-control-sm" name="t_n446" v-model.number="form.t_n446">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-8 label-control" for="t_n447">社員の3人以下およびこれら同族関係者の合計人数のうちもっとも多い数(8)</label>
+									<div class="col-sm-2">
+										<input type="number" id="t_n447" class="form-control form-control-sm" name="t_n447" v-model.number="form.t_n447">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-8 label-control" for="t_n448">上の表その他、株式*の社員の1人及びその同族関係者の合計人数のうちもっとも多い数(15)</label>
+									<div class="col-sm-2">
+										<input type="number" id="t_n448" class="form-control form-control-sm" name="t_n448" v-model.number="form.t_n448">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

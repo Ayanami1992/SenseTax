@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.PMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.PModel"
+		parameterType="com.jp.qxd.tax.model.input.PModel">
+		SELECT
+		*
+		from p_dividendsreceivable
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.PModel">
+		insert into p_dividendsreceivable
+		(
+			company_id
+			,user_id
+			,year
+			,p_g357
+			,p_o357
+			,p_g358
+			,p_o358
+			,p_g359
+			,p_d363
+			,p_g363
+			,p_k363
+			,p_n363
+			,p_p363
+			,p_d364
+			,p_g364
+			,p_k364
+			,p_n364
+			,p_p364
+			,p_d368
+			,p_g368
+			,p_k368
+			,p_m368
+			,p_o368
+			,p_d369
+			,p_g369
+			,p_k369
+			,p_m369
+			,p_o369
+			,p_d373
+			,p_g373
+			,p_k373
+			,p_m373
+			,p_o373
+			,p_q373
+			,p_t373
+			,p_d374
+			,p_g374
+			,p_k374
+			,p_m374
+			,p_o374
+			,p_q374
+			,p_t374
+			,p_d378
+			,p_g378
+			,p_k378
+			,p_n378
+			,p_d379
+			,p_g379
+			,p_k379
+			,p_n379
+			,p_d383
+			,p_g383
+			,p_k383
+			,p_m383
+			,p_o383
+			,p_r383
+			,p_d384
+			,p_g384
+			,p_k384
+			,p_m384
+			,p_o384
+			,p_r384
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{p_g357,jdbcType=INTEGER},
+			#{p_o357,jdbcType=INTEGER},
+			#{p_g358,jdbcType=INTEGER},
+			#{p_o358,jdbcType=INTEGER},
+			#{p_g359,jdbcType=INTEGER},
+			#{p_d363,jdbcType=INTEGER},
+			#{p_g363,jdbcType=INTEGER},
+			#{p_k363,jdbcType=INTEGER},
+			#{p_n363,jdbcType=INTEGER},
+			#{p_p363,jdbcType=INTEGER},
+			#{p_d364,jdbcType=INTEGER},
+			#{p_g364,jdbcType=INTEGER},
+			#{p_k364,jdbcType=INTEGER},
+			#{p_n364,jdbcType=INTEGER},
+			#{p_p364,jdbcType=INTEGER},
+			#{p_d368,jdbcType=VARCHAR},
+			#{p_g368,jdbcType=VARCHAR},
+			#{p_k368,jdbcType=VARCHAR},
+			#{p_m368,jdbcType=VARCHAR},
+			#{p_o368,jdbcType=INTEGER},
+			#{p_d369,jdbcType=VARCHAR},
+			#{p_g369,jdbcType=VARCHAR},
+			#{p_k369,jdbcType=VARCHAR},
+			#{p_m369,jdbcType=VARCHAR},
+			#{p_o369,jdbcType=INTEGER},
+			#{p_d373,jdbcType=VARCHAR},
+			#{p_g373,jdbcType=VARCHAR},
+			#{p_k373,jdbcType=VARCHAR},
+			#{p_m373,jdbcType=VARCHAR},
+			#{p_o373,jdbcType=INTEGER},
+			#{p_q373,jdbcType=INTEGER},
+			#{p_t373,jdbcType=INTEGER},
+			#{p_d374,jdbcType=VARCHAR},
+			#{p_g374,jdbcType=VARCHAR},
+			#{p_k374,jdbcType=VARCHAR},
+			#{p_m374,jdbcType=VARCHAR},
+			#{p_o374,jdbcType=INTEGER},
+			#{p_q374,jdbcType=INTEGER},
+			#{p_t374,jdbcType=INTEGER},
+			#{p_d378,jdbcType=VARCHAR},
+			#{p_g378,jdbcType=VARCHAR},
+			#{p_k378,jdbcType=INTEGER},
+			#{p_n378,jdbcType=INTEGER},
+			#{p_d379,jdbcType=VARCHAR},
+			#{p_g379,jdbcType=VARCHAR},
+			#{p_k379,jdbcType=INTEGER},
+			#{p_n379,jdbcType=INTEGER},
+			#{p_d383,jdbcType=VARCHAR},
+			#{p_g383,jdbcType=VARCHAR},
+			#{p_k383,jdbcType=VARCHAR},
+			#{p_m383,jdbcType=VARCHAR},
+			#{p_o383,jdbcType=INTEGER},
+			#{p_r383,jdbcType=INTEGER},
+			#{p_d384,jdbcType=VARCHAR},
+			#{p_g384,jdbcType=VARCHAR},
+			#{p_k384,jdbcType=VARCHAR},
+			#{p_m384,jdbcType=VARCHAR},
+			#{p_o384,jdbcType=INTEGER},
+			#{p_r384,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.PModel">
+		delete
+		from p_dividendsreceivable
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

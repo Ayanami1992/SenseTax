@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="card">
+											<div class="card-header">
+												<p class="mb-0">｢代表者氏名｣と｢経理責任者氏名｣を自署される場合は、何も入力せず、印刷後自署押印ください。</p>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control">法人名フリガナ</label>
+														<label class="col-md-8 label-control">
+															{{form.legalPersonName_k}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control">法人名</label>
+														<label class="col-md-8 label-control">
+															{{form.legalPersonName}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control">管轄税務署</label>
+														<label class="col-md-8 label-control">
+															{{form.b_03}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control">納税地</label>
+														<label class="col-md-8 label-control">
+															{{form.b_04}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">電話番号</label>
+														<label class="col-md-8 label-control">
+															{{form.b_05}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">代表者フリガナ</label>
+														<label class="col-md-8 label-control">
+															{{form.representativeName_k}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">代表者氏名</label>
+														<label class="col-md-8 label-control">
+															{{form.representativeName}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">代表者住所</label>
+														<label class="col-md-8 label-control">
+															{{form.b_10}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">経理責任者ふりがな</label>
+														<label class="col-md-8 label-control">
+															{{form.accountingName_h}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">経理責任者氏名</label>
+														<label class="col-md-8 label-control">
+															{{form.accountingName}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">事業種目</label>
+														<label class="col-md-8 label-control">
+															{{form.b_12}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">整理番号</label>
+														<label class="col-md-8 label-control">
+															{{form.b_13}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">青色白色区分</label>
+														<label class="col-md-8 label-control">
+															{{form.b_14}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">法人の区分</label>
+														<label class="col-md-8 label-control">
+															{{form.b_68}}
+														</label>
+
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">翌年別表等送付要否</label>
+														<label class="col-md-8 label-control">
+															{{form.b_15}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">期首日/期末日</label>
+														<label class="col-md-8 label-control">
+															{{form.b_16}}/{{form.b_17}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">中間申告</label>
+														<div class="col-md-8">
+															<div class="input-group">
+																<label class="label-control">{{form.b_18}} {{form.b_19}}</label>
+															</div>
+														</div>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">期末資本金</label>
+														<label class="col-md-8 label-control">
+															{{form.b_20}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">〃＋資本準備金</label>
+														<label class="col-md-8 label-control">
+															{{form.b_21}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">提出日</label>
+														<label class="col-md-8 label-control">
+															{{form.b_22}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">決算確定日</label>
+														<label class="col-md-8 label-control">
+															{{form.b_23}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">申告区分</label>
+														<label class="col-md-8 label-control">
+															{{form.b_24}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">中間配当効力日</label>
+														<label class="col-md-8 label-control">
+															{{form.b_25}}
+														</label>
+
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i> 税務署処理欄<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control">所轄</label>
+														<label class="col-md-8 label-control">
+															{{form.b_26}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">業種目</label>
+														<label class="col-md-8 label-control">
+															{{form.b_27}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">概況書</label>
+														<label class="col-md-8 label-control">
+															{{form.b_28}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">要否中間</label>
+														<label class="col-md-8 label-control">
+															{{form.b_29}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">別表等送付</label>
+														<label class="col-md-8 label-control">
+															{{form.b_30}}
+														</label>
+
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">法人番号</label>
+														<label class="col-md-8 label-control">
+															{{form.b_71}}
+														</label>
+
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">税理士書面提出</label>
+														<label class="col-md-8 label-control">
+															{{form.b_67}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">申告期限の延長の処分の有無 法人税</label>
+														<label class="col-md-8 label-control">
+															{{form.b_31}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">申告期限の延長の処分の有無　事業税</label>
+														<label class="col-md-8 label-control">
+															{{form.b_32}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">翌期の中間申告の要否</label>
+														<label class="col-md-8 label-control">
+															{{form.b_33}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">国外関連者の有無</label>
+														<label class="col-md-8 label-control">
+															{{form.b_34}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control">利子割還付額の均等割への充当</label>
+														<label class="col-md-8 label-control">
+															{{form.q46}}
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control">銀行名</label>
+														<label class="col-md-8 label-control">
+															{{form.b_35}}{{form.b_69}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">支店名</label>
+														<label class="col-md-8 label-control">
+															{{form.b_35}}{{form.b_70}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control">口座種類</label>
+														<label class="col-md-8 label-control">
+															{{form.b_37}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">口座番号</label>
+														<label class="col-md-8 label-control">
+															{{form.b_38}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">郵便局名</label>
+														<label class="col-md-8 label-control">
+															{{form.b_39}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">貯金記号</label>
+														<label class="col-md-8 label-control">
+															{{form.b_40}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">貯金番号</label>
+														<label class="col-md-8 label-control">
+															{{form.b_41}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">税理士名</label>
+														<label class="col-md-8 label-control">
+															{{form.b_42}}
+														</label>
+
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-4 label-control">税理士電話</label>
+														<label class="col-md-8 label-control">
+															{{form.b_43}}-{{form.b_44}}-{{form.b_45}}
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" style="display:none;">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i> 欄外項目
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="row">
+														<div class="col-md-6">
+
+															<div class="form-group row">
+
+																<label class="col-md-4 label-control">上部左</label>
+																<label class="col-md-8 label-control">
+																	{{form.b_46}}
+																</label>
+
+															</div>
+
+															<div class="form-group row">
+
+																<label class="col-md-4 label-control">下部上段</label>
+																<label class="col-md-8 label-control">
+																	{{form.b_48}}-{{form.b_49}}-{{form.b_50}}
+																</label>
+															</div>
+
+															<div class="form-group row">
+
+																<label class="col-md-4 label-control">下部下段</label>
+																<label class="col-md-8 label-control">
+																	{{form.b_56}}-{{form.b_57}}-{{form.b_58}}
+																</label>
+															</div>
+
+															<div class="form-group row">
+
+																<label class="col-md-4 label-control">売上金額</label>
+
+																<label class="col-md-8 label-control">
+																	{{form.billing_amount}}百万
+																</label>
+															</div>
+														</div>
+														<div class="col-md-6">
+
+															<div class="form-group row">
+
+																<label class="col-md-4 label-control">上部右</label>
+																<label class="col-md-8 label-control">
+																	{{form.b_47}}
+																</label>
+															</div>
+
+															<div class="form-group row">
+
+																<label class="col-md-4 label-control">下部上段</label>
+																<label class="col-md-8 label-control">
+																	{{form.b_51}}-{{form.b_52}}-{{form.b_53}}
+																</label>
+															</div>
+
+															<div class="form-group row">
+
+																<label class="col-md-4 label-control">下部下段</label>
+																<label class="col-md-8 label-control">
+																	{{form.b_59}}-{{form.b_60}}-{{form.b_61}}
+																</label>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

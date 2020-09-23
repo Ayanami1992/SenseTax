@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>未収還付税金や仮払税金などで資産計上されていなかった場合<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k197">税務署</label>
+														<label class="col-md-4 label-control" for="i_k197">中間納付法人税</label>
+														<label class="col-md-3 label-control">{{form.i_k197}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k198">税務署</label>
+														<label class="col-md-4 label-control" for="i_k198">源泉所得税</label>
+														<label class="col-md-3 label-control">{{form.i_k198}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k199">都道府県</label>
+														<label class="col-md-4 label-control" for="i_k199">中間納付法人税割、利子割</label>
+														<label class="col-md-3 label-control">{{form.i_k199}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k200">市町村</label>
+														<label class="col-md-4 label-control" for="i_k200">中間納付法人税割</label>
+														<label class="col-md-3 label-control">{{form.i_k200}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k201">都道府県</label>
+														<label class="col-md-4 label-control" for="i_k201">中間納付事業税</label>
+														<label class="col-md-3 label-control">{{form.i_k201}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k202">国県市合計</label>
+														<label class="col-md-4 label-control" for="i_k202">還付加算金</label>
+														<label class="col-md-3 label-control">{{form.i_k202}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="label-control">仕訳：現金／雑収入</label>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>未収還付税金や仮払税金などで資産計上されていた場合<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k207">税務署</label>
+														<label class="col-md-4 label-control" for="i_k207">中間納付法人税</label>
+														<label class="col-md-3 label-control">{{form.i_k207}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k208">税務署</label>
+														<label class="col-md-4 label-control" for="i_k208">源泉所得税</label>
+														<label class="col-md-3 label-control">{{form.i_k208}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k209">都道府県</label>
+														<label class="col-md-4 label-control" for="i_k209">中間納付法人税割、利子割</label>
+														<label class="col-md-3 label-control">{{form.i_k209}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k210">市町村</label>
+														<label class="col-md-4 label-control" for="i_k210">中間納付法人税割</label>
+														<label class="col-md-3 label-control">{{form.i_k210}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-3 label-control" for="i_k211">都道府県</label>
+														<label class="col-md-4 label-control" for="i_k211">中間納付事業税</label>
+														<label class="col-md-3 label-control">{{form.i_k211}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="label-control">仕訳：現金／未収還付税金　または、　現金／仮払税金</label>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">還付金額の確認<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="i_k215">国</label>
+														<label class="col-md-3 label-control">{{form.i_k215}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="i_k216">道</label>
+														<label class="col-md-3 label-control">{{form.i_k216}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="i_k217">市</label>
+														<label class="col-md-3 label-control">{{form.i_k217}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="i_k218">還付加算金</label>
+														<label class="col-md-3 label-control">{{form.i_k218}}</label>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+
+
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

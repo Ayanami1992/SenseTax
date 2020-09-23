@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="jp">
+	<body th:fragment="navbar">
+
+			<!-- Main navbar -->
+			<div class="navbar navbar-expand-md navbar-dark">
+				<input type="hidden" th:id="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+<!-- 				<div class="navbar-brand"> -->
+<!-- 					<a th:href="@{/}" class="d-inline-block"> -->
+<!-- 						<img th:src="@{/global_assets/images/logo_light.png}" alt=""> -->
+<!-- 					</a> -->
+<!-- 				</div> -->
+
+				<div class="collapse navbar-collapse" id="navbar-mobile">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
+								<i class="icon-paragraph-justify3"></i>
+							</a>
+						</li>
+					</ul>
+
+					<span class="navbar-text ml-md-3 mr-md-auto">
+
+					</span>
+
+					<ul class="navbar-nav" th:if="${session.containsKey('USER_INFO') && session['USER_INFO'] != null}" v-if="page.cur.menu_id != 'login'">
+
+						<li class="nav-item dropdown dropdown-user">
+							<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+								<span th:text="${session['USER_INFO'].username + '様 でログインしています'}"></span>
+							</a>
+
+							<div class="dropdown-menu dropdown-menu-right">
+								<a th:href="@{/logout}" class="dropdown-item"><i class="icon-switch2"></i> ログアウト</a>
+							</div>
+						</li>
+					</ul>
+
+<!-- 					<ul class="navbar-nav" v-if="page.cur.menu_id == 'input'"> -->
+<!-- 						<li class="nav-item"> -->
+<!-- 							<button type="reset" class="btn btn-raised btn-warning mr-1" > -->
+<!-- 								<i class="ft-x"></i> クリア -->
+<!-- 							</button> -->
+<!-- 						</li> -->
+<!-- 						<li class="nav-item"> -->
+<!-- 							<button type="button" class="btn btn-success mr-1" data-toggle="modal" -->
+<!-- 							  data-target="#confirm"> -->
+<!-- 							 <i class="fa fa-check-square-o"></i> 登録 -->
+<!-- 							</button> -->
+<!-- 						</li> -->
+					</ul>
+				</div>
+			</div>
+			<!-- /main navbar -->
+
+	</body>
+</html>

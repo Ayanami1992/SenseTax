@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN : Body-->
+	<body data-col="2-columns" class=" 2-columns ">
+		<!-- ////////////////////////////////////////////////////////////////////////////-->
+		<div class="wrapper" id="app">
+
+			<form class="form" @submit="onSubmit" @reset="onReset">
+
+				<div class="form-body">
+
+					<div th:include="navbar :: index"></div>
+					<div class="main-panel">
+						<!-- BEGIN : Main Content-->
+						<div class="main-content">
+							<div class="content-wrapper">
+								<div class="row" matchHeight="card">
+									<div class="col-lg-6 col-12">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title mb-0">別表一覧</h4>
+											</div>
+											<div class="card-content">
+												<div class="card-body">
+
+													<div class="media mb-1" v-for="(pdf, i) in pdfUrl">
+														<div class="media-body">
+															<h4 class="font-medium-1 mt-1 mb-0">{{pdf.text}}</h4>
+														</div>
+														<div class="mt-1">
+															<div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+																<a class="btn btn-raised btn-primary white" v-bind:href="pdf.url" target="_blank">
+																	<i class="fa fa-print"></i> 印刷
+																</a>
+															</div>
+
+														</div>
+													</div>
+													<div class="action-buttons mt-2 text-center">
+														<a class="btn btn-raised gradient-blackberry py-2 px-4 white mr-2">Add New</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!-- END : End Main Content-->
+
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+
+		</div>
+		<!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+		<!-- BEGIN PAGE LEVEL JS-->
+		<script th:src="@{/js/pdf.js}"></script>
+		<script th:src="@{/js/preview/index.js}" type="module"></script>
+		<!-- END PAGE LEVEL JS-->
+	</body>
+	<!-- END : Body-->
+</html>

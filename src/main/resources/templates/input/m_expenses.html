@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/m_expenses.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/m_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[M]　交際費</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+										<div class="card">
+											<div class="card-header">
+											<h4 class="card-title"><i class="ft-edit"></i>元帳を確認し、交際費の額を入力してください。<div></div>
+											</h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="m_g276">支出交際費の額</label>
+														<div class="col-sm-3">
+															<input type="number" id="m_g276" class="form-control form-control-sm" name="m_g276" v-model.number="form.m_g276">
+														</div>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="m_m276">控除される費用の額</label>
+														<div class="col-sm-3">
+															<input type="number" id="m_m276" class="form-control form-control-sm" name="m_m276" v-model.number="form.m_m276">
+														</div>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="m_s276">接待飲食費の額</label>
+														<div class="col-sm-3">
+															<input type="number" id="m_s276" class="form-control form-control-sm" name="m_s276" v-model.number="form.m_s276">
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

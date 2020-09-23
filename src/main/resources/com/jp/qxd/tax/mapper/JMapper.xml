@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.JMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.JModel"
+		parameterType="com.jp.qxd.tax.model.input.JModel">
+		SELECT
+		*
+		from j_intermediatepayments
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.JModel">
+		insert into j_intermediatepayments
+		(
+			company_id
+			,user_id
+			,year
+			,j_g224
+			,j_g225
+			,j_g226
+			,j_g227
+			,j_g228
+			,j_g229
+			,j_g230
+			,j_g231
+			,j_m224
+			,j_m225
+			,j_m226
+			,j_m227
+			,j_m228
+			,j_m229
+			,j_m230
+			,j_m231
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{j_g224,jdbcType=INTEGER},
+			#{j_g225,jdbcType=INTEGER},
+			#{j_g226,jdbcType=INTEGER},
+			#{j_g227,jdbcType=INTEGER},
+			#{j_g228,jdbcType=INTEGER},
+			#{j_g229,jdbcType=INTEGER},
+			#{j_g230,jdbcType=INTEGER},
+			#{j_g231,jdbcType=INTEGER},
+			#{j_m224,jdbcType=INTEGER},
+			#{j_m225,jdbcType=INTEGER},
+			#{j_m226,jdbcType=INTEGER},
+			#{j_m227,jdbcType=INTEGER},
+			#{j_m228,jdbcType=INTEGER},
+			#{j_m229,jdbcType=INTEGER},
+			#{j_m230,jdbcType=INTEGER},
+			#{j_m231,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.JModel">
+		delete
+		from j_intermediatepayments
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

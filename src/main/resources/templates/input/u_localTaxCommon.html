@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/u_localTaxCommon.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/u_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[U]　地方税共通</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">地方税共通情報を入力してください。</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>【法人税割】<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-6 label-control" for="u_l455">試験研究費の増加の場合の法人税額の特別控除額</label>
+									<div class="col-sm-2">
+										<input type="number" id="u_l455" class="form-control form-control-sm text-right" name="u_l455" v-model.number="form.u_l455">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-6 label-control" for="u_l456">みなし配当の25％相当額の控除額</label>
+									<div class="col-sm-2">
+										<input type="number" id="u_l456" class="form-control form-control-sm text-right" name="u_l456" v-model.number="form.u_l456">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-6 label-control" for="u_l457">還付法人税額等の控除額</label>
+									<div class="col-sm-2">
+										<input type="number" id="u_l457" class="form-control form-control-sm text-right" name="u_l457" v-model.number="form.u_l457">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県市</label>
+									<label class="col-md-6 label-control" for="u_l458">退職年金等積立金に係る法人税額</label>
+									<div class="col-sm-2">
+										<input type="number" id="u_l458" class="form-control form-control-sm text-right" name="u_l458" v-model.number="form.u_l458">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i>【事業税】<div></div>
+							</h4>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-6 label-control" for="u_n460">損金の額に算入した海外投資等損失準備金勘定への繰入額</label>
+									<div class="col-sm-2">
+										<input type="number" id="u_n460" class="form-control form-control-sm text-right" name="u_n460" v-model.number="form.u_n460">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-6 label-control" for="u_n461">損金の額に算入した技術等海外取引に係る所得の特別控除額</label>
+									<div class="col-sm-2">
+										<input type="number" id="u_n461" class="form-control form-control-sm text-right" name="u_n461" v-model.number="form.u_n461">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-6 label-control" for="u_n462">益金の額に算入した海外投資等損失準備金勘定からの戻入額 </label>
+									<div class="col-sm-2">
+										<input type="number" id="u_n462" class="form-control form-control-sm text-right" name="u_n462" v-model.number="form.u_n462">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-1 label-control">県</label>
+									<label class="col-md-6 label-control" for="u_n463">外国の事業に帰属する所得以外の所得に対して課された外国法人税額</label>
+									<div class="col-sm-2">
+										<input type="number" id="u_n463" class="form-control form-control-sm text-right" name="u_n463" v-model.number="form.u_n463">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

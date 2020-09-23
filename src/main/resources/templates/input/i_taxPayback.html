@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/i_taxPayback.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/i_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[I]　法人税等還付</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="row">
+						<div class="col-sm-6">
+
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i>未収還付税金や仮払税金などで資産計上されていなかった場合<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-content">
+									<div class="px-3">
+
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k197">税務署</label>
+											<label class="col-md-4 label-control" for="i_k197">中間納付法人税</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k197" class="form-control form-control-sm" name="i_k197" v-model.number="form.i_k197">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k198">税務署</label>
+											<label class="col-md-4 label-control" for="i_k198">源泉所得税</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k198" class="form-control form-control-sm" name="i_k198" v-model.number="form.i_k198">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k199">都道府県</label>
+											<label class="col-md-4 label-control" for="i_k199">中間納付法人税割、利子割</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k199" class="form-control form-control-sm" name="i_k199" v-model.number="form.i_k199">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k200">市町村</label>
+											<label class="col-md-4 label-control" for="i_k200">中間納付法人税割</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k200" class="form-control form-control-sm" name="i_k200" v-model.number="form.i_k200">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k201">都道府県</label>
+											<label class="col-md-4 label-control" for="i_k201">中間納付事業税</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k201" class="form-control form-control-sm" name="i_k201" v-model.number="form.i_k201">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k202">国県市合計</label>
+											<label class="col-md-4 label-control" for="i_k202">還付加算金</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k202" class="form-control form-control-sm" name="i_k202" v-model.number="form.i_k202">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="label-control">仕訳：現金／雑収入</label>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title">還付金額の確認<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-content">
+									<div class="px-3">
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="i_k215">国</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k215" class="form-control form-control-sm" name="i_k215" v-model.number="form.i_k215"
+												 readonly="readonly">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="i_k216">道</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k216" class="form-control form-control-sm" name="i_k216" v-model.number="form.i_k216"
+												 readonly="readonly">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="i_k217">市</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k217" class="form-control form-control-sm" name="i_k217" v-model.number="form.i_k217"
+												 readonly="readonly">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-4 label-control" for="i_k218">還付加算金</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k218" class="form-control form-control-sm" name="i_k218" v-model.number="form.i_k218"
+												 readonly="readonly">
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i>未収還付税金や仮払税金などで資産計上されていた場合<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-content">
+									<div class="px-3">
+
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k207">税務署</label>
+											<label class="col-md-4 label-control" for="i_k207">中間納付法人税</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k207" class="form-control form-control-sm" name="i_k207" v-model.number="form.i_k207">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k208">税務署</label>
+											<label class="col-md-4 label-control" for="i_k208">源泉所得税</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k208" class="form-control form-control-sm" name="i_k208" v-model.number="form.i_k208">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k209">都道府県</label>
+											<label class="col-md-4 label-control" for="i_k209">中間納付法人税割、利子割</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k209" class="form-control form-control-sm" name="i_k209" v-model.number="form.i_k209">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k210">市町村</label>
+											<label class="col-md-4 label-control" for="i_k210">中間納付法人税割</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k210" class="form-control form-control-sm" name="i_k210" v-model.number="form.i_k210">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-3 label-control" for="i_k211">都道府県</label>
+											<label class="col-md-4 label-control" for="i_k211">中間納付事業税</label>
+											<div class="col-sm-3">
+												<input type="number" id="i_k211" class="form-control form-control-sm" name="i_k211" v-model.number="form.i_k211">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="label-control">仕訳：現金／未収還付税金　または、　現金／仮払税金</label>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

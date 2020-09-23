@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.OptionsMapper">
+	<resultMap id="LocalTaxRateMap"
+		type="com.jp.qxd.tax.model.input.LocalTaxRate">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="mail" property="mail" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="auth_key" property="auth_key"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getLocalTaxRate" resultType="com.jp.qxd.tax.model.input.LocalTaxRate">
+		SELECT *
+		from local_tax_rate
+	</select>
+
+	<select id="getLocalTaxRateByArea" resultType="com.jp.qxd.tax.model.input.LocalTaxRate" parameterType="String">
+		SELECT *
+		from local_tax_rate
+		where city_area = #{city_area,jdbcType=VARCHAR}
+	</select>
+
+</mapper>

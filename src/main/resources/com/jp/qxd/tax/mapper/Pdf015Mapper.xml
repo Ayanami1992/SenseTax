@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.Pdf015Mapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.pdf.Rpt015Model"
+		parameterType="com.jp.qxd.tax.model.pdf.Rpt015Model">
+		SELECT
+		*
+		from t_15
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.pdf.Rpt015Model">
+		insert into t_15
+		(
+			company_id
+			,user_id
+			,year
+			,legalPersonName
+			,ymdFrom
+			,ymdTo
+			,f_1
+			,f_2
+			,f_3
+			,f_4
+			,f_5
+			,f_6_1
+			,f_7_1
+			,f_8_1
+			,f_9_1
+			,f_6_2
+			,f_7_2
+			,f_8_2
+			,f_9_2
+			,f_subject_2
+			,f_6_3
+			,f_7_3
+			,f_8_3
+			,f_9_3
+			,f_subject_3
+			,f_6_4
+			,f_7_4
+			,f_8_4
+			,f_9_4
+			,f_subject_4
+			,f_6_5
+			,f_7_5
+			,f_8_5
+			,f_9_5
+			,f_subject_5
+			,f_6_6
+			,f_7_6
+			,f_8_6
+			,f_9_6
+			,f_subject_6
+			,f_6_7
+			,f_7_7
+			,f_8_7
+			,f_9_7
+			,f_subject_7
+			,f_6_8
+			,f_7_8
+			,f_8_8
+			,f_9_8
+			,f_subject_8
+			,f_6_9
+			,f_7_9
+			,f_8_9
+			,f_9_9
+			,f_subject_9
+			,f_6_10
+			,f_7_10
+			,f_8_10
+			,f_9_10
+			,f_subject_10
+			,f_6_11
+			,f_7_11
+			,f_8_11
+			,f_9_11
+			,f_subject_11
+			,f_6_total
+			,f_7_total
+			,f_8_total
+			,f_9_total
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{legalPersonName,jdbcType=VARCHAR},
+			#{ymdFrom,jdbcType=VARCHAR},
+			#{ymdTo,jdbcType=VARCHAR},
+			#{f_1,jdbcType=VARCHAR},
+			#{f_2,jdbcType=VARCHAR},
+			#{f_3,jdbcType=VARCHAR},
+			#{f_4,jdbcType=VARCHAR},
+			#{f_5,jdbcType=VARCHAR},
+			#{f_6_1,jdbcType=VARCHAR},
+			#{f_7_1,jdbcType=VARCHAR},
+			#{f_8_1,jdbcType=VARCHAR},
+			#{f_9_1,jdbcType=VARCHAR},
+			#{f_6_2,jdbcType=VARCHAR},
+			#{f_7_2,jdbcType=VARCHAR},
+			#{f_8_2,jdbcType=VARCHAR},
+			#{f_9_2,jdbcType=VARCHAR},
+			#{f_subject_2,jdbcType=VARCHAR},
+			#{f_6_3,jdbcType=VARCHAR},
+			#{f_7_3,jdbcType=VARCHAR},
+			#{f_8_3,jdbcType=VARCHAR},
+			#{f_9_3,jdbcType=VARCHAR},
+			#{f_subject_3,jdbcType=VARCHAR},
+			#{f_6_4,jdbcType=VARCHAR},
+			#{f_7_4,jdbcType=VARCHAR},
+			#{f_8_4,jdbcType=VARCHAR},
+			#{f_9_4,jdbcType=VARCHAR},
+			#{f_subject_4,jdbcType=VARCHAR},
+			#{f_6_5,jdbcType=VARCHAR},
+			#{f_7_5,jdbcType=VARCHAR},
+			#{f_8_5,jdbcType=VARCHAR},
+			#{f_9_5,jdbcType=VARCHAR},
+			#{f_subject_5,jdbcType=VARCHAR},
+			#{f_6_6,jdbcType=VARCHAR},
+			#{f_7_6,jdbcType=VARCHAR},
+			#{f_8_6,jdbcType=VARCHAR},
+			#{f_9_6,jdbcType=VARCHAR},
+			#{f_subject_6,jdbcType=VARCHAR},
+			#{f_6_7,jdbcType=VARCHAR},
+			#{f_7_7,jdbcType=VARCHAR},
+			#{f_8_7,jdbcType=VARCHAR},
+			#{f_9_7,jdbcType=VARCHAR},
+			#{f_subject_7,jdbcType=VARCHAR},
+			#{f_6_8,jdbcType=VARCHAR},
+			#{f_7_8,jdbcType=VARCHAR},
+			#{f_8_8,jdbcType=VARCHAR},
+			#{f_9_8,jdbcType=VARCHAR},
+			#{f_subject_8,jdbcType=VARCHAR},
+			#{f_6_9,jdbcType=VARCHAR},
+			#{f_7_9,jdbcType=VARCHAR},
+			#{f_8_9,jdbcType=VARCHAR},
+			#{f_9_9,jdbcType=VARCHAR},
+			#{f_subject_9,jdbcType=VARCHAR},
+			#{f_6_10,jdbcType=VARCHAR},
+			#{f_7_10,jdbcType=VARCHAR},
+			#{f_8_10,jdbcType=VARCHAR},
+			#{f_9_10,jdbcType=VARCHAR},
+			#{f_subject_10,jdbcType=VARCHAR},
+			#{f_6_11,jdbcType=VARCHAR},
+			#{f_7_11,jdbcType=VARCHAR},
+			#{f_8_11,jdbcType=VARCHAR},
+			#{f_9_11,jdbcType=VARCHAR},
+			#{f_subject_11,jdbcType=VARCHAR},
+			#{f_6_total,jdbcType=VARCHAR},
+			#{f_7_total,jdbcType=VARCHAR},
+			#{f_8_total,jdbcType=VARCHAR},
+			#{f_9_total,jdbcType=VARCHAR}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.pdf.Rpt015Model">
+		delete
+		from t_15
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+</mapper>

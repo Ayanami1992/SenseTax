@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/e_table51.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/e_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[E]　別表五(一)期首</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">前期の決算書と別表五（一）(控)を確認し、仮払税金、未納税金、還付税金などの金額を入力してください。</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">
+							</h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h108">利益準備金</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h108" class="form-control form-control-sm text-right" name="e_h108" v-model.number="form.e_h108">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-1 label-control" for="e_01">区分名1</label>
+									<div class="col-md-2">
+										<input type="text" id="e_01" class="form-control form-control-sm" name="e_01" v-model.number="form.e_01"
+										 placeholder="区分名1">
+									</div>
+									<label class="col-md-1 label-control" for="e_h109">積立金</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h109" class="form-control form-control-sm text-right" name="e_h109" v-model.number="form.e_h109"
+										 placeholder="区分名1金額">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h110">仮払税金</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h110" class="form-control form-control-sm text-right" name="e_h110" v-model.number="form.e_h110">
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i> マイナス<div></div>
+							</h4>
+							<p>前期の別表五（一）（控）を確認して、[④差引翌期首現在利益積立金額]の列にプラスとマイナス２カ所に記載ある場合、上下両方に入力下さい。
+							<br>（前期の決算書に未収還付税金の計上がある場合）</p>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h111">未収還付法人税</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h111" class="form-control form-control-sm text-right" name="e_h111" v-model.number="form.e_h111">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h112">未収還付道府県民税</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h112" class="form-control form-control-sm text-right" name="e_h112" v-model.number="form.e_h112">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h113">未収還付市町村民税</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h113" class="form-control form-control-sm text-right" name="e_h113" v-model.number="form.e_h113">
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">
+							</h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-2 label-control" for="e_c114">区分名2</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="text" id="e_c114" class="form-control form-control-sm" name="e_c114" v-model.number="form.e_c114"
+										 placeholder="区分名2">
+									</div>
+									<label class="col-md-2 col-lg-1 label-control" for="e_c114">金額</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h114" class="form-control form-control-sm text-right" name="e_h114" v-model.number="form.e_h114"
+										 placeholder="区分名2金額">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-2 label-control" for="e_c115">区分名3</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="text" id="e_c115" class="form-control form-control-sm" name="e_c115" v-model.number="form.e_c115"
+										 placeholder="区分名3">
+									</div>
+									<label class="col-md-2 col-lg-1 label-control" for="e_h115">金額</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h115" class="form-control form-control-sm text-right" name="e_h115" v-model.number="form.e_h115"
+										 placeholder="区分名3金額">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-2 label-control" for="e_c116">区分名4</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="text" id="e_c116" class="form-control form-control-sm" name="e_c116" v-model.number="form.e_c116"
+										 placeholder="区分名4">
+									</div>
+									<label class="col-md-2 col-lg-1 label-control" for="e_h116">金額</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h116" class="form-control form-control-sm text-right" name="e_h116" v-model.number="form.e_h116"
+										 placeholder="区分名4金額">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-2 label-control" for="e_c117">区分名5</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="text" id="e_c117" class="form-control form-control-sm" name="e_c117" v-model.number="form.e_c117"
+										 placeholder="区分名5">
+									</div>
+									<label class="col-md-2 col-lg-1 label-control" for="e_h117">金額</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h117" class="form-control form-control-sm text-right" name="e_h117" v-model.number="form.e_h117"
+										 placeholder="区分名5金額">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-2 label-control" for="e_c118">区分名6</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="text" id="e_c118" class="form-control form-control-sm" name="e_c118" v-model.number="form.e_c118"
+										 placeholder="区分名6">
+									</div>
+									<label class="col-md-2 col-lg-1 label-control" for="e_h118">金額</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h118" class="form-control form-control-sm text-right" name="e_h118" v-model.number="form.e_h118"
+										 placeholder="区分名6金額">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-2 label-control" for="e_c119">区分名7</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="text" id="e_c119" class="form-control form-control-sm" name="e_c119" v-model.number="form.e_c119"
+										 placeholder="区分名7">
+									</div>
+									<label class="col-md-2 col-lg-1 label-control" for="e_h119">金額</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h119" class="form-control form-control-sm text-right" name="e_h119" v-model.number="form.e_h119"
+										 placeholder="区分名7金額">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-lg-5 col-md-7 col-8 label-control" for="e_h120">減価償却の償却超過額</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h120" class="form-control form-control-sm text-right" name="e_h120" v-model.number="form.e_h120">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><i class="ft-edit"></i> プラス<div></div>
+							</h4>
+							<p>前期の別表五（一）（控）を確認して、[④差引翌期首現在利益積立金額]の列にプラスの記載が１カ所の場合は、下だけへ入力下さい。
+							<br>（前期の決算書に未収還付税金の計上がない場合）</p>
+							<h4 class="form-section"></h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h121">未収還付法人税</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h121" class="form-control form-control-sm text-right" name="e_h121" v-model.number="form.e_h121">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h122">未収還付道府県民税</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h122" class="form-control form-control-sm text-right" name="e_h122" v-model.number="form.e_h122">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h123">未収還付市町村民税</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h123" class="form-control form-control-sm text-right" name="e_h123" v-model.number="form.e_h123">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h125">繰越損益金</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="e_h125" class="form-control form-control-sm text-right" name="e_h125" v-model.number="form.e_h125">
+									</div>
+
+									<div class="col-lg-6 col-md-5 col-4 border-left-0">
+										<p>前期の別表五（一）（控）を確認して、[26繰越損益金(損は赤)]の[④差引翌期首現在利益積立金額]の額を入力してください。</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">
+							</h4>
+						</div>
+						<div class="card-body">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h127">未納法人税</label>
+									<label class="col-lg-2 col-md-3 col-4 label-control text-right">{{form.e_h127}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h128">未納道府県民税</label>
+									<label class="col-lg-2 col-md-3 col-4 label-control text-right">{{form.e_h128}}</label>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="e_h129">未納市町村民税</label>
+									<label class="col-lg-2 col-md-3 col-4 label-control text-right">{{form.e_h129}}</label>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

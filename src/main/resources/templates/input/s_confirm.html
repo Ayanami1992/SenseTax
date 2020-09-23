@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>当期の株主資本等変動計算書を確認し、「繰越利益剰余金」の当期末残高を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="s_e405">繰越損益金</label>
+									<label class="col-md-3 label-control">{{form.s_e405}}</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>当期中に効力発生した配当を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-4 label-control" for="s_e409">当期中配当</label>
+									<label class="col-md-3 label-control">{{form.s_e409}}</label>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>積立金や修正後申告翌期への仕訳を入力してください。<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center table-striped">
+							    <thead>
+							      <tr>
+							        <th><label class="label-control">区分名</label></th>
+							        <th><label class="label-control">五(一)②列</label></th>
+							        <th><label class="label-control">五(一)③列</label></th>
+							      </tr>
+							    </thead>
+							    <tbody>
+								  <tr>
+							        <th><label class="label-control">利益準備金</label></th>
+							        <td>{{form.s_e413}}</td>
+							        <td>{{form.s_g413}}</td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c414}}</label></th>
+							        <td>{{form.s_e414}}</td>
+							        <td>{{form.s_g414}}</td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c415}}</label></th>
+							        <td>{{form.s_e415}}</td>
+							        <td>{{form.s_g415}}</td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c416}}</label></th>
+							        <td>{{form.s_e416}}</td>
+							        <td>{{form.s_g416}}</td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c417}}</label></th>
+							        <td>{{form.s_e417}}</td>
+							        <td>{{form.s_g417}}</td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c418}}</label></th>
+							        <td>{{form.s_e418}}</td>
+							        <td>{{form.s_g418}}</td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c419}}</label></th>
+							        <td>{{form.s_e419}}</td>
+							        <td>{{form.s_g419}}</td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control" v-bind:text="form.s_c414">{{form.s_c420}}</label></th>
+							        <td>{{form.s_e420}}</td>
+							        <td>{{form.s_g420}}</td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

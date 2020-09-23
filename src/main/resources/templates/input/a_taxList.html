@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN : Body-->
+
+		<!-- BEGIN PAGE LEVEL JS-->
+		<script th:src="@{/js/init.js}"></script>
+		<script th:src="@{/js/input/a_taxList.js}" type="module"></script>
+		<!-- END PAGE LEVEL JS-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/a_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+			<!-- Page header -->
+			<div class="page-header page-header-light">
+				<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+					<div class="d-flex">
+						<div class="breadcrumb">
+							<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+							<span class="breadcrumb-item active">[A]　当期利益(損失)額</span>
+						</div>
+					</div>
+
+					<div class="header-elements d-none">
+						<div class="breadcrumb justify-content-center">
+							<button type="reset" class="btn btn-raised btn-warning mr-1" >
+								<i class="ft-x"></i> クリア
+							</button>
+							<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+							  data-target="#confirm">
+							 <i class="fa fa-check-square-o"></i> 保存
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="page-header-content header-elements-md-inline">
+					<div class="page-title d-flex">
+						<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">未払法人税を計上する前の当期利益(損失)額を入力してください。(必要に応じて何度でも修正できます。)</span></h5>
+					</div>
+				</div>
+			</div>
+			<!-- /page header -->
+
+			<!-- Content area -->
+			<div class="content">
+				<div class="card">
+					<div class="card-body">
+						<div class="form-group row">
+							<label class="col-md-4 label-control" for="tax">当期利益（損失）</label>
+							<div class="col-md-6">
+								<input type="text" id="tax" class="form-control form-control-sm" v-model="form.tax">
+								<span class="text-muted">半角数字で金額を入力してください。</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div th:include="blockui :: message"></div>
+			</div>
+			<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

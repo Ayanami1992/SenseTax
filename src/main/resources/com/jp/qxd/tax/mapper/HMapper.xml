@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.HMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.HModel"
+		parameterType="com.jp.qxd.tax.model.input.HModel">
+		SELECT
+		*
+		from h_taxpayments
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.HModel">
+		insert into h_taxpayments
+		(
+			company_id
+			,user_id
+			,year
+			,h_k173
+			,h_k177
+			,h_k178
+			,h_k179
+			,h_k180
+			,h_k182
+			,h_k186
+			,h_k187
+			,h_k188
+			,h_k189
+			,h_k191
+			,h_k192
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{h_k173,jdbcType=INTEGER},
+			#{h_k177,jdbcType=INTEGER},
+			#{h_k178,jdbcType=INTEGER},
+			#{h_k179,jdbcType=INTEGER},
+			#{h_k180,jdbcType=INTEGER},
+			#{h_k182,jdbcType=INTEGER},
+			#{h_k186,jdbcType=INTEGER},
+			#{h_k187,jdbcType=INTEGER},
+			#{h_k188,jdbcType=INTEGER},
+			#{h_k189,jdbcType=INTEGER},
+			#{h_k191,jdbcType=INTEGER},
+			#{h_k192,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.HModel">
+		delete
+		from h_taxpayments
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

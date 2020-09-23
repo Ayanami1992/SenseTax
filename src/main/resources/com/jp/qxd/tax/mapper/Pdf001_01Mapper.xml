@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.Pdf001_01Mapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.pdf.Rpt001_01Model"
+		parameterType="com.jp.qxd.tax.model.pdf.Rpt001_01Model">
+		SELECT
+		*
+		from t_01_01
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.pdf.Rpt001Model">
+		insert into t_01_01
+		(
+			company_id
+			,user_id
+			,year
+			,legalPersonName
+			,ymdFrom
+			,ymdTo
+			,f_50
+			,f_51
+			,f_52
+			,f_53
+			,f_54
+			,f_55
+			,f_56
+			,f_57
+			,f_58
+			,f_59
+			,f_60
+			,f_61
+			,f_62
+			,f_63
+			,f_64
+			,f_65
+			,f_66
+			,f_67
+			,f_68
+			,f_69
+			,f_70
+			,f_71
+			,f_72
+			,f_73
+			,f_74
+			,f_75
+			,f_76
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{legalPersonName,jdbcType=VARCHAR},
+			#{ymdFrom,jdbcType=VARCHAR},
+			#{ymdTo,jdbcType=VARCHAR},
+			#{f_50,jdbcType=VARCHAR},
+			#{f_51,jdbcType=VARCHAR},
+			#{f_52,jdbcType=VARCHAR},
+			#{f_53,jdbcType=VARCHAR},
+			#{f_54,jdbcType=VARCHAR},
+			#{f_55,jdbcType=VARCHAR},
+			#{f_56,jdbcType=VARCHAR},
+			#{f_57,jdbcType=VARCHAR},
+			#{f_58,jdbcType=VARCHAR},
+			#{f_59,jdbcType=VARCHAR},
+			#{f_60,jdbcType=VARCHAR},
+			#{f_61,jdbcType=VARCHAR},
+			#{f_62,jdbcType=VARCHAR},
+			#{f_63,jdbcType=VARCHAR},
+			#{f_64,jdbcType=VARCHAR},
+			#{f_65,jdbcType=VARCHAR},
+			#{f_66,jdbcType=VARCHAR},
+			#{f_67,jdbcType=VARCHAR},
+			#{f_68,jdbcType=VARCHAR},
+			#{f_69,jdbcType=VARCHAR},
+			#{f_70,jdbcType=VARCHAR},
+			#{f_71,jdbcType=VARCHAR},
+			#{f_72,jdbcType=VARCHAR},
+			#{f_73,jdbcType=VARCHAR},
+			#{f_74,jdbcType=VARCHAR},
+			#{f_75,jdbcType=VARCHAR},
+			#{f_76,jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.pdf.Rpt001Model">
+		delete
+		from t_01_01
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+</mapper>

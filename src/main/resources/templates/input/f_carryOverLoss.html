@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/f_carryOverLoss.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/f_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[F]　繰越欠損金</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="page-header-content header-elements-md-inline">
+						<div class="page-title d-flex">
+							<h5><i class="icon-comments mr-2"></i> <span class="font-weight-semibold">前回申告した別表七(一)(控)を確認し、九期分の繰越欠損金を入力してください。（別表七(一)では、欠損がプラス記載、そのままプラス入力）</span></h5>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i>≪青色欠損・連結みなし欠損・災害損失≫<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="card-body table-responsive">
+									  <table class="table text-center">
+									    <thead>
+									      <tr>
+									        <th></th>
+									        <th>期首</th>
+									        <th>期末</th>
+									        <th>翌期繰越額(3)</th>
+									      </tr>
+									    </thead>
+									    <tbody>
+									      <tr>
+									        <td>10期前</td>
+									        <td>{{form.f_d136}}</td>
+									        <td>{{form.f_f136}}</td>
+									        <td><input type="number" id="f_h136" class="form-control form-control-sm text-right" name="f_h136" v-model.number="form.f_h136"></td>
+									      </tr>
+									      <tr>
+									        <td>9期前</td>
+									        <td>{{form.f_d137}}</td>
+									        <td>{{form.f_f137}}</td>
+									        <td><input type="number" id="f_h137" class="form-control form-control-sm text-right" name="f_h137" v-model.number="form.f_h137"></td>
+									      </tr>
+									      <tr>
+									        <td>8期前</td>
+									        <td>{{form.f_d138}}</td>
+									        <td>{{form.f_f138}}</td>
+									        <td><input type="number" id="f_h138" class="form-control form-control-sm text-right" name="f_h138" v-model.number="form.f_h138"></td>
+									      </tr>
+									      <tr>
+									        <td>7期前</td>
+									        <td>{{form.f_d139}}</td>
+									        <td>{{form.f_f139}}</td>
+									        <td><input type="number" id="f_h139" class="form-control form-control-sm text-right" name="f_h139" v-model.number="form.f_h139"></td>
+									      </tr>
+									      <tr>
+									        <td>6期前</td>
+									        <td>{{form.f_d140}}</td>
+									        <td>{{form.f_f140}}</td>
+									        <td><input type="number" id="f_h140" class="form-control form-control-sm text-right" name="f_h140" v-model.number="form.f_h140"></td>
+									      </tr>
+									      <tr>
+									        <td>5期前</td>
+									        <td>{{form.f_d141}}</td>
+									        <td>{{form.f_f141}}</td>
+									        <td><input type="number" id="f_h141" class="form-control form-control-sm text-right" name="f_h141" v-model.number="form.f_h141"></td>
+									      </tr>
+									      <tr>
+									        <td>4期前</td>
+									        <td>{{form.f_d142}}</td>
+									        <td>{{form.f_f142}}</td>
+									        <td><input type="number" id="f_h142" class="form-control form-control-sm text-right" name="f_h142" v-model.number="form.f_h142"></td>
+									      </tr>
+									      <tr>
+									        <td>3期前</td>
+									        <td>{{form.f_d143}}</td>
+									        <td>{{form.f_f143}}</td>
+									        <td><input type="number" id="f_h143" class="form-control form-control-sm text-right" name="f_h143" v-model.number="form.f_h143"></td>
+									      </tr>
+									      <tr>
+									        <td>2期前</td>
+									        <td>{{form.f_d144}}</td>
+									        <td>{{form.f_f144}}</td>
+									        <td><input type="number" id="f_h144" class="form-control form-control-sm text-right" name="f_h144" v-model.number="form.f_h144"></td>
+									      </tr>
+									      <tr>
+									        <td>前期</td>
+									        <td>{{form.f_d145}}</td>
+									        <td>{{form.f_f145}}</td>
+									        <td><input type="number" id="f_h145" class="form-control form-control-sm text-right" name="f_h145" v-model.number="form.f_h145"></td>
+									      </tr>
+
+									    </tbody>
+									  </table>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+						<div class="col-sm-6">
+
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title"><i class="ft-edit"></i>≪地方税第六号様式別表九（事業税）≫<div></div>
+									</h4>
+									<h4 class="form-section"></h4>
+								</div>
+								<div class="card-body">
+									<div class="card-body table-responsive">
+									  <table class="table text-center">
+									    <thead>
+									      <tr>
+									        <th></th>
+									        <th>期首</th>
+									        <th>期末</th>
+									        <th>欠損金額</th>
+									      </tr>
+									    </thead>
+									    <tbody>
+
+									      <tr>
+									        <td>9期前</td>
+									        <td>{{form.f_d149}}</td>
+									        <td>{{form.f_f149}}</td>
+									        <td><input type="number" id="f_h149" class="form-control form-control-sm text-right" name="f_h149" v-model.number="form.f_h149"></td>
+									      </tr>
+									      <tr>
+									        <td>8期前</td>
+									        <td>{{form.f_d150}}</td>
+									        <td>{{form.f_f150}}</td>
+									        <td><input type="number" id="f_h150" class="form-control form-control-sm text-right" name="f_h150" v-model.number="form.f_h150"></td>
+									      </tr>
+									      <tr>
+									        <td>7期前</td>
+									        <td>{{form.f_d151}}</td>
+									        <td>{{form.f_f151}}</td>
+									        <td><input type="number" id="f_h151" class="form-control form-control-sm text-right" name="f_h151" v-model.number="form.f_h151"></td>
+									      </tr>
+									      <tr>
+									        <td>6期前</td>
+									        <td>{{form.f_d152}}</td>
+									        <td>{{form.f_f152}}</td>
+									        <td><input type="number" id="f_h152" class="form-control form-control-sm text-right" name="f_h152" v-model.number="form.f_h152"></td>
+									      </tr>
+									      <tr>
+									        <td>5期前</td>
+									        <td>{{form.f_d153}}</td>
+									        <td>{{form.f_f153}}</td>
+									        <td><input type="number" id="f_h153" class="form-control form-control-sm text-right" name="f_h153" v-model.number="form.f_h153"></td>
+									      </tr>
+									      <tr>
+									        <td>4期前</td>
+									        <td>{{form.f_d154}}</td>
+									        <td>{{form.f_f154}}</td>
+									        <td><input type="number" id="f_h154" class="form-control form-control-sm text-right" name="f_h154" v-model.number="form.f_h154"></td>
+									      </tr>
+									      <tr>
+									        <td>3期前</td>
+									        <td>{{form.f_d155}}</td>
+									        <td>{{form.f_f155}}</td>
+									        <td><input type="number" id="f_h155" class="form-control form-control-sm text-right" name="f_h155" v-model.number="form.f_h155"></td>
+									      </tr>
+									      <tr>
+									        <td>2期前</td>
+									        <td>{{form.f_d156}}</td>
+									        <td>{{form.f_f156}}</td>
+									        <td><input type="number" id="f_h156" class="form-control form-control-sm text-right" name="f_h156" v-model.number="form.f_h156"></td>
+									      </tr>
+									      <tr>
+									        <td>前期</td>
+									        <td>{{form.f_d157}}</td>
+									        <td>{{form.f_f157}}</td>
+									        <td><input type="number" id="f_h157" class="form-control form-control-sm text-right" name="f_h157" v-model.number="form.f_h157"></td>
+									      </tr>
+
+									    </tbody>
+									  </table>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div th:include="blockui :: message"></div>
+
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

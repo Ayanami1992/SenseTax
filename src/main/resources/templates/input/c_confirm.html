@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-header">
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_01">地区</label>
+														<label class="col-md-6 label-control">
+															{{form.c_01}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_02">都道府県</label>
+														<label class="col-md-6 label-control">
+															{{form.c_02}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_03">{{form.c_c67}}</label>
+														<label class="col-md-6 label-control">
+															{{form.c_03}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_05">期間末日人数</label>
+														<label class="col-md-6 label-control">
+															{{form.c_05}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_06">切捨月数</label>
+														<label class="col-md-6 label-control">
+															{{form.c_06}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_g71">(県　均等割　円)</label>
+														<label class="col-md-6 label-control">
+															{{form.c_g71}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_g72">(県　森林環境税　円)</label>
+														<label class="col-md-6 label-control">
+															{{form.c_g72}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_07">県　合計　円</label>
+														<label class="col-md-6 label-control">
+															{{form.c_07}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_g74">{{form.c_c74}}</label>
+														<label class="col-md-6 label-control">
+															{{form.c_g74}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_g75">{{form.c_c75}}</label>
+														<label class="col-md-6 label-control">
+															{{form.c_g75}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_08">{{form.c_c76}}</label>
+														<label class="col-md-6 label-control">
+															{{form.c_08}}
+														</label>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">
+												</h4>
+												<p>※資本金が1億円以上の大企業や、所得が高額な場合の税率は自動で設定されません。直接入力ください。</p>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_10">廃止前月末人数</label>
+														<label class="col-md-6 label-control">
+															{{form.c_10}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_11">切上月数</label>
+														<label class="col-md-6 label-control">
+															{{form.c_11}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_12">事0～400　%</label>
+														<label class="col-md-6 label-control">
+															{{form.c_12}}%
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_13">事400～800　%</label>
+														<label class="col-md-6 label-control">
+															{{form.c_13}}%
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_14">事業税800～　%</label>
+														<label class="col-md-6 label-control">
+															{{form.c_14}}%
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_15">県　法人税割　%</label>
+														<label class="col-md-6 label-control">
+															{{form.c_15}}%
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_g84">県　地方法人特別税　%</label>
+														<label class="col-md-6 label-control">
+															{{form.c_g84}}%
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_16">{{form.c_c85}}</label>
+														<label class="col-md-6 label-control">
+															{{form.c_16}}%
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_16">{{form.c_c86}}</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_19">事業所名</label>
+														<label class="col-md-6 label-control">
+															{{form.c_19}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_20">所在地</label>
+														<label class="col-md-6 label-control">
+															{{form.c_20}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_22">第6号様式宛先</label>
+														<label class="col-md-6 label-control">
+															{{form.c_22}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_23">第20号様式宛先</label>
+														<label class="col-md-6 label-control">
+															{{form.c_23}}
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i> 6号様式※処理事項欄<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_24">整理番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_24}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_25">事務所</label>
+														<label class="col-md-6 label-control">
+															{{form.c_25}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_26">管理番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_26}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_27">申告区分</label>
+														<label class="col-md-6 label-control">
+															{{form.c_27}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_32">法人番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_32}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_n72">欄外番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_n72}}
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i> 20号様式※処理事項欄<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_28">整理番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_28}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_29">事務所</label>
+														<label class="col-md-6 label-control">
+															{{form.c_29}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_30">管理番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_30}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_31">申告区分</label>
+														<label class="col-md-6 label-control">
+															{{form.c_31}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_32">法人番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_32}}
+														</label>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i> 東京都6号様式※欄外項目<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_n83">封 一連番号</label>
+														<label class="col-md-6 label-control">
+															{{form.c_n83}}
+														</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="c_n84">組織</label>
+														<label class="col-md-6 label-control">
+															{{form.c_n84}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_n85">法人名</label>
+														<label class="col-md-6 label-control">
+															{{form.c_n85}}
+														</label>
+													</div>
+													<div class="form-group row">
+
+														<label class="col-md-6 label-control" for="c_n86">資本金</label>
+														<label class="col-md-6 label-control">
+															{{form.c_n86}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="c_m87">利</label>
+														<label class="col-md-4 label-control">
+															{{form.c_m87}}
+														</label>
+														<label class="col-md-2 label-control" for="c_o87">事延</label>
+														<label class="col-md-4 label-control">
+															{{form.c_o87}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="c_m88">分非</label>
+														<label class="col-md-4 label-control">
+															{{form.c_m88}}
+														</label>
+														<label class="col-md-2 label-control" for="c_o88">都延</label>
+														<label class="col-md-4 label-control">
+															{{form.c_o88}}
+														</label>
+													</div>
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="c_m89">自主</label>
+														<label class="col-md-4 label-control">
+															{{form.c_m89}}
+														</label>
+														<label class="col-md-2 label-control" for="c_o89">繰</label>
+														<label class="col-md-4 label-control">
+															{{form.c_o89}}
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.UMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.UModel"
+		parameterType="com.jp.qxd.tax.model.input.UModel">
+		SELECT
+		*
+		from u_localtaxcommon
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.UModel">
+		insert into u_localtaxcommon
+		(
+			company_id
+			,user_id
+			,year
+			,u_l455
+			,u_l456
+			,u_l457
+			,u_l458
+			,u_n460
+			,u_n461
+			,u_n462
+			,u_n463
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{u_l455,jdbcType=INTEGER},
+			#{u_l456,jdbcType=INTEGER},
+			#{u_l457,jdbcType=VARCHAR},
+			#{u_l458,jdbcType=VARCHAR},
+			#{u_n460,jdbcType=VARCHAR},
+			#{u_n461,jdbcType=VARCHAR},
+			#{u_n462,jdbcType=VARCHAR},
+			#{u_n463,jdbcType=VARCHAR}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.UModel">
+		delete
+		from u_localtaxcommon
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

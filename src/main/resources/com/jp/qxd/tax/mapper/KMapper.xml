@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.KMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.KModel"
+		parameterType="com.jp.qxd.tax.model.input.KModel">
+		SELECT
+		*
+		from k_taxcourses
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.KModel">
+		insert into k_taxcourses
+		(
+			company_id
+			,user_id
+			,year
+			,k_c237
+			,k_e237
+			,k_h237
+			,k_l239
+			,k_l240
+			,k_l241
+			,k_l242
+			,k_l243
+			,k_l244
+			,k_l245
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{k_c237,jdbcType=VARCHAR},
+			#{k_e237,jdbcType=INTEGER},
+			#{k_h237,jdbcType=VARCHAR},
+			#{k_l239,jdbcType=INTEGER},
+			#{k_l240,jdbcType=INTEGER},
+			#{k_l241,jdbcType=INTEGER},
+			#{k_l242,jdbcType=INTEGER},
+			#{k_l243,jdbcType=INTEGER},
+			#{k_l244,jdbcType=INTEGER},
+			#{k_l245,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.KModel">
+		delete
+		from k_taxcourses
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

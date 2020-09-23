@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="jp">
+	<body>
+
+		<!-- BEGIN : Head-->
+		<head th:fragment="header">
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<title>法人税</title>
+
+			<!-- Global stylesheets -->
+			<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+			<link th:href="@{/global_assets/css/icons/icomoon/styles.css}" rel="stylesheet" type="text/css">
+			<link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+			<link th:href="@{/assets/css/bootstrap_limitless.min.css}" rel="stylesheet" type="text/css">
+			<link th:href="@{/assets/css/layout.min.css}" rel="stylesheet" type="text/css">
+			<link th:href="@{/assets/css/components.min.css}" rel="stylesheet" type="text/css">
+			<link th:href="@{/assets/css/colors.min.css}" rel="stylesheet" type="text/css">
+			<!-- /global stylesheets -->
+
+			<!-- Core JS files -->
+			<script th:src="@{/global_assets/js/main/jquery.min.js}"></script>
+			<script th:src="@{/global_assets/js/main/bootstrap.bundle.min.js}"></script>
+			<script th:src="@{/global_assets/js/plugins/loaders/blockui.min.js}"></script>
+			<!-- /core JS files -->
+
+			<!-- Theme JS files -->
+			<script th:src="@{/global_assets/js/plugins/velocity/velocity.min.js}"></script>
+			<script th:src="@{/global_assets/js/plugins/ui/prism.min.js}"></script>
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+			<script th:src="@{/assets/js/app.js}"></script>
+			<!-- /theme JS files -->
+
+		  <!-- BEGIN APEX CSS-->
+		  <link rel="stylesheet" type="text/css" th:href="@{/css/custom.css}">
+		  <!-- END APEX CSS-->
+		  <!-- BEGIN Page Level CSS-->
+		  <!-- END Page Level CSS-->
+
+		<!-- BEGIN : VUE-->
+		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+		<script th:src="@{/third/vue.min.js}" type="text/javascript"></script>
+		<script th:src="@{/third/vue-resource.min.js}" type="text/javascript"></script>
+		<!-- END : VUE-->
+		</head>
+		<!-- END : Head-->
+	</body>
+</html>

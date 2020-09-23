@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.LMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.LModel"
+		parameterType="com.jp.qxd.tax.model.input.LModel">
+		SELECT
+		*
+		from l_interestanddividends
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.LModel">
+		insert into l_interestanddividends
+		(
+			company_id
+			,user_id
+			,year
+			,l_f252
+			,l_h252
+			,l_j252
+			,l_f256
+			,l_f257
+			,l_f258
+			,l_f259
+			,l_f260
+			,l_f261
+			,l_f262
+			,l_h256
+			,l_h257
+			,l_h258
+			,l_h259
+			,l_h260
+			,l_h261
+			,l_h262
+			,l_j256
+			,l_j257
+			,l_j258
+			,l_j259
+			,l_j260
+			,l_j261
+			,l_j262
+			,l_l256
+			,l_l257
+			,l_l258
+			,l_l259
+			,l_l260
+			,l_l261
+			,l_l262
+			,l_n256
+			,l_n257
+			,l_n258
+			,l_n259
+			,l_n260
+			,l_n261
+			,l_n262
+			,l_f264
+			,l_f265
+			,l_f266
+			,l_f267
+			,l_f268
+			,l_f269
+			,l_f270
+			,l_h264
+			,l_h265
+			,l_h266
+			,l_h267
+			,l_h268
+			,l_h269
+			,l_h270
+			,l_j264
+			,l_j265
+			,l_j266
+			,l_j267
+			,l_j268
+			,l_j269
+			,l_j270
+			,l_l264
+			,l_l265
+			,l_l266
+			,l_l267
+			,l_l268
+			,l_l269
+			,l_l270
+			,l_n264
+			,l_n265
+			,l_n266
+			,l_n267
+			,l_n268
+			,l_n269
+			,l_n270
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{l_f252,jdbcType=INTEGER},
+			#{l_h252,jdbcType=INTEGER},
+			#{l_j252,jdbcType=INTEGER},
+			#{l_f256,jdbcType=INTEGER},
+			#{l_f257,jdbcType=VARCHAR},
+			#{l_f258,jdbcType=INTEGER},
+			#{l_f259,jdbcType=INTEGER},
+			#{l_f260,jdbcType=INTEGER},
+			#{l_f261,jdbcType=INTEGER},
+			#{l_f262,jdbcType=INTEGER},
+			#{l_h256,jdbcType=INTEGER},
+			#{l_h257,jdbcType=VARCHAR},
+			#{l_h258,jdbcType=INTEGER},
+			#{l_h259,jdbcType=INTEGER},
+			#{l_h260,jdbcType=INTEGER},
+			#{l_h261,jdbcType=INTEGER},
+			#{l_h262,jdbcType=INTEGER},
+			#{l_j256,jdbcType=INTEGER},
+			#{l_j257,jdbcType=VARCHAR},
+			#{l_j258,jdbcType=INTEGER},
+			#{l_j259,jdbcType=INTEGER},
+			#{l_j260,jdbcType=INTEGER},
+			#{l_j261,jdbcType=INTEGER},
+			#{l_j262,jdbcType=INTEGER},
+			#{l_l256,jdbcType=INTEGER},
+			#{l_l257,jdbcType=VARCHAR},
+			#{l_l258,jdbcType=INTEGER},
+			#{l_l259,jdbcType=INTEGER},
+			#{l_l260,jdbcType=INTEGER},
+			#{l_l261,jdbcType=INTEGER},
+			#{l_l262,jdbcType=INTEGER},
+			#{l_n256,jdbcType=INTEGER},
+			#{l_n257,jdbcType=VARCHAR},
+			#{l_n258,jdbcType=INTEGER},
+			#{l_n259,jdbcType=INTEGER},
+			#{l_n260,jdbcType=INTEGER},
+			#{l_n261,jdbcType=INTEGER},
+			#{l_n262,jdbcType=INTEGER},
+			#{l_f264,jdbcType=INTEGER},
+			#{l_f265,jdbcType=VARCHAR},
+			#{l_f266,jdbcType=INTEGER},
+			#{l_f267,jdbcType=INTEGER},
+			#{l_f268,jdbcType=INTEGER},
+			#{l_f269,jdbcType=INTEGER},
+			#{l_f270,jdbcType=INTEGER},
+			#{l_h264,jdbcType=INTEGER},
+			#{l_h265,jdbcType=VARCHAR},
+			#{l_h266,jdbcType=INTEGER},
+			#{l_h267,jdbcType=INTEGER},
+			#{l_h268,jdbcType=INTEGER},
+			#{l_h269,jdbcType=INTEGER},
+			#{l_h270,jdbcType=INTEGER},
+			#{l_j264,jdbcType=INTEGER},
+			#{l_j265,jdbcType=VARCHAR},
+			#{l_j266,jdbcType=INTEGER},
+			#{l_j267,jdbcType=INTEGER},
+			#{l_j268,jdbcType=INTEGER},
+			#{l_j269,jdbcType=INTEGER},
+			#{l_j270,jdbcType=INTEGER},
+			#{l_l264,jdbcType=INTEGER},
+			#{l_l265,jdbcType=VARCHAR},
+			#{l_l266,jdbcType=INTEGER},
+			#{l_l267,jdbcType=INTEGER},
+			#{l_l268,jdbcType=INTEGER},
+			#{l_l269,jdbcType=INTEGER},
+			#{l_l270,jdbcType=INTEGER},
+			#{l_n264,jdbcType=INTEGER},
+			#{l_n265,jdbcType=VARCHAR},
+			#{l_n266,jdbcType=INTEGER},
+			#{l_n267,jdbcType=INTEGER},
+			#{l_n268,jdbcType=INTEGER},
+			#{l_n269,jdbcType=INTEGER},
+			#{l_n270,jdbcType=INTEGER}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.LModel">
+		delete
+		from l_interestanddividends
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

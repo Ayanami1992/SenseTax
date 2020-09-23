@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/l_interestAndDividends.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/l_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[L]　利子・配当金</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+
+								<div class="card">
+									<div class="card-header">
+										<h4 class="card-title"><i class="ft-edit"></i>元帳を確認し、利子や配当金の収入金額、源泉された額を入力してください。<div></div>
+										</h4>
+										<p>預貯金の利子及び合同運用信託の収益の分配</p>
+										<h4 class="form-section"></h4>
+									</div>
+									<div class="card-content">
+										<div class="px-3">
+
+											<div class="form-group row">
+												<label class="col-md-1 label-control text-right" for="l_f252">収入金額</label>
+												<div class="col-sm-2">
+													<input type="number" id="l_f252" class="form-control form-control-sm text-right" name="l_f252"
+													 v-model.number="form.l_f252">
+												</div>
+												<label class="col-md-1 label-control text-right" for="l_h252">源泉税額</label>
+												<div class="col-sm-2">
+													<input type="number" id="l_h252" class="form-control form-control-sm text-right" name="l_h252"
+													 v-model.number="form.l_h252">
+												</div>
+												<label class="col-md-1 label-control text-right" for="l_j252">控除税額</label>
+												<label class="col-md-2 label-control text-right" >{{form.l_j252}}</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h4 class="card-title"><i class="ft-edit"></i>計算方法の選択<div></div>
+										</h4>
+										<p>≪個別法による場合≫</p>
+										<h4 class="form-section"></h4>
+									</div>
+									<div class="card-content">
+										<div class="card-body table-responsive">
+										  <table class="table text-center">
+										    <tbody>
+										      <tr>
+										        <td class="text-right"><label class="label-control">銘柄</label></td>
+										        <td><input type="number" id="l_f256" class="form-control form-control-sm text-right" name="l_f256" v-model.number="form.l_f256"></td>
+										        <td><input type="number" id="l_h256" class="form-control form-control-sm text-right" name="l_h256" v-model.number="form.l_h256"></td>
+										        <td><input type="number" id="l_j256" class="form-control form-control-sm text-right" name="l_j256" v-model.number="form.l_j256"></td>
+										        <td><input type="number" id="l_l256" class="form-control form-control-sm text-right" name="l_l256" v-model.number="form.l_l256"></td>
+										        <td><input type="number" id="l_n256" class="form-control form-control-sm text-right" name="l_n256" v-model.number="form.l_n256"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">社債・配当・投資の別</label></td>
+										        <td>
+													<select id="l_f257" class="form-control form-control-sm" v-model="form.l_f257">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_h257" class="form-control form-control-sm" v-model="form.l_h257">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_j257" class="form-control form-control-sm" v-model="form.l_j257">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_l257" class="form-control form-control-sm" v-model="form.l_l257">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_n257" class="form-control form-control-sm" v-model="form.l_n257">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">収入金額</label></td>
+										        <td><input type="number" id="l_f258" class="form-control form-control-sm text-right" name="l_f258" v-model.number="form.l_f258"></td>
+										        <td><input type="number" id="l_h258" class="form-control form-control-sm text-right" name="l_h258" v-model.number="form.l_h258"></td>
+										        <td><input type="number" id="l_j258" class="form-control form-control-sm text-right" name="l_j258" v-model.number="form.l_j258"></td>
+										        <td><input type="number" id="l_l258" class="form-control form-control-sm text-right" name="l_l258" v-model.number="form.l_l258"></td>
+										        <td><input type="number" id="l_n258" class="form-control form-control-sm text-right" name="l_n258" v-model.number="form.l_n258"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">所得税額</label></td>
+										        <td><input type="number" id="l_f259" class="form-control form-control-sm text-right" name="l_f259" v-model.number="form.l_f259"></td>
+										        <td><input type="number" id="l_h259" class="form-control form-control-sm text-right" name="l_h259" v-model.number="form.l_h259"></td>
+										        <td><input type="number" id="l_j259" class="form-control form-control-sm text-right" name="l_j259" v-model.number="form.l_j259"></td>
+										        <td><input type="number" id="l_l259" class="form-control form-control-sm text-right" name="l_l259" v-model.number="form.l_l259"></td>
+										        <td><input type="number" id="l_n259" class="form-control form-control-sm text-right" name="l_n259" v-model.number="form.l_n259"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">地方税額</label></td>
+										        <td><input type="number" id="l_f260" class="form-control form-control-sm text-right" name="l_f260" v-model.number="form.l_f260"></td>
+										        <td><input type="number" id="l_h260" class="form-control form-control-sm text-right" name="l_h260" v-model.number="form.l_h260"></td>
+										        <td><input type="number" id="l_j260" class="form-control form-control-sm text-right" name="l_j260" v-model.number="form.l_j260"></td>
+										        <td><input type="number" id="l_l260" class="form-control form-control-sm text-right" name="l_l260" v-model.number="form.l_l260"></td>
+										        <td><input type="number" id="l_n260" class="form-control form-control-sm text-right" name="l_n260" v-model.number="form.l_n260"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">計算基礎期間</label></td>
+										        <td><input type="number" id="l_f261" class="form-control form-control-sm text-right" name="l_f261" v-model.number="form.l_f261"></td>
+										        <td><input type="number" id="l_h261" class="form-control form-control-sm text-right" name="l_h261" v-model.number="form.l_h261"></td>
+										        <td><input type="number" id="l_j261" class="form-control form-control-sm text-right" name="l_j261" v-model.number="form.l_j261"></td>
+										        <td><input type="number" id="l_l261" class="form-control form-control-sm text-right" name="l_l261" v-model.number="form.l_l261"></td>
+										        <td><input type="number" id="l_n261" class="form-control form-control-sm text-right" name="l_n261" v-model.number="form.l_n261"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">元本所有期間</label></td>
+										        <td><input type="number" id="l_f262" class="form-control form-control-sm text-right" name="l_f262" v-model.number="form.l_f262"></td>
+										        <td><input type="number" id="l_h262" class="form-control form-control-sm text-right" name="l_h262" v-model.number="form.l_h262"></td>
+										        <td><input type="number" id="l_j262" class="form-control form-control-sm text-right" name="l_j262" v-model.number="form.l_j262"></td>
+										        <td><input type="number" id="l_l262" class="form-control form-control-sm text-right" name="l_l262" v-model.number="form.l_l262"></td>
+										        <td><input type="number" id="l_n262" class="form-control form-control-sm text-right" name="l_n262" v-model.number="form.l_n262"></td>
+										      </tr>
+										    </tbody>
+										  </table>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h4 class="card-title"><i class="ft-edit"></i>計算方法の選択<div></div>
+										</h4>
+										<p>≪銘柄別簡便法による場合≫</p>
+										<h4 class="form-section"></h4>
+									</div>
+									<div class="card-content">
+										<div class="card-body table-responsive">
+										  <table class="table text-center">
+										    <tbody>
+										      <tr>
+										        <td class="text-right"><label class="label-control">銘柄</label></td>
+										        <td><input type="number" id="l_f264" class="form-control form-control-sm text-right" name="l_f264" v-model.number="form.l_f264"></td>
+										        <td><input type="number" id="l_h264" class="form-control form-control-sm text-right" name="l_h264" v-model.number="form.l_h264"></td>
+										        <td><input type="number" id="l_j264" class="form-control form-control-sm text-right" name="l_j264" v-model.number="form.l_j264"></td>
+										        <td><input type="number" id="l_l264" class="form-control form-control-sm text-right" name="l_l264" v-model.number="form.l_l264"></td>
+										        <td><input type="number" id="l_n264" class="form-control form-control-sm text-right" name="l_n264" v-model.number="form.l_n264"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">社債・配当・投資の別</label></td>
+										        <td>
+													<select id="l_f265" class="form-control form-control-sm" v-model="form.l_f265">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_h265" class="form-control form-control-sm" v-model="form.l_h265">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_j265" class="form-control form-control-sm" v-model="form.l_j265">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_l265" class="form-control form-control-sm" v-model="form.l_l265">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										        <td>
+													<select id="l_n265" class="form-control form-control-sm" v-model="form.l_n265">
+														<option v-for="option in options.A58_A60" v-bind:value="option.value">{{option.text}}</option>
+													</select>
+												</td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">収入金額</label></td>
+										        <td><input type="number" id="l_f266" class="form-control form-control-sm text-right" name="l_f266" v-model.number="form.l_f266"></td>
+										        <td><input type="number" id="l_h266" class="form-control form-control-sm text-right" name="l_h266" v-model.number="form.l_h266"></td>
+										        <td><input type="number" id="l_j266" class="form-control form-control-sm text-right" name="l_j266" v-model.number="form.l_j266"></td>
+										        <td><input type="number" id="l_l266" class="form-control form-control-sm text-right" name="l_l266" v-model.number="form.l_l266"></td>
+										        <td><input type="number" id="l_n266" class="form-control form-control-sm text-right" name="l_n266" v-model.number="form.l_n266"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">所得税額</label></td>
+										        <td><input type="number" id="l_f267" class="form-control form-control-sm text-right" name="l_f267" v-model.number="form.l_f267"></td>
+										        <td><input type="number" id="l_h267" class="form-control form-control-sm text-right" name="l_h267" v-model.number="form.l_h267"></td>
+										        <td><input type="number" id="l_j267" class="form-control form-control-sm text-right" name="l_j267" v-model.number="form.l_j267"></td>
+										        <td><input type="number" id="l_l267" class="form-control form-control-sm text-right" name="l_l267" v-model.number="form.l_l267"></td>
+										        <td><input type="number" id="l_n267" class="form-control form-control-sm text-right" name="l_n267" v-model.number="form.l_n267"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">地方税額</label></td>
+										        <td><input type="number" id="l_f268" class="form-control form-control-sm text-right" name="l_f268" v-model.number="form.l_f268"></td>
+										        <td><input type="number" id="l_h268" class="form-control form-control-sm text-right" name="l_h268" v-model.number="form.l_h268"></td>
+										        <td><input type="number" id="l_j268" class="form-control form-control-sm text-right" name="l_j268" v-model.number="form.l_j268"></td>
+										        <td><input type="number" id="l_l268" class="form-control form-control-sm text-right" name="l_l268" v-model.number="form.l_l268"></td>
+										        <td><input type="number" id="l_n268" class="form-control form-control-sm text-right" name="l_n268" v-model.number="form.l_n268"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">期末所有元本</label></td>
+										        <td><input type="number" id="l_f269" class="form-control form-control-sm text-right" name="l_f269" v-model.number="form.l_f269"></td>
+										        <td><input type="number" id="l_h269" class="form-control form-control-sm text-right" name="l_h269" v-model.number="form.l_h269"></td>
+										        <td><input type="number" id="l_j269" class="form-control form-control-sm text-right" name="l_j269" v-model.number="form.l_j269"></td>
+										        <td><input type="number" id="l_l269" class="form-control form-control-sm text-right" name="l_l269" v-model.number="form.l_l269"></td>
+										        <td><input type="number" id="l_n269" class="form-control form-control-sm text-right" name="l_n269" v-model.number="form.l_n269"></td>
+										      </tr>
+										      <tr>
+										        <td class="text-right"><label class="label-control">期首所有元本</label></td>
+										        <td><input type="number" id="l_f270" class="form-control form-control-sm text-right" name="l_f270" v-model.number="form.l_f270"></td>
+										        <td><input type="number" id="l_h270" class="form-control form-control-sm text-right" name="l_h270" v-model.number="form.l_h270"></td>
+										        <td><input type="number" id="l_j270" class="form-control form-control-sm text-right" name="l_j270" v-model.number="form.l_j270"></td>
+										        <td><input type="number" id="l_l270" class="form-control form-control-sm text-right" name="l_l270" v-model.number="form.l_l270"></td>
+										        <td><input type="number" id="l_n270" class="form-control form-control-sm text-right" name="l_n270" v-model.number="form.l_n270"></td>
+										      </tr>
+										    </tbody>
+										  </table>
+										</div>
+
+									</div>
+								</div>
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

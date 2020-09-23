@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+									<div class="col-sm-12">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">
+												</h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="e_h108">利益準備金</label>
+														<label class="col-md-3 label-control">{{form.e_h108}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="e_01">区分名1</label>
+														<label class="col-md-2 label-control">{{form.e_01}}</label>
+														<label class="col-md-2 label-control" for="e_h109">積立金</label>
+														<label class="col-md-3 label-control">{{form.e_h109}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-6 label-control" for="e_h110">仮払税金</label>
+														<label class="col-md-3 label-control">{{form.e_h110}}</label>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i> 上（マイナス）<div></div>
+												</h4>
+												<p>前期の別表五（一）（控）を確認して、[④差引翌期首現在利益積立金額]の列にプラスとマイナス２カ所に記載ある場合、上下両方に入力下さい。
+												<br>（前期の決算書に未収還付税金の計上がある場合）</p>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h111">未収還付法人税</label>
+														<label class="col-md-3 label-control">{{form.e_h111}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h112">未収還付道府県民税</label>
+														<label class="col-md-3 label-control">{{form.e_h112}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h113">未収還付市町村民税</label>
+														<label class="col-md-3 label-control">{{form.e_h113}}</label>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">
+												</h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="e_c114">区分名2</label>
+														<label class="col-md-3 label-control">{{form.e_c114}}</label>
+														<label class="col-md-2 label-control" for="e_c114">金額</label>
+														<label class="col-md-3 label-control">{{form.e_h114}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="e_c115">区分名3</label>
+														<label class="col-md-3 label-control">{{form.e_c115}}</label>
+														<label class="col-md-2 label-control" for="e_h115">金額</label>
+														<label class="col-md-3 label-control">{{form.e_h115}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="e_c116">区分名4</label>
+														<label class="col-md-3 label-control">{{form.e_c116}}</label>
+														<label class="col-md-2 label-control" for="e_h116">金額</label>
+														<label class="col-md-3 label-control">{{form.e_h116}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="e_c117">区分名5</label>
+														<label class="col-md-3 label-control">{{form.e_c117}}</label>
+														<label class="col-md-2 label-control" for="e_h117">金額</label>
+														<label class="col-md-3 label-control">{{form.e_h117}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="e_c118">区分名6</label>
+														<label class="col-md-3 label-control">{{form.e_c118}}</label>
+														<label class="col-md-2 label-control" for="e_h118">金額</label>
+														<label class="col-md-3 label-control">{{form.e_h118}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-2 label-control" for="e_c119">区分名7</label>
+														<label class="col-md-3 label-control">{{form.e_c119}}</label>
+														<label class="col-md-2 label-control" for="e_h119">金額</label>
+														<label class="col-md-3 label-control">{{form.e_h119}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-lg-5 col-md-7 col-8 label-control" for="e_h120">減価償却の償却超過額</label>
+														<label class="col-md-3 label-control">{{form.e_h120}}</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i> 下（プラス）<div></div>
+												</h4>
+												<p>前期の別表五（一）（控）を確認して、[④差引翌期首現在利益積立金額]の列にプラスの記載が１カ所の場合は、下だけへ入力下さい。
+												<br>（前期の決算書に未収還付税金の計上がない場合）</p>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h121">未収還付法人税</label>
+														<label class="col-md-3 label-control">{{form.e_h121}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h122">未収還付道府県民税</label>
+														<label class="col-md-3 label-control">{{form.e_h122}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h123">未収還付市町村民税</label>
+														<label class="col-md-3 label-control">{{form.e_h123}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h125">繰越損益金</label>
+														<label class="col-md-3 label-control">{{form.e_h125}}</label>
+														<div class="col-md-5 border-left-0">
+															<p>前期の別表五（一）（控）を確認して、[26繰越損益金(損は赤)]の[④差引翌期首現在利益積立金額]の額を入力してください。</p>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title">
+												</h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h127">未納法人税</label>
+														<label class="col-md-3 label-control">{{form.e_h127}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h128">未納道府県民税</label>
+														<label class="col-md-3 label-control">{{form.e_h128}}</label>
+													</div>
+
+													<div class="form-group row">
+														<label class="col-md-4 label-control" for="e_h129">未納市町村民税</label>
+														<label class="col-md-3 label-control">{{form.e_h129}}</label>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

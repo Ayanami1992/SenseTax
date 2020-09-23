@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+	<head th:include="head :: header"></head>
+
+	<!-- BEGIN PAGE LEVEL JS-->
+	<script th:src="@{/js/init.js}"></script>
+	<script th:src="@{/js/input/p_dividendsReceivable.js}" type="module"></script>
+	<!-- END PAGE LEVEL JS-->
+
+<!-- BEGIN : Body-->
+<body>
+<div id="app">
+	<form class="form" @submit="onSubmit" @reset="onReset">
+		<head th:include="navbar :: navbar"></head>
+		<!-- Page content -->
+		<div class="page-content">
+
+			<head th:include="sidebar :: sidebar"></head>
+
+			<head th:include="input/p_confirm :: confirm"></head>
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header page-header-light">
+					<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+						<div class="d-flex">
+							<div class="breadcrumb">
+								<span class="breadcrumb-item"><i class="icon-home2 mr-2"></i> 入力画面</span>
+								<span class="breadcrumb-item active">[P]　受取配当金</span>
+							</div>
+						</div>
+
+						<div class="header-elements d-none">
+							<div class="breadcrumb justify-content-center">
+								<button type="reset" class="btn btn-raised btn-warning mr-1" >
+									<i class="ft-x"></i> クリア
+								</button>
+								<button type="button" class="btn btn-success mr-1" data-toggle="modal"
+								  data-target="#confirm">
+								 <i class="fa fa-check-square-o"></i> 保存
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /page header -->
+
+				<!-- Content area -->
+				<div class="content">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">
+							</h4>
+						</div>
+						<div class="card-content">
+							<div class="px-3">
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="p_g357">当期に支払う負債利子</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="p_g357" class="form-control form-control-sm text-right" name="p_g357" v-model.number="form.p_g357">
+									</div>
+									<label class="col-md-4 label-control" for="p_o357">基準年度の負債利子等の合計</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="p_o357" class="form-control form-control-sm text-right" name="p_o357" v-model.number="form.p_o357">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="p_g358">連結法人に支払う負債利子</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="p_g358" class="form-control form-control-sm text-right" name="p_g358" v-model.number="form.p_g358">
+									</div>
+									<label class="col-md-4 label-control" for="p_o358">同上の関係法人等に係る負債利子</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<input type="number" id="p_o358" class="form-control form-control-sm text-right" name="p_o358" v-model.number="form.p_o358">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="p_g359">基準年度実績を使う</label>
+									<div class="col-lg-2 col-md-3 col-4">
+										<select id="p_g359" class="form-control form-control-sm" v-model="form.p_g359">
+											<option v-for="option in options.A70_A71" v-bind:value="option.value">{{option.text}}</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《当年度実績による場合の総資産価額等の計算》<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th></th>
+							        <th><label class="label-control">総資産帳簿価額(34)</label></th>
+							        <th><label class="label-control">負債利子の元本の負債額(35)</label></th>
+							        <th><label class="label-control">期末関係法人株式等(37)</label></th>
+							        <th><label class="label-control">株式及び出資等(38)</label></th>
+							        <th><label class="label-control">受益権の帳簿価額(39)</label></th>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">前期末</label></th>
+							        <td><input type="number" id="p_d363" class="form-control form-control-sm text-right" name="p_d363" v-model.number="form.p_d363"></td>
+							        <td><input type="number" id="p_g363" class="form-control form-control-sm text-right" name="p_g363" v-model.number="form.p_g363"></td>
+							        <td><input type="number" id="p_k363" class="form-control form-control-sm text-right" name="p_k363" v-model.number="form.p_k363"></td>
+							        <td><input type="number" id="p_n363" class="form-control form-control-sm text-right" name="p_n363" v-model.number="form.p_n363"></td>
+							        <td><input type="number" id="p_p363" class="form-control form-control-sm text-right" name="p_p363" v-model.number="form.p_p363"></td>
+							      </tr>
+								  <tr>
+							        <th><label class="label-control">当期末</label></th>
+							        <td><input type="number" id="p_d364" class="form-control form-control-sm text-right" name="p_d364" v-model.number="form.p_d364"></td>
+							        <td><input type="number" id="p_g364" class="form-control form-control-sm text-right" name="p_g364" v-model.number="form.p_g364"></td>
+							        <td><input type="number" id="p_k364" class="form-control form-control-sm text-right" name="p_k364" v-model.number="form.p_k364"></td>
+							        <td><input type="number" id="p_n364" class="form-control form-control-sm text-right" name="p_n364" v-model.number="form.p_n364"></td>
+							        <td><input type="number" id="p_p364" class="form-control form-control-sm text-right" name="p_p364" v-model.number="form.p_p364"></td>
+							      </tr>
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《連結法人株式等又は完全子法人株式等》<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th><label class="label-control">法人名</label></th>
+							        <th><label class="label-control">本店の所在地</label></th>
+							        <th><label class="label-control">計算期間（自）</label></th>
+							        <th><label class="label-control">計算期間（至）</label></th>
+							        <th><label class="label-control">配当等の収入額(1)</label></th>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d368" class="form-control form-control-sm" name="p_d368" v-model="form.p_d368"></td>
+							        <td><input type="text" id="p_g368" class="form-control form-control-sm" name="p_g368" v-model="form.p_g368"></td>
+							        <td><input type="date" id="p_k368" class="form-control form-control-sm" name="p_k368" v-model="form.p_k368"></td>
+							        <td><input type="date" id="p_m368" class="form-control form-control-sm" name="p_m368" v-model="form.p_m368"></td>
+							        <td><input type="number" id="p_o368" class="form-control form-control-sm text-right" name="p_o368" v-model.number="form.p_o368"></td>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d369" class="form-control form-control-sm" name="p_d369" v-model="form.p_d369"></td>
+							        <td><input type="text" id="p_g369" class="form-control form-control-sm" name="p_g369" v-model="form.p_g369"></td>
+							        <td><input type="date" id="p_k369" class="form-control form-control-sm" name="p_k369" v-model="form.p_k369"></td>
+							        <td><input type="date" id="p_m369" class="form-control form-control-sm" name="p_m369" v-model="form.p_m369"></td>
+							        <td><input type="number" id="p_o369" class="form-control form-control-sm text-right" name="p_o369" v-model.number="form.p_o369"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《関係法人株式等》<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th><label class="label-control">法人名</label></th>
+							        <th><label class="label-control">本店の所在地</label></th>
+							        <th><label class="label-control">計算期間（自）</label></th>
+							        <th><label class="label-control">計算期間（至）</label></th>
+							        <th><label class="label-control">保有割合</label></th>
+							        <th><label class="label-control">配当等の収入額(2)</label></th>
+							        <th><label class="label-control">益金算入額(3)</label></th>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d373" class="form-control form-control-sm" name="p_d373" v-model="form.p_d373"></td>
+							        <td><input type="text" id="p_g373" class="form-control form-control-sm" name="p_g373" v-model="form.p_g373"></td>
+							        <td><input type="date" id="p_k373" class="form-control form-control-sm" name="p_k373" v-model="form.p_k373"></td>
+							        <td><input type="date" id="p_m373" class="form-control form-control-sm" name="p_m373" v-model="form.p_m373"></td>
+							        <td><input type="number" id="p_o373" class="form-control form-control-sm text-right" name="p_o373" v-model.number="form.p_o373"></td>
+							        <td><input type="number" id="p_q373" class="form-control form-control-sm text-right" name="p_q373" v-model.number="form.p_q373"></td>
+							        <td><input type="number" id="p_t373" class="form-control form-control-sm text-right" name="p_t373" v-model.number="form.p_t373"></td>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d374" class="form-control form-control-sm" name="p_d374" v-model="form.p_d374"></td>
+							        <td><input type="text" id="p_g374" class="form-control form-control-sm" name="p_g374" v-model="form.p_g374"></td>
+							        <td><input type="date" id="p_k374" class="form-control form-control-sm" name="p_k374" v-model="form.p_k374"></td>
+							        <td><input type="date" id="p_m374" class="form-control form-control-sm" name="p_m374" v-model="form.p_m374"></td>
+							        <td><input type="number" id="p_o374" class="form-control form-control-sm text-right" name="p_o374" v-model.number="form.p_o374"></td>
+							        <td><input type="number" id="p_q374" class="form-control form-control-sm text-right" name="p_q374" v-model.number="form.p_q374"></td>
+							        <td><input type="number" id="p_t374" class="form-control form-control-sm text-right" name="p_t374" v-model.number="form.p_t374"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《その他の株式等》<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th><label class="label-control">法人名又は銘柄名</label></th>
+							        <th><label class="label-control">本店の所在地(5)</label></th>
+							        <th><label class="label-control">配当等の収入金額(6)</label></th>
+							        <th><label class="label-control">益金算入額(7)</label></th>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d378" class="form-control form-control-sm" name="p_d378" v-model="form.p_d378"></td>
+							        <td><input type="text" id="p_g378" class="form-control form-control-sm" name="p_g378" v-model="form.p_g378"></td>
+							        <td><input type="number" id="p_k378" class="form-control form-control-sm text-right" name="p_k378" v-model.number="form.p_k378"></td>
+							        <td><input type="number" id="p_n378" class="form-control form-control-sm text-right" name="p_n378" v-model.number="form.p_n378"></td>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d379" class="form-control form-control-sm" name="p_d379" v-model="form.p_d379"></td>
+							        <td><input type="text" id="p_g379" class="form-control form-control-sm" name="p_g379" v-model="form.p_g379"></td>
+							        <td><input type="number" id="p_k379" class="form-control form-control-sm text-right" name="p_k379" v-model.number="form.p_k379"></td>
+							        <td><input type="number" id="p_n379" class="form-control form-control-sm text-right" name="p_n379" v-model.number="form.p_n379"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+						</div>
+
+					</div>
+					<div class="card">
+						<div class="card-header">
+						<h4 class="card-title"><i class="ft-edit"></i>《非支配目的株式等》<div></div>
+						</h4>
+						</div>
+						<div class="card-content">
+							<div class="card-body table-responsive">
+							  <table class="table text-center">
+							    <tbody>
+							      <tr>
+							        <th><label class="label-control">法人名</label></th>
+							        <th><label class="label-control">本店の所在地(9)</label></th>
+							        <th><label class="label-control">基準日(10)</label></th>
+							        <th><label class="label-control">保有割合(11)</label></th>
+							        <th><label class="label-control">配当等の収入額(12)</label></th>
+							        <th><label class="label-control">益金算入額(13)</label></th>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d383" class="form-control form-control-sm" name="p_d383" v-model="form.p_d383"></td>
+							        <td><input type="text" id="p_g383" class="form-control form-control-sm" name="p_g383" v-model="form.p_g383"></td>
+							        <td><input type="date" id="p_k383" class="form-control form-control-sm" name="p_k383" v-model="form.p_k383"></td>
+							        <td><input type="text" id="p_m383" class="form-control form-control-sm" name="p_m383" v-model="form.p_m383"></td>
+							        <td><input type="number" id="p_o383" class="form-control form-control-sm text-right" name="p_o383" v-model.number="form.p_o383"></td>
+							        <td><input type="number" id="p_r383" class="form-control form-control-sm text-right" name="p_r383" v-model.number="form.p_r383"></td>
+							      </tr>
+								  <tr>
+							        <td><input type="text" id="p_d384" class="form-control form-control-sm" name="p_d384" v-model="form.p_d384"></td>
+							        <td><input type="text" id="p_g384" class="form-control form-control-sm" name="p_g384" v-model="form.p_g384"></td>
+							        <td><input type="date" id="p_k384" class="form-control form-control-sm" name="p_k384" v-model="form.p_k384"></td>
+							        <td><input type="text" id="p_m384" class="form-control form-control-sm" name="p_m384" v-model="form.p_m384"></td>
+							        <td><input type="number" id="p_o384" class="form-control form-control-sm text-right" name="p_o384" v-model.number="form.p_o384"></td>
+							        <td><input type="number" id="p_r384" class="form-control form-control-sm text-right" name="p_r384" v-model.number="form.p_r384"></td>
+							      </tr>
+
+							    </tbody>
+							  </table>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div th:include="blockui :: message"></div>
+				</div>
+				<!-- END : End Content area-->
+			<!-- BEGIN : Footer-->
+			<div th:replace="footer :: js"></div>
+			<!-- End : Footer-->
+		</div>
+		<!-- END : End Main Content-->
+
+		</div>
+	</form>
+</div>
+
+	</body>
+	<!-- END : Body-->
+</html>

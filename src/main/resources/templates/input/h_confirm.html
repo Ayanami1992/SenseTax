@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="confirm">
+
+	<!-- Modal -->
+	<div class="modal fade text-left" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+	  aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <h4 class="modal-title" id="myModalLabel1">確認</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+									<div class="col-sm-12">
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>事業税は確定分が、別表五(二）に記載がないため、納付書で確定額を確認してください。<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+
+													<div class="form-group row">
+														<label class="col-md-9 label-control" for="h_k173">事業税確定納付額（前期の県への申告書、納付書確認）</label>
+														<label class="col-md-3 label-control">{{form.h_k173}}</label>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>未払法人税での支払い処理（前期の決算書で未払法人税が計上してある場合）<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<label>※　東京都民税は、「道府県民税」に入力してください。</label>
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+															<label>仕訳:</label>
+														</div>
+														<label class="col-md-8 label-control" for="h_k177">未払法人税等　／　現金・預金　法人税</label>
+														<label class="col-md-3 label-control">{{form.h_k177}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+														</div>
+														<label class="col-md-8 label-control" for="h_k178">未払法人税等　／　現金・預金　道府県民税</label>
+														<label class="col-md-3 label-control">{{form.h_k178}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+														</div>
+														<label class="col-md-8 label-control" for="h_k179">未払法人税等　／　現金・預金　市町村民税</label>
+														<label class="col-md-3 label-control">{{form.h_k179}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+														</div>
+														<label class="col-md-8 label-control" for="h_k180">未払法人税等　／　現金・預金　事業税</label>
+														<label class="col-md-3 label-control">{{form.h_k180}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+															<label>結果:</label>
+														</div>
+														<label class="col-md-8 label-control" for="h_k182">未消却の納税充当金</label>
+														<label class="col-md-3 label-control">{{form.h_k182}}</label>
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										<div class="card">
+											<div class="card-header">
+												<h4 class="card-title"><i class="ft-edit"></i>租税公課での支払い処理（前期の決算書で未払法人税を計上していない場合）<div></div>
+												</h4>
+												<h4 class="form-section"></h4>
+											</div>
+											<div class="card-content">
+												<div class="px-3">
+													<label>※　東京都民税は、「道府県民税」に入力してください。</label>
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+															<label>仕訳:</label>
+														</div>
+														<label class="col-md-8 label-control" for="h_k186">租税公課　／　現金・預金　法人税</label>
+														<label class="col-md-3 label-control">{{form.h_k186}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+														</div>
+														<label class="col-md-8 label-control" for="h_k187">租税公課　／　現金・預金　道府県民税</label>
+														<label class="col-md-3 label-control">{{form.h_k187}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+														</div>
+														<label class="col-md-8 label-control" for="h_k188">租税公課　／　現金・預金　市町村民税</label>
+														<label class="col-md-3 label-control">{{form.h_k188}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+														</div>
+														<label class="col-md-8 label-control" for="h_k189">租税公課　／　現金・預金　事業税</label>
+														<label class="col-md-3 label-control">{{form.h_k189}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+															<label>結果:</label>
+														</div>
+														<label class="col-md-8 label-control" for="h_k191">未納税金（法人税・住民税）</label>
+														<label class="col-md-3 label-control">{{form.h_k191}}</label>
+													</div>
+
+													<div class="form-group row">
+														<div class="col-sm-1 border-left-0">
+														</div>
+														<label class="col-md-8 label-control" for="h_k192">未納税金（事業税）</label>
+														<label class="col-md-3 label-control">{{form.h_k192}}</label>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal" id="confirmClose">戻る</button>
+					<button type="submit" class="btn btn-outline-primary" id="type-success">
+						<i class="fa fa-check-square-o"></i> 確認
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.SMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.SModel"
+		parameterType="com.jp.qxd.tax.model.input.SModel">
+		SELECT
+		*
+		from s_transferloss
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.SModel">
+		insert into s_transferloss
+		(
+			company_id
+			,user_id
+			,year
+			,s_e405
+			,s_e409
+			,s_e413
+			,s_g413
+			,s_e414
+			,s_g414
+			,s_e415
+			,s_g415
+			,s_e416
+			,s_g416
+			,s_e417
+			,s_g417
+			,s_e418
+			,s_g418
+			,s_e419
+			,s_g419
+			,s_e420
+			,s_g420
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{s_e405,jdbcType=INTEGER},
+			#{s_e409,jdbcType=INTEGER},
+			#{s_e413,jdbcType=VARCHAR},
+			#{s_g413,jdbcType=VARCHAR},
+			#{s_e414,jdbcType=VARCHAR},
+			#{s_g414,jdbcType=VARCHAR},
+			#{s_e415,jdbcType=VARCHAR},
+			#{s_g415,jdbcType=VARCHAR},
+			#{s_e416,jdbcType=VARCHAR},
+			#{s_g416,jdbcType=VARCHAR},
+			#{s_e417,jdbcType=VARCHAR},
+			#{s_g417,jdbcType=VARCHAR},
+			#{s_e418,jdbcType=VARCHAR},
+			#{s_g418,jdbcType=VARCHAR},
+			#{s_e419,jdbcType=VARCHAR},
+			#{s_g419,jdbcType=VARCHAR},
+			#{s_e420,jdbcType=VARCHAR},
+			#{s_g420,jdbcType=VARCHAR}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.SModel">
+		delete
+		from s_transferloss
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+</mapper>

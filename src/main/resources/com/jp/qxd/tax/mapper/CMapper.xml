@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jp.qxd.tax.mapper.CMapper">
+
+	<select id="getModels" resultType="com.jp.qxd.tax.model.input.CModel"
+		parameterType="com.jp.qxd.tax.model.input.CModel">
+		SELECT
+		*
+		from c_establishmentinfo
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</select>
+
+	<insert id="insertModel"
+		parameterType="com.jp.qxd.tax.model.input.CModel">
+		insert into c_establishmentinfo
+		(
+		company_id
+		,user_id
+		,year
+		,c_01
+		,c_02
+		,c_03
+		,c_05
+		,c_06
+		,c_g71
+		,c_g72
+		,c_07
+		,c_g74
+		,c_g75
+		,c_08
+		,c_10
+		,c_11
+		,c_12
+		,c_13
+		,c_14
+		,c_15
+		,c_g84
+		,c_16
+		,c_19
+		,c_20
+		,c_22
+		,c_23
+		,c_24
+		,c_25
+		,c_26
+		,c_27
+		,c_n72
+		,c_28
+		,c_29
+		,c_30
+		,c_31
+		,c_n83
+		,c_n84
+		,c_n85
+		,c_n86
+		,c_m87
+		,c_o87
+		,c_m88
+		,c_o88
+		,c_m89
+		,c_o89
+		) values (
+			#{company_id,jdbcType=VARCHAR},
+			#{userId,jdbcType=VARCHAR},
+			#{year,jdbcType=VARCHAR},
+			#{c_01,jdbcType=VARCHAR},
+			#{c_02,jdbcType=VARCHAR},
+			#{c_03,jdbcType=VARCHAR},
+			#{c_05,jdbcType=VARCHAR},
+			#{c_06,jdbcType=VARCHAR},
+			#{c_g71,jdbcType=VARCHAR},
+			#{c_g72,jdbcType=VARCHAR},
+			#{c_07,jdbcType=VARCHAR},
+			#{c_g74,jdbcType=VARCHAR},
+			#{c_g75,jdbcType=VARCHAR},
+			#{c_08,jdbcType=VARCHAR},
+			#{c_10,jdbcType=VARCHAR},
+			#{c_11,jdbcType=VARCHAR},
+			#{c_12,jdbcType=VARCHAR},
+			#{c_13,jdbcType=VARCHAR},
+			#{c_14,jdbcType=VARCHAR},
+			#{c_15,jdbcType=VARCHAR},
+			#{c_g84,jdbcType=VARCHAR},
+			#{c_16,jdbcType=VARCHAR},
+			#{c_19,jdbcType=VARCHAR},
+			#{c_20,jdbcType=VARCHAR},
+			#{c_22,jdbcType=VARCHAR},
+			#{c_23,jdbcType=VARCHAR},
+			#{c_24,jdbcType=VARCHAR},
+			#{c_25,jdbcType=VARCHAR},
+			#{c_26,jdbcType=VARCHAR},
+			#{c_27,jdbcType=VARCHAR},
+			#{c_n72,jdbcType=VARCHAR},
+			#{c_28,jdbcType=VARCHAR},
+			#{c_29,jdbcType=VARCHAR},
+			#{c_30,jdbcType=VARCHAR},
+			#{c_31,jdbcType=VARCHAR},
+			#{c_n83,jdbcType=VARCHAR},
+			#{c_n84,jdbcType=VARCHAR},
+			#{c_n85,jdbcType=VARCHAR},
+			#{c_n86,jdbcType=VARCHAR},
+			#{c_m87,jdbcType=VARCHAR},
+			#{c_o87,jdbcType=VARCHAR},
+			#{c_m88,jdbcType=VARCHAR},
+			#{c_o88,jdbcType=VARCHAR},
+			#{c_m89,jdbcType=VARCHAR},
+			#{c_o89,jdbcType=VARCHAR}
+		)
+	</insert>
+	<delete id="deleteModel" parameterType="com.jp.qxd.tax.model.input.CModel">
+		delete
+		from c_establishmentinfo
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{year,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</delete>
+
+	<insert id="copy" parameterType="com.jp.qxd.tax.model.input.CModel">
+
+		insert into c_establishmentinfo
+		(
+		company_id
+		,user_id
+		,year
+		,c_01
+		,c_02
+		,c_03
+		,c_05
+		,c_06
+		,c_g71
+		,c_g72
+		,c_07
+		,c_g74
+		,c_g75
+		,c_08
+		,c_10
+		,c_11
+		,c_12
+		,c_13
+		,c_14
+		,c_15
+		,c_g84
+		,c_16
+		,c_19
+		,c_20
+		,c_22
+		,c_23
+		,c_24
+		,c_25
+		,c_26
+		,c_27
+		,c_n72
+		,c_28
+		,c_29
+		,c_30
+		,c_31
+		,c_n83
+		,c_n84
+		,c_n85
+		,c_n86
+		,c_m87
+		,c_o87
+		,c_m88
+		,c_o88
+		,c_m89
+		,c_o89
+		)
+		select
+		company_id
+		,user_id
+		,#{year,jdbcType=VARCHAR}
+		,c_01
+		,c_02
+		,c_03
+		,c_05
+		,c_06
+		,c_g71
+		,c_g72
+		,c_07
+		,c_g74
+		,c_g75
+		,c_08
+		,c_10
+		,c_11
+		,c_12
+		,c_13
+		,c_14
+		,c_15
+		,c_g84
+		,c_16
+		,c_19
+		,c_20
+		,c_22
+		,c_23
+		,c_24
+		,c_25
+		,c_26
+		,c_27
+		,c_n72
+		,c_28
+		,c_29
+		,c_30
+		,c_31
+		,c_n83
+		,c_n84
+		,c_n85
+		,c_n86
+		,c_m87
+		,c_o87
+		,c_m88
+		,c_o88
+		,c_m89
+		,c_o89
+		from c_establishmentinfo
+		<where>
+			user_id = #{userId,jdbcType=VARCHAR}
+			and year = #{preYear,jdbcType=VARCHAR}
+			and company_id = #{company_id,jdbcType=VARCHAR}
+		</where>
+	</insert>
+
+</mapper>
