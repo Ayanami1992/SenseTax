@@ -267,7 +267,6 @@
 													<option value="確定申告">確定申告</option>
 													<option value="修正申告">修正申告</option>
 												</select>
-												<input type="text" id="b_24" class="form-control form-control-sm" v-model="form.b_24" text="確定">
 											</div>
 
 										</div>
@@ -346,7 +345,10 @@
 
 											<label class="col-md-4 label-control" for="b_29">中間申告の要否ですか？</label>
 											<div class="col-md-6">
-												<input type="text" id="b_29" class="form-control form-control-sm" v-model="form.b_29">
+												<select id="b_29" class="form-control form-control-sm" v-model="form.b_29">
+													<option value="要">要</option>
+													<option value="否">否</option>
+												</select>
 											</div>
 
 										</div>
@@ -354,7 +356,10 @@
 
 											<label class="col-md-4 label-control" for="b_30">別表等送付</label>
 											<div class="col-md-6">
-												<input type="text" id="b_30" class="form-control form-control-sm" v-model="form.b_30">
+												<select id="b_30" class="form-control form-control-sm" v-model="form.b_30">
+													<option value="要">要</option>
+													<option value="否">否</option>
+												</select>
 												<span class="text-muted">別表送付の要否を記入して下さい。</span>
 											</div>
 
