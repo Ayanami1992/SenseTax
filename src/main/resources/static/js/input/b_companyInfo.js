@@ -125,7 +125,7 @@ var vm = new Vue({
 					 swal(data.body.errors[0], "", "error");
 				 } else {
 					 this.init();
-					 swal("本月のデータをコピーしました。", "", "success");
+					 swal("前年度の情報をコピーしました", "", "success");
 				 }
 			}, function(res) {
 				 console.log(res.status);

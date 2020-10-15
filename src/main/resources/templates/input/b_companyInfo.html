@@ -71,7 +71,7 @@
 											<label class="col-md-4 label-control" for="legalPersonName_k">法人名（フリガナ）<span class="text-danger">*</span></label>
 											<div class="col-md-6">
 												<input type="text" id="legalPersonName_k" class="form-control form-control-sm" v-model="form.legalPersonName_k" required>
-												<span class="text-muted">全角フリガナを入力してください。</span>
+												<span class="text-muted">全角カタカナを入力してください。</span>
 											</div>
 										</div>
 										<div class="form-group row">
@@ -112,7 +112,7 @@
 											<label class="col-md-4 label-control" for="representativeName_k">代表者（フリガナ）<span class="text-danger">*</span></label>
 											<div class="col-md-6">
 												<input type="text" id="representativeName_k" class="form-control form-control-sm" v-model="form.representativeName_k">
-												<span class="text-muted">全角フリガナを入力してください。</span>
+												<span class="text-muted">全角カタカナを入力してください。</span>
 											</div>
 
 										</div>
@@ -145,7 +145,7 @@
 											<label class="col-md-4 label-control" for="accountingName">経理責任者氏名（漢字）</label>
 											<div class="col-md-6">
 												<input type="text" id="accountingName" class="form-control form-control-sm" v-model="form.accountingName">
-												<span class="text-muted">全角フリガナを入力してください。</span>
+												<span class="text-muted">全角カタカナを入力してください。</span>
 											</div>
 
 										</div>
@@ -236,9 +236,10 @@
 										</div>
 										<div class="form-group row">
 
-											<label class="col-md-4 label-control" for="b_21">〃＋資本準備金</label>
+											<label class="col-md-4 label-control" for="b_21">期末資本金＋資本準備金</label>
 											<div class="col-md-6">
 												<input type="number" id="b_21" class="form-control form-control-sm text-right" v-model.number="form.b_21">
+												<span class="text-muted">※省略しない</span>
 											</div>
 
 										</div>
@@ -343,7 +344,7 @@
 										</div>
 										<div class="form-group row">
 
-											<label class="col-md-4 label-control" for="b_29">中間申告の要否ですか？</label>
+											<label class="col-md-4 label-control" for="b_29">中間申告の要否</label>
 											<div class="col-md-6">
 												<select id="b_29" class="form-control form-control-sm" v-model="form.b_29">
 													<option value="要">要</option>
@@ -354,7 +355,7 @@
 										</div>
 										<div class="form-group row">
 
-											<label class="col-md-4 label-control" for="b_30">別表等送付</label>
+											<label class="col-md-4 label-control" for="b_30">別表等送付の要否</label>
 											<div class="col-md-6">
 												<select id="b_30" class="form-control form-control-sm" v-model="form.b_30">
 													<option value="要">要</option>
@@ -514,7 +515,7 @@
 										</div>
 										<div class="form-group row">
 
-											<label class="col-md-4 label-control" for="b_40">貯金記号</label>
+											<label class="col-md-4 label-control" for="b_40">記号</label>
 											<div class="col-md-6">
 												<input type="text" id="b_40" class="form-control form-control-sm" v-model="form.b_40">
 											</div>
@@ -529,7 +530,7 @@
 										</div>
 										<div class="form-group row">
 
-											<label class="col-md-4 label-control" for="b_41">貯金番号</label>
+											<label class="col-md-4 label-control" for="b_41">番号</label>
 											<div class="col-md-6">
 												<input type="text" id="b_41" class="form-control form-control-sm" v-model="form.b_41">
 											</div>
@@ -552,7 +553,7 @@
 										</div>
 										<div class="form-group row">
 
-											<label class="col-md-4 label-control" for="b_43">税理士電話</label>
+											<label class="col-md-4 label-control" for="b_43">税理士電話番号</label>
 											<div class="input-group col-md-6">
 												<input type="text" class="form-control form-control-sm" id="b_43" v-model="form.b_43">
 												<input type="text" class="form-control form-control-sm" id="b_44" v-model="form.b_44">

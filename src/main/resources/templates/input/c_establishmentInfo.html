@@ -87,13 +87,13 @@
 										</div>
 
 										<div class="form-group row">
-											<label class="col-md-6 label-control" for="c_05">期間末日人数</label>
+											<label class="col-md-6 label-control" for="c_05">期末従業者数</label>
 											<div class="col-md-6">
 												<input type="number" id="c_05" class="form-control form-control-sm text-right" name="c_05" v-model.number="form.c_05">
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-md-6 label-control" for="c_06">切捨月数</label>
+											<label class="col-md-6 label-control" for="c_06">月数（切り捨て）</label>
 											<div class="col-md-6">
 												<input type="number" id="c_06" class="form-control form-control-sm text-right" name="c_06" v-model.number="form.c_06"
 												 value="12">
@@ -145,13 +145,14 @@
 									<div class="px-3">
 
 										<div class="form-group row">
-											<label class="col-md-6 label-control" for="c_10">廃止前月末人数</label>
+											<label class="col-md-6 label-control" for="c_10">廃止された月の前月末日の従業員者数</label>
 											<div class="col-md-6">
 												<input type="number" id="c_10" class="form-control form-control-sm text-right" name="c_10" v-model.number="form.c_10">
+												<span class="text-muted">※省略しない</span>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-md-6 label-control" for="c_11">切上月数</label>
+											<label class="col-md-6 label-control" for="c_11">月数（切り上げ）</label>
 											<div class="col-md-6">
 												<input type="number" id="c_11" class="form-control form-control-sm text-right" name="c_11" v-model.number="form.c_11"
 												 value="12">
@@ -159,16 +160,19 @@
 										</div>
 
 										<div class="form-group row">
-											<label class="col-md-6 label-control" for="c_12">事0～400　%</label>
+											<label class="col-md-6 label-control" for="c_12">事業税 0～400万円以下の金額</label>
 											<label class="col-md-6 label-control text-right">{{form.c_12}}%</label>
+											<span class="text-muted">※単位は％ではなく円</span>
 										</div>
 										<div class="form-group row">
-											<label class="col-md-6 label-control" for="c_13">事400～800　%</label>
+											<label class="col-md-6 label-control" for="c_13">事業税 400～800万円以下の金額</label>
 											<label class="col-md-6 label-control text-right">{{form.c_13}}%</label>
+											<span class="text-muted">※単位は％ではなく円</span>
 										</div>
 										<div class="form-group row">
-											<label class="col-md-6 label-control" for="c_14">事業税800～　%</label>
+											<label class="col-md-6 label-control" for="c_14">事業税 800万円を超える金額</label>
 											<label class="col-md-6 label-control text-right">{{form.c_14}}%</label>
+											<span class="text-muted">※単位は％ではなく円</span>
 										</div>
 										<div class="form-group row">
 											<label class="col-md-6 label-control" for="c_15">県　法人税割　%</label>
