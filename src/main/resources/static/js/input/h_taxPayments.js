@@ -15,6 +15,8 @@ var vm = new Vue({
 		options:{
 			localTaxRate: [{value:"", text: ""}],
 		},
+		backForm: {
+		},
 
 	},
 	computed: {
@@ -97,6 +99,7 @@ var vm = new Vue({
 	            if (data.body.resultMap) {
 					if (data.body.resultMap["HModel"]) {
 						this._data.form = data.body.resultMap["HModel"];
+                        this._data.backForm = JSON.parse(JSON.stringify(this._data.form));
 					}
 					if (data.body.resultMap["DModel"]) {
 						this._data.DModel = data.body.resultMap["DModel"];
@@ -157,6 +160,9 @@ var vm = new Vue({
 		},
 		onReset(evt) {
 
+		},
+		cancel() {
+            showCancelSwal(this);
 		},
 		moveTo(url) {
 			window.location = url;

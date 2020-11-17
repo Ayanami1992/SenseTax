@@ -21,6 +21,8 @@ var vm = new Vue({
 		          { value: "その他事業", text: 'その他事業' },
 		    ],
 		},
+		backForm: {
+		},
 
 	},
 	computed: {
@@ -78,6 +80,7 @@ var vm = new Vue({
 				App.unblock();
 	            if (data.body.resultObject) {
 					this._data.form = data.body.resultObject;
+                    this._data.backForm = JSON.parse(JSON.stringify(this._data.form));
 				}
 			}, function(res) {
 				 console.log(res.status);
@@ -106,6 +109,9 @@ var vm = new Vue({
 
 		onReset(evt) {
 			this.form={};
+		},
+		cancel() {
+            showCancelSwal(this);
 		},
 		moveTo(url) {
 			window.location = url;

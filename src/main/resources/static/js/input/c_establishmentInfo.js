@@ -24,6 +24,8 @@ var vm = new Vue({
 		options:{
 			localTaxRate: [{value:"", text: ""}],
 		},
+		backForm: {
+		},
 
 	},
 	computed: {
@@ -53,6 +55,7 @@ var vm = new Vue({
 	            if (data.body.resultMap) {
 					if (data.body.resultMap["CModel"]) {
 						this._data.form = data.body.resultMap["CModel"];
+                        this._data.backForm = JSON.parse(JSON.stringify(this._data.form));
 					}
 					if (data.body.resultMap["BModel"]) {
 						this._data.BModel = data.body.resultMap["BModel"];
@@ -260,6 +263,9 @@ var vm = new Vue({
 				 console.log(res.status);
 				 swal("コピー失敗", "", "error");
 			});
+		},
+		cancel() {
+            showCancelSwal(this);
 		},
 	},
 

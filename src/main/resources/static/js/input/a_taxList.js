@@ -15,6 +15,8 @@ var vm = new Vue({
 		show: true,
 		options:{
 		},
+		backForm: {
+		},
 
 	},
 	computed: {
@@ -31,6 +33,7 @@ var vm = new Vue({
 	            App.unblock();
 	            if (data.body.resultObject) {
 					this._data.form = data.body.resultObject;
+                    this._data.backForm = JSON.parse(JSON.stringify(this._data.form));
 				}
 			}, function(res) {
 				 console.log(res.status);
@@ -49,6 +52,9 @@ var vm = new Vue({
 		},
 		onReset(evt) {
 
+		},
+		cancel() {
+            showCancelSwal(this);
 		},
 		moveTo(url) {
 			window.location = url;

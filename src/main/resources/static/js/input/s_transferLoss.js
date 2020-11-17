@@ -14,6 +14,8 @@ var vm = new Vue({
 		show: true,
 		options:{
 		},
+		backForm: {
+		},
 
 	},
 	computed: {
@@ -29,6 +31,7 @@ var vm = new Vue({
 				App.unblock();
 	            if (data.body.resultMap) {
 					this._data.form = data.body.resultMap["SModel"];
+                    this._data.backForm = JSON.parse(JSON.stringify(this._data.form));
 
 					if (data.body.resultMap["EModel"]) {
 						this._data.EModel = data.body.resultMap["EModel"];
@@ -60,6 +63,9 @@ var vm = new Vue({
 
 		onReset(evt) {
 			this.form={};
+		},
+		cancel() {
+            showCancelSwal(this);
 		},
 		moveTo(url) {
 			window.location = url;
