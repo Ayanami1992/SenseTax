@@ -58,6 +58,10 @@
 										<h4 class="card-title"><i class="ft-edit"></i>元帳を確認し、利子や配当金の収入金額、源泉された額を入力してください。<div></div>
 										</h4>
 										<p>預貯金の利子及び合同運用信託の収益の分配</p>
+										<span class="text-muted">（１）原則法</span><br/>
+										<span class="text-muted">その事業年度に支払う負債の利子のうち、株式等に対応する部分の金額を実績により計算するやり方</span><br/>
+										<span class="text-muted">（２）簡便法</span><br/>
+										<span class="text-muted">基準年度の実績により計算するやり方</span>
 										<h4 class="form-section"></h4>
 									</div>
 									<div class="card-content">
@@ -94,11 +98,11 @@
 										    <tbody>
 										      <tr>
 										        <td class="text-right"><label class="label-control">銘柄</label></td>
-										        <td><input type="number" id="l_f256" class="form-control form-control-sm text-right" name="l_f256" v-model.number="form.l_f256"></td>
-										        <td><input type="number" id="l_h256" class="form-control form-control-sm text-right" name="l_h256" v-model.number="form.l_h256"></td>
-										        <td><input type="number" id="l_j256" class="form-control form-control-sm text-right" name="l_j256" v-model.number="form.l_j256"></td>
-										        <td><input type="number" id="l_l256" class="form-control form-control-sm text-right" name="l_l256" v-model.number="form.l_l256"></td>
-										        <td><input type="number" id="l_n256" class="form-control form-control-sm text-right" name="l_n256" v-model.number="form.l_n256"></td>
+										        <td><input type="text" id="l_f256" class="form-control form-control-sm" name="l_f256" v-model="form.l_f256"></td>
+										        <td><input type="text" id="l_h256" class="form-control form-control-sm" name="l_h256" v-model="form.l_h256"></td>
+										        <td><input type="text" id="l_j256" class="form-control form-control-sm" name="l_j256" v-model="form.l_j256"></td>
+										        <td><input type="text" id="l_l256" class="form-control form-control-sm" name="l_l256" v-model="form.l_l256"></td>
+										        <td><input type="text" id="l_n256" class="form-control form-control-sm" name="l_n256" v-model="form.l_n256"></td>
 										      </tr>
 										      <tr>
 										        <td class="text-right"><label class="label-control">社債・配当・投資の別</label></td>
